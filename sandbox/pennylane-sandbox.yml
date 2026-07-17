@@ -1,0 +1,33 @@
+generated: '2026-07-17'
+method: searched
+source:
+- https://pennylane.readme.io/docs/getting-started
+- https://pennylane.readme.io/docs/rate-limiting-1
+notes: >-
+  Pennylane provides a first-class sandbox (test) environment separate from live data.
+  There are no published magic test card numbers or hosted test tokens (Pennylane is an
+  accounting/invoicing platform, not a card acquirer); testing is done against a real
+  sandbox account with its own API token. No test values are fabricated here.
+environments:
+- name: sandbox
+  base_url: https://app.pennylane.com/api/external/v2
+  separation: >-
+    A company creates a sandbox from Profile -> Test environment -> Create my sandbox,
+    yielding two separate accounts (live and sandbox), each with its own API token.
+  token: Company API token generated inside the sandbox account.
+- name: production
+  base_url: https://app.pennylane.com/api/external/v2
+  token: Company API token, Firm API token, or OAuth 2.0 access token.
+firm_note: >-
+  Firms use their existing firm account (no sandbox creation required).
+integrator_note: >-
+  Integration partners email the Pennylane Partnerships team with a name and email to
+  have a sandbox created.
+verification:
+  step: Call GET /me with the token to confirm authentication and which environment
+    (sandbox or production) is accessible.
+  operation: openapi/pennylane-openapi.yml#getMe
+invoice_testing_prereqs: >-
+  Before testing invoicing, configure company address, bank account details, logo, and
+  invoice numbering in the Pennylane app settings.
+rate_limiting: 25 requests / 5 seconds per token — enforced on both sandbox and production.

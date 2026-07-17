@@ -1,0 +1,19 @@
+generated: '2026-07-17'
+method: searched
+host: https://app.pennylane.com
+documents:
+- path: /.well-known/security.txt
+  status: 200
+  file: pennylane-security.txt
+  note: RFC 9116 security contact (appsec@pennylane.com).
+- path: /.well-known/oauth-authorization-server
+  status: 200
+  file: pennylane-oauth-authorization-server.json
+  note: >-
+    RFC 8414 authorization-server metadata. Notably advertises Dynamic Client
+    Registration (registration_endpoint), PKCE S256, authorization_code grant, and a
+    set of read-only mcp:* scopes plus mcp:private_api — evidence of a first-party
+    Model Context Protocol OAuth surface.
+- path: /.well-known/openid-configuration
+  status: 404
+  note: Returns the app SPA shell, not an OIDC discovery document (no OIDC provider metadata).

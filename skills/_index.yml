@@ -1,0 +1,24 @@
+generated: '2026-07-17'
+method: generated
+source: openapi/pennylane-openapi.yml
+skills:
+- file: pennylane-create-and-send-customer-invoice.md
+  name: Create and send a customer invoice
+  api: openapi/pennylane-openapi.yml
+  operations: [getMe, postCustomerInvoices, finalizeCustomerInvoice, sendByEmailCustomerInvoice]
+- file: pennylane-reconcile-bank-transactions.md
+  name: Reconcile bank transactions to invoices
+  api: openapi/pennylane-openapi.yml
+  operations: [getTransactions, getCustomerInvoices, postCustomerInvoiceMatchedTransactions, markAsPaidCustomerInvoice]
+- file: pennylane-import-and-validate-supplier-invoice.md
+  name: Import and validate a supplier invoice
+  api: openapi/pennylane-openapi.yml
+  operations: [importSupplierInvoice, getSupplierInvoice, putSupplierInvoice, validateAccountingSupplierInvoice]
+- file: pennylane-export-french-accounting.md
+  name: Export French accounting (FEC / General Ledger)
+  api: openapi/pennylane-openapi.yml
+  operations: [getFiscalYears, getTrialBalance, exportGeneralLedger, exportFec]
+- file: pennylane-sync-changes.md
+  name: Keep an integration in sync via Change Events
+  api: openapi/pennylane-openapi.yml
+  operations: [getCustomerInvoicesChanges, getSupplierInvoicesChanges]

@@ -1,0 +1,53 @@
+generated: '2026-07-17'
+method: searched
+source:
+- openapi/pennylane-openapi.yml
+- https://app.pennylane.com/.well-known/oauth-authorization-server
+- https://www.pennylane.com/fr/securite
+standards:
+- id: oauth2
+  conforms: true
+  evidence: OAuth 2.0 authorization_code grant documented; app.pennylane.com/oauth/authorize + /oauth/token.
+- id: oauth2-pkce
+  conforms: true
+  evidence: code_challenge_methods_supported = [S256] in the authorization-server metadata.
+- id: oauth2-dcr-rfc7591
+  conforms: true
+  evidence: registration_endpoint (https://app.pennylane.com/oauth/register) advertised for Dynamic Client Registration.
+- id: rfc8414-authorization-server-metadata
+  conforms: true
+  evidence: /.well-known/oauth-authorization-server returns HTTP 200 with issuer/endpoints/scopes.
+- id: rfc9116-security-txt
+  conforms: true
+  evidence: /.well-known/security.txt present with Contact + Expires + Preferred-Languages.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors use a consistent custom JSON envelope (status/message/details), not application/problem+json.
+- id: cursor-pagination
+  conforms: true
+  evidence: Opaque cursor query parameter across listing endpoints; cursor returned in response metadata.
+- id: rate-limit-headers
+  conforms: true
+  evidence: ratelimit-limit / ratelimit-remaining / ratelimit-reset + retry-after headers on all responses.
+- id: iso-27001
+  conforms: true
+  evidence: ISO 27001 certified (BSI-audited); certificate published. See security/pennylane-trust-center.yml.
+- id: soc-2
+  conforms: true
+  evidence: Operates in compliance with SOC 2 per the Pennylane security page.
+- id: gdpr
+  conforms: true
+  evidence: Personal data processed per GDPR; AI features documented compliant with GDPR and EU AI Act.
+- id: fhir-r4
+  conforms: false
+- id: fapi
+  conforms: false
+- id: scim
+  conforms: false
+compliance:
+  published: true
+  programs:
+  - ISO 27001
+  - SOC 2
+  - GDPR
+  url: https://www.pennylane.com/fr/securite

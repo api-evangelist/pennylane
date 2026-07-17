@@ -1,0 +1,37 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Pennylane Company API
+  version: 1.0.0
+extends: openapi/pennylane-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: pennylane
+    x-apievangelist-review: review.yml
+    x-agentic-access: agentic-access/pennylane-agentic-access.yml
+    x-authentication: authentication/pennylane-authentication.yml
+    x-oauth-scopes: scopes/pennylane-scopes.yml
+    x-conventions: conventions/pennylane-conventions.yml
+    x-error-catalog: errors/pennylane-problem-types.yml
+    x-lifecycle: lifecycle/pennylane-lifecycle.yml
+    x-data-model: data-model/pennylane-data-model.yml
+- target: $.info
+  update:
+    x-status-page: https://status.pennylane.com
+    x-changelog: https://pennylane.readme.io/changelog
+    x-rate-limit: 25 requests / 5 seconds per token
+- target: $.components.securitySchemes
+  update:
+    oauth2:
+      type: oauth2
+      description: >-
+        OAuth 2.0 authorization_code + PKCE (S256) for integration partners.
+        Advertised by app.pennylane.com/.well-known/oauth-authorization-server, which
+        also supports Dynamic Client Registration and read-only mcp:* scopes.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://app.pennylane.com/oauth/authorize
+          tokenUrl: https://app.pennylane.com/oauth/token
+          scopes:
+            customer_invoices:readonly: Read customer invoices
+            customer_invoices:all: Full access to customer invoices

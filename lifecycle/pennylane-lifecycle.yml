@@ -1,0 +1,34 @@
+generated: '2026-07-17'
+method: searched
+source:
+- https://pennylane.readme.io/docs/getting-started
+- https://pennylane.readme.io/docs/migrate-from-api-v1-to-v2
+- https://status.pennylane.com
+- openapi/pennylane-openapi.yml
+versioning:
+  scheme: uri-path
+  current: v2
+  base: https://app.pennylane.com/api/external/v2
+  docs: https://pennylane.readme.io/docs/getting-started
+  notes: >-
+    V2 is the stable version. V1 is deprecated; Pennylane publishes a "Migrate from
+    API v1 to v2" guide. V2 uses internal resource ids only (source_id removed).
+deprecation:
+  policy_url: https://pennylane.readme.io/docs/migrate-from-api-v1-to-v2
+  deprecated_versions:
+  - v1
+  notes: >-
+    API v1 is deprecated in favor of v2; a migration guide is published. No RFC 8594
+    Sunset/Deprecation response headers are documented. Additional 2026 change notices
+    are tracked in the changelog.
+status_page: https://status.pennylane.com
+status_components:
+- Application (app.pennylane.com)
+- API (app.pennylane.com/api)
+- Mobile application
+- Landing page (www.pennylane.com)
+- Help Center (help.pennylane.com)
+- Academy (academy.pennylane.com)
+- Customer support
+changelog: https://pennylane.readme.io/changelog
+deprecated_operations: []

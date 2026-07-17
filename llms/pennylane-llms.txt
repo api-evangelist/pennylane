@@ -1,0 +1,35 @@
+# Pennylane Company API (v2)
+
+> Pennylane is a French financial and accounting operating system for SMEs and accounting firms. The Company API (v2) is a REST API over https://app.pennylane.com/api/external/v2 that lets companies, firms, and integration partners read and sync invoicing, accounting, banking, and financial data and automate end-to-end workflows. All amounts are in EUR; the platform is built around French accounting (FEC exports, Plateforme Agréée e-invoicing, SEPA/GoCardless mandates). V2 is stable; V1 is deprecated. Auth is a Bearer token (Company API token, Firm API token, or OAuth 2.0 access token). Rate limit: 25 requests / 5 seconds per token.
+
+Note: Pennylane publishes its own agent-facing index at https://pennylane.readme.io/llms.txt (Markdown page index + OpenAPI). This file is an API Evangelist catalog generation for apis.io.
+
+## APIs
+- [Customer Invoicing](https://pennylane.readme.io/reference/getcustomerinvoices): create, import, finalize, categorize, send, and match customer invoices and credit notes; Factur-X / UBL / CII e-invoice import; quote-to-invoice.
+- [Supplier Invoicing](https://pennylane.readme.io/reference/getsupplierinvoices): import, update, validate, and match supplier invoices for accounts payable.
+- [Accounting & Ledger](https://pennylane.readme.io/reference/getledgerentries): journals, ledger accounts, ledger entries/lines, lettering, trial balance, fiscal years.
+- [Accounting Exports](https://pennylane.readme.io/reference/exportgeneralledger): General Ledger, Analytical GL, and French FEC exports.
+- [Banking](https://pennylane.readme.io/reference/gettransactions): bank accounts, establishments, transactions, and automated payment matching.
+- [Customers & Suppliers](https://pennylane.readme.io/reference/getcustomers): company/individual customers and suppliers, contacts, analytical categorization.
+- [Products Catalog](https://pennylane.readme.io/reference/getproducts): products used on invoices, quotes, and subscriptions.
+- [Quotes](https://pennylane.readme.io/reference/listquotes): create, send, and status-manage quotes; convert to invoice.
+- [Billing Subscriptions](https://pennylane.readme.io/reference/getbillingsubscriptions): recurring billing that generates monthly customer invoices.
+- [Direct Debit Mandates](https://pennylane.readme.io/reference/getsepamandates): SEPA and GoCardless mandates for automated collection.
+- [Change Events](https://pennylane.readme.io/docs/tracking-data-changes-with-pennylane-api): poll change feeds (4-week retention) to sync without webhooks.
+- [E-Invoicing (Plateforme Agréée)](https://pennylane.readme.io/reference/getparegistrations): PA registrations and sending customer e-invoices to the dematerialization platform.
+
+## Specs
+- [OpenAPI (modeled)](https://raw.githubusercontent.com/api-evangelist/pennylane/refs/heads/main/openapi/pennylane-openapi.yml)
+- [OAuth authorization-server metadata](https://app.pennylane.com/.well-known/oauth-authorization-server)
+- [Postman collection](https://raw.githubusercontent.com/api-evangelist/pennylane/refs/heads/main/collections/pennylane.postman_collection.json)
+
+## Docs
+- [Getting started](https://pennylane.readme.io/docs/getting-started)
+- [OAuth 2.0 walkthrough](https://pennylane.readme.io/docs/oauth-20-walkthrough)
+- [Pagination](https://pennylane.readme.io/docs/pagination)
+- [Filtering](https://pennylane.readme.io/docs/filtering)
+- [Rate limiting (v2)](https://pennylane.readme.io/docs/rate-limiting-1)
+- [Migrate from API v1 to v2](https://pennylane.readme.io/docs/migrate-from-api-v1-to-v2)
+- [Changelog](https://pennylane.readme.io/changelog)
+- [Status page](https://status.pennylane.com)
+- [Security](https://www.pennylane.com/fr/securite)

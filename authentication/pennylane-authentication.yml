@@ -1,6 +1,7 @@
 generated: '2026-07-17'
-method: derived
+method: searched
 source: openapi/pennylane-openapi.yml
+docs: https://pennylane.readme.io/docs/oauth-20-walkthrough
 summary:
   types:
   - http

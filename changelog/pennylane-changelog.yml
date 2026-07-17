@@ -1,0 +1,50 @@
+generated: '2026-07-17'
+method: searched
+source: https://pennylane.readme.io/changelog
+scheme: dated
+current_version: v2.0
+notes: >-
+  Pennylane maintains a dated changelog on its developer portal. Entries in this recent
+  window are additive (new features or new fields on v2 endpoints); no breaking changes
+  are noted. Captured 2026-07-17 — the live changelog is the source of truth.
+entries:
+- date: '2026-07-17'
+  title: Automatically send to PA on customer e-invoice import
+  type: feature
+  breaking: false
+- date: '2026-07-15'
+  title: New import_source field on Supplier Invoices endpoints
+  type: field-addition
+  breaking: false
+- date: '2026-07-10'
+  title: New schematron_validation_status field on Customer Invoices
+  type: field-addition
+  breaking: false
+- date: '2026-07-08'
+  title: Original Supplier Invoice File Retrieval
+  type: feature
+  breaking: false
+- date: '2026-06-22'
+  title: Customer & Supplier Invoices — E-invoicing flow field and flow_id filter
+  type: feature
+  breaking: false
+- date: '2026-06-18'
+  title: Factur-X conversion on customer invoice import
+  type: feature
+  breaking: false
+- date: '2026-06-18'
+  title: 'New endpoint: Send a customer e-invoice to PA'
+  type: feature
+  breaking: false
+- date: '2026-06-18'
+  title: New paid field on Supplier Invoices endpoints
+  type: field-addition
+  breaking: false
+- date: '2026-06-17'
+  title: New factur_x field on Customer Invoice
+  type: field-addition
+  breaking: false
+- date: '2026-05-22'
+  title: Pro Account Mandate endpoints are now available
+  type: feature
+  breaking: false

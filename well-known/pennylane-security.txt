@@ -1,0 +1,8 @@
+Canonical: https://app.pennylane.com/.well-known/security.txt
+Contact: mailto:appsec@pennylane.com
+Expires: 2050-12-25T10:56:00Z
+Preferred-Languages: en
+
+We don't have any bug bounty program open at this time, but we'll be happy to review your findings and send you a reward (if this is a vulnerability significant enough like in most bug bounty programs).
+
+Please limit the rate of your scanning tools and avoid conducting denial of service tests against our production app to avoid any disruption.

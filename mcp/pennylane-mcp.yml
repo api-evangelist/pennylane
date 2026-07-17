@@ -1,0 +1,84 @@
+generated: '2026-07-17'
+method: searched
+status: partial
+source: https://app.pennylane.com/.well-known/oauth-authorization-server
+notes: >-
+  Pennylane's own OAuth authorization server (RFC 8414 metadata at
+  /.well-known/oauth-authorization-server) advertises a set of read-only mcp:* scopes
+  (mcp:account:read, mcp:customer_invoice:read, mcp:transaction:read, mcp:vat_return:read,
+  ..., plus mcp:private_api) and Dynamic Client Registration with PKCE S256 — a
+  first-party Model Context Protocol OAuth surface. No public MCP endpoint URL or tool
+  catalog is documented in the developer docs yet, so this is recorded as partial /
+  first-party-auth-confirmed rather than a fully published server. Several mature
+  community MCP servers wrap the v2 API and are listed under community_servers.
+first_party:
+  oauth_surface: true
+  authorization_server: https://app.pennylane.com/.well-known/oauth-authorization-server
+  auth: OAuth 2.0 authorization_code + PKCE (S256), Dynamic Client Registration
+  registration_endpoint: https://app.pennylane.com/oauth/register
+  scopes:
+  - mcp:account:read
+  - mcp:changelog:read
+  - mcp:company:read
+  - mcp:customer:read
+  - mcp:customer_invoice:read
+  - mcp:customer_payment:read
+  - mcp:financial_report:read
+  - mcp:firm_file:read
+  - mcp:journal:read
+  - mcp:ledger_account:read
+  - mcp:ledger_entry:read
+  - mcp:ledger_entry_line:read
+  - mcp:product:read
+  - mcp:supplier:read
+  - mcp:supplier_invoice:read
+  - mcp:supplier_payment:read
+  - mcp:tax_return:read
+  - mcp:transaction:read
+  - mcp:trial_balance:read
+  - mcp:vat_return:read
+  - mcp:private_api
+community_servers:
+- name: "@wanadev/pennylane-mcp"
+  url: https://github.com/wanadev/pennylane-mcp
+  transport: stdio
+  notes: npm @wanadev/pennylane-mcp; Company API token auth.
+- name: studio-catapulte/mcp-pennylane-company
+  url: https://github.com/studio-catapulte/mcp-pennylane-company
+  transport: [stdio, http]
+  notes: Exposes the v2 API as ~87 MCP tools; stdio for Claude Desktop, streamable HTTP on :8000.
+- name: FGRibreau/mcp-pennylane
+  url: https://github.com/fgribreau/mcp-pennylane
+  transport: stdio
+  notes: ~73 essential operations plus pennylane_search_tools / pennylane_execute meta-tools covering the long tail (163 ops).
+- name: PennyPilot (HOLCO)
+  url: https://claudemarketplaces.com/mcp/holco-apps/pennypilot-mcp
+  transport: http
+  endpoint: https://apps.holco.co/mcp/pennylane/mcp/v1
+  auth: OAuth 2.0 (authorization_code + PKCE)
+candidate_tools_note: >-
+  Candidate tools below are DERIVED one-per-operationId from openapi/pennylane-openapi.yml
+  to illustrate the coverage a Pennylane MCP server exposes; they are not an authoritative
+  provider tool list.
+candidate_tools:
+- name: get_me
+  description: Return the company and user associated with the token.
+  source_operation: openapi/pennylane-openapi.yml#getMe
+- name: list_customer_invoices
+  description: List customer invoices.
+  source_operation: openapi/pennylane-openapi.yml#getCustomerInvoices
+- name: create_customer_invoice
+  description: Create a customer invoice.
+  source_operation: openapi/pennylane-openapi.yml#postCustomerInvoices
+- name: finalize_customer_invoice
+  description: Finalize (lock) a draft customer invoice.
+  source_operation: openapi/pennylane-openapi.yml#finalizeCustomerInvoice
+- name: list_transactions
+  description: List banking transactions.
+  source_operation: openapi/pennylane-openapi.yml#getTransactions
+- name: get_trial_balance
+  description: Read the trial balance.
+  source_operation: openapi/pennylane-openapi.yml#getTrialBalance
+- name: export_fec
+  description: Generate a French FEC accounting export.
+  source_operation: openapi/pennylane-openapi.yml#exportFec

@@ -1,0 +1,32 @@
+{
+  "issuer": "https://app.pennylane.com",
+  "authorization_endpoint": "https://app.pennylane.com/oauth/authorize",
+  "token_endpoint": "https://app.pennylane.com/oauth/token",
+  "registration_endpoint": "https://app.pennylane.com/oauth/register",
+  "response_types_supported": ["code"],
+  "grant_types_supported": ["authorization_code"],
+  "code_challenge_methods_supported": ["S256"],
+  "scopes_supported": [
+    "mcp:account:read",
+    "mcp:changelog:read",
+    "mcp:company:read",
+    "mcp:customer:read",
+    "mcp:customer_invoice:read",
+    "mcp:customer_payment:read",
+    "mcp:financial_report:read",
+    "mcp:firm_file:read",
+    "mcp:journal:read",
+    "mcp:ledger_account:read",
+    "mcp:ledger_entry:read",
+    "mcp:ledger_entry_line:read",
+    "mcp:product:read",
+    "mcp:supplier:read",
+    "mcp:supplier_invoice:read",
+    "mcp:supplier_payment:read",
+    "mcp:tax_return:read",
+    "mcp:transaction:read",
+    "mcp:trial_balance:read",
+    "mcp:vat_return:read",
+    "mcp:private_api"
+  ]
+}

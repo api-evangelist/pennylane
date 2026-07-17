@@ -1,0 +1,44 @@
+generated: '2026-07-17'
+method: derived
+source: openapi/pennylane-openapi.yml
+format: custom-json
+envelope:
+  content_type: application/json
+  schema: "#/components/schemas/Error"
+  fields:
+    status: integer HTTP status code
+    message: human-readable error message
+    details: object with actionable field-level information (most useful on 422 validation errors)
+notes: >-
+  Pennylane returns a consistent custom JSON error envelope (status/message/details)
+  rather than RFC 9457 application/problem+json. Problem types below are derived from
+  the 4xx/5xx responses declared in the OpenAPI plus the documented rate-limit behavior.
+problems:
+- status: 404
+  title: Resource not found
+  description: The requested resource does not exist or is not accessible to the token.
+  source_operation: openapi/pennylane-openapi.yml#getJournal
+  remediation: Verify the internal Pennylane resource id (v2 uses internal ids, not source_id).
+- status: 409
+  title: Conflict
+  description: Conflict with the current resource state (e.g. invoice PDF not yet generated).
+  source_operation: openapi/pennylane-openapi.yml#sendByEmailCustomerInvoice
+  remediation: Retry after the dependent resource is ready, or resolve the conflicting state.
+- status: 422
+  title: Unprocessable Entity (validation error)
+  description: Request failed validation; per-field information is returned in details.
+  source_operation: openapi/pennylane-openapi.yml#postCustomerInvoices
+  remediation: Inspect the details object and correct the offending fields.
+- status: 429
+  title: Too Many Requests
+  description: Rate limit exceeded (25 requests per 5 seconds per token).
+  source_operation: openapi/pennylane-openapi.yml#getCustomerInvoices
+  remediation: Honor retry-after; use ratelimit-reset to schedule retries with exponential backoff and jitter.
+- status: 401
+  title: Unauthorized
+  description: Missing or invalid Bearer token.
+  remediation: Provide a valid Company API token, Firm API token, or OAuth 2.0 access token in the Authorization header.
+- status: 403
+  title: Forbidden
+  description: The token lacks a required scope for the operation.
+  remediation: Request the appropriate scope (e.g. customer_invoices:all vs customer_invoices:readonly).

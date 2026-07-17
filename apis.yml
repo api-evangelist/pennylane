@@ -236,18 +236,70 @@ common:
   url: agentic-access/pennylane-agentic-access.yml
 - type: TrustCenter
   url: security/pennylane-trust-center.yml
+- type: Compliance
+  url: https://www.pennylane.com/fr/securite
 - type: VulnerabilityDisclosure
   url: security/pennylane-vulnerability-disclosure.yml
+- type: Security
+  url: https://app.pennylane.com/.well-known/security.txt
 - type: DomainSecurity
   url: security/pennylane-domain-security.yml
 - type: Authentication
   url: authentication/pennylane-authentication.yml
+- type: OAuthScopes
+  url: scopes/pennylane-scopes.yml
+- type: Packages
+  url: packages/pennylane-packages.yml
+- type: MCPServer
+  url: mcp/pennylane-mcp.yml
+- type: WellKnown
+  url: well-known/pennylane-well-known.yml
+- type: SecurityTxt
+  url: well-known/pennylane-security.txt
+- type: LLMsTxt
+  url: llms/pennylane-llms.txt
+- type: Overlay
+  url: overlays/pennylane-openapi-overlay.yaml
+- type: Conformance
+  url: conformance/pennylane-conformance.yml
+- type: ErrorCatalog
+  url: errors/pennylane-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/pennylane-lifecycle.yml
+- type: StatusPage
+  url: https://status.pennylane.com
+- type: Deprecation
+  url: https://pennylane.readme.io/docs/migrate-from-api-v1-to-v2
+- type: Conventions
+  url: conventions/pennylane-conventions.yml
+- type: ChangeLog
+  url: changelog/pennylane-changelog.yml
+- type: DataModel
+  url: data-model/pennylane-data-model.yml
+- type: Sandbox
+  url: sandbox/pennylane-sandbox.yml
+- type: AgentSkill
+  url: skills/_index.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/pennylane
 - type: Website
   url: https://www.pennylane.com/
+- type: DeveloperPortal
+  url: https://pennylane.readme.io/
 - type: Documentation
   url: https://pennylane.readme.io/
+- type: GettingStarted
+  url: https://pennylane.readme.io/docs/getting-started
+- type: GitHubOrganization
+  url: https://github.com/pennylane-hq
+- type: Support
+  url: https://help.pennylane.com
+- type: TermsOfService
+  url: https://pennylane.readme.io/docs/api-contract-terms
+- type: PrivacyPolicy
+  url: https://www.pennylane.com/fr/legal/privacy
+- type: SignUp
+  url: https://start.pennylane.com
 - type: Plans
   url: plans/pennylane-plans-pricing.yml
 - type: RateLimits

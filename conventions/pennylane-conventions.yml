@@ -1,0 +1,50 @@
+generated: '2026-07-17'
+method: searched
+source:
+- https://pennylane.readme.io/docs/pagination
+- https://pennylane.readme.io/docs/filtering
+- https://pennylane.readme.io/docs/rate-limiting-1
+- openapi/pennylane-openapi.yml
+authentication:
+  style: Bearer token (Authorization header)
+  token_types: [Company API token, Firm API token, OAuth 2.0 access token]
+  ref: authentication/pennylane-authentication.yml
+idempotency:
+  supported: false
+  notes: >-
+    Pennylane does not document an idempotency-key header or parameter for the v2 API.
+    Writes are not guaranteed idempotent; clients should reconcile via the Change Events
+    feeds or by matching internal resource ids.
+pagination:
+  style: cursor
+  request_params:
+    cursor: Opaque cursor string returned in the previous response's metadata; empty for the first page.
+    limit: Page size (default 100).
+  response:
+    location: metadata
+    notes: The next cursor is returned in the response metadata; iterate until no next cursor is returned.
+  ref: https://pennylane.readme.io/docs/pagination
+filtering:
+  style: JSON filter expression
+  param: filter
+  notes: Listing endpoints accept a JSON filter expression via the filter query parameter.
+  ref: https://pennylane.readme.io/docs/filtering
+identifiers:
+  scheme: Internal Pennylane integer resource ids only (v2 removed source_id).
+versioning:
+  style: uri-path (/api/external/v2)
+  ref: lifecycle/pennylane-lifecycle.yml
+rate_limiting:
+  limit: 25 requests / 5 seconds per token
+  headers: [ratelimit-limit, ratelimit-remaining, ratelimit-reset, retry-after]
+  throttled_status: 429
+  ref: rate-limits/pennylane-rate-limits.yml
+error_envelope:
+  content_type: application/json
+  shape: "{ status, message, details }"
+  ref: errors/pennylane-problem-types.yml
+change_tracking:
+  mechanism: Polling change-event feeds (no webhooks)
+  retention: last 4 weeks
+  ref: https://pennylane.readme.io/docs/tracking-data-changes-with-pennylane-api
+currency: EUR (all amounts)

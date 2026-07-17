@@ -1,0 +1,45 @@
+generated: '2026-07-17'
+method: searched
+source: https://pennylane.readme.io/docs/getting-started
+notes: >-
+  Pennylane does not publish an official first-party client SDK or CLI. The
+  pennylane-hq GitHub organization hosts internal Ruby/Rails utilities and banking
+  format parsers (cfonb, ofx, sepa_king, epics, liberic-ruby), not an API client.
+  The libraries below are community / third-party clients, most auto-generated from
+  Pennylane's OpenAPI. official is false for all of them.
+packages:
+- language: ruby
+  registry: rubygems
+  name: pennylane
+  url: https://github.com/sbounmy/pennylane
+  install: gem install pennylane
+  official: false
+  notes: Community Ruby bindings (sbounmy); covers the buys/sales invoicing surface.
+- language: typescript
+  registry: npm
+  name: "@getyetty-sdk/pennylane"
+  url: https://www.npmjs.com/package/@getyetty-sdk/pennylane
+  install: npm install @getyetty-sdk/pennylane
+  official: false
+  notes: Community TypeScript client auto-generated from the Pennylane OpenAPI spec.
+- language: typescript
+  registry: npm
+  name: "@upflowhq/pennylane-client"
+  url: https://www.npmjs.com/package/@upflowhq/pennylane-client
+  install: npm install @upflowhq/pennylane-client
+  official: false
+  notes: Community client, regenerated weekly from the Pennylane OpenAPI via GitHub Actions.
+- language: typescript
+  registry: npm
+  name: pennylane-openapi-client
+  url: https://github.com/Drakkar-Software/pennylane-openapi-clients
+  install: npm install pennylane-openapi-client
+  official: false
+  notes: Community OpenAPI-generated TypeScript client (Drakkar-Software).
+mcp_packages:
+- language: typescript
+  registry: npm
+  name: "@wanadev/pennylane-mcp"
+  url: https://www.npmjs.com/package/@wanadev/pennylane-mcp
+  official: false
+  notes: Community MCP server wrapping the Pennylane v2 API (see mcp/pennylane-mcp.yml).

@@ -1,0 +1,85 @@
+generated: '2026-07-17'
+method: searched
+source:
+- https://app.pennylane.com/.well-known/oauth-authorization-server
+- https://pennylane.readme.io/reference/getcustomerinvoices
+docs: https://pennylane.readme.io/docs/oauth-20-walkthrough
+notes: >-
+  Pennylane's OpenAPI declares only a Bearer (http) scheme, but the platform documents
+  OAuth 2.0 for integration partners and enforces least-privilege scopes. Two scope
+  families are in use: (1) the developer/OAuth resource scopes that gate the REST API,
+  following a <resource>:readonly / <resource>:all pattern (403 when a required scope is
+  missing); (2) a set of read-only mcp:* scopes advertised on the OAuth authorization
+  server for Pennylane's Model Context Protocol surface. Scopes marked source
+  well-known were read verbatim from the authorization-server metadata; the resource:all
+  / resource:readonly pattern is documented on the API reference.
+schemes:
+- name: oauth2
+  flow: authorizationCode
+  authorizationUrl: https://app.pennylane.com/oauth/authorize
+  tokenUrl: https://app.pennylane.com/oauth/token
+  registrationUrl: https://app.pennylane.com/oauth/register
+  pkce: S256
+scope_pattern:
+  readonly: "<resource>:readonly — read access to the resource"
+  all: "<resource>:all — full (read/write) access to the resource"
+  example_resources:
+  - customer_invoices
+  - supplier_invoices
+  - ledger_entries
+  - transactions
+  - customers
+  - suppliers
+  - products
+  - quotes
+scopes:
+- scope: customer_invoices:readonly
+  description: Read access to customer invoices.
+  sources: [https://pennylane.readme.io/reference/getcustomerinvoices]
+- scope: customer_invoices:all
+  description: Full access to customer invoices.
+  sources: [https://pennylane.readme.io/reference/getcustomerinvoices]
+- scope: mcp:account:read
+  description: Read account/company profile via the MCP surface.
+  sources: [https://app.pennylane.com/.well-known/oauth-authorization-server]
+- scope: mcp:changelog:read
+  sources: [https://app.pennylane.com/.well-known/oauth-authorization-server]
+- scope: mcp:company:read
+  sources: [https://app.pennylane.com/.well-known/oauth-authorization-server]
+- scope: mcp:customer:read
+  sources: [https://app.pennylane.com/.well-known/oauth-authorization-server]
+- scope: mcp:customer_invoice:read
+  sources: [https://app.pennylane.com/.well-known/oauth-authorization-server]
+- scope: mcp:customer_payment:read
+  sources: [https://app.pennylane.com/.well-known/oauth-authorization-server]
+- scope: mcp:financial_report:read
+  sources: [https://app.pennylane.com/.well-known/oauth-authorization-server]
+- scope: mcp:firm_file:read
+  sources: [https://app.pennylane.com/.well-known/oauth-authorization-server]
+- scope: mcp:journal:read
+  sources: [https://app.pennylane.com/.well-known/oauth-authorization-server]
+- scope: mcp:ledger_account:read
+  sources: [https://app.pennylane.com/.well-known/oauth-authorization-server]
+- scope: mcp:ledger_entry:read
+  sources: [https://app.pennylane.com/.well-known/oauth-authorization-server]
+- scope: mcp:ledger_entry_line:read
+  sources: [https://app.pennylane.com/.well-known/oauth-authorization-server]
+- scope: mcp:product:read
+  sources: [https://app.pennylane.com/.well-known/oauth-authorization-server]
+- scope: mcp:supplier:read
+  sources: [https://app.pennylane.com/.well-known/oauth-authorization-server]
+- scope: mcp:supplier_invoice:read
+  sources: [https://app.pennylane.com/.well-known/oauth-authorization-server]
+- scope: mcp:supplier_payment:read
+  sources: [https://app.pennylane.com/.well-known/oauth-authorization-server]
+- scope: mcp:tax_return:read
+  sources: [https://app.pennylane.com/.well-known/oauth-authorization-server]
+- scope: mcp:transaction:read
+  sources: [https://app.pennylane.com/.well-known/oauth-authorization-server]
+- scope: mcp:trial_balance:read
+  sources: [https://app.pennylane.com/.well-known/oauth-authorization-server]
+- scope: mcp:vat_return:read
+  sources: [https://app.pennylane.com/.well-known/oauth-authorization-server]
+- scope: mcp:private_api
+  description: Private API access grant on the MCP surface.
+  sources: [https://app.pennylane.com/.well-known/oauth-authorization-server]

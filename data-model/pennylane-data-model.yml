@@ -1,0 +1,99 @@
+generated: '2026-07-17'
+method: derived
+source: openapi/pennylane-openapi.yml
+notes: >-
+  Entity-relationship graph derived from the Pennylane Company API v2 operations and
+  the documented object references. Ids are internal Pennylane integers. Relationships
+  reflect how invoicing, accounting, banking, and contact resources reference one another.
+entities:
+- name: Company
+  description: The company (or firm-managed client) the token is scoped to; root of /me.
+- name: Customer
+  description: Company or individual customer.
+- name: Supplier
+  description: Company or individual supplier.
+- name: Product
+  description: Catalog item used on invoices, quotes, and subscriptions.
+- name: CustomerInvoice
+  description: Sales invoice / credit note (draft or finalized), optionally an e-invoice.
+- name: SupplierInvoice
+  description: Accounts-payable invoice.
+- name: Quote
+  description: Sales quote/estimate convertible to a customer invoice.
+- name: BillingSubscription
+  description: Recurring billing that generates monthly customer invoices.
+- name: BankAccount
+  description: A bank account under an establishment.
+- name: Transaction
+  description: Banking transaction, matched to invoices during reconciliation.
+- name: Journal
+  description: Accounting journal.
+- name: LedgerAccount
+  description: Chart-of-accounts ledger account.
+- name: LedgerEntry
+  description: Double-entry accounting entry.
+- name: LedgerEntryLine
+  description: A line within a ledger entry.
+- name: Category
+  description: Analytical / categorization group.
+- name: Mandate
+  description: SEPA or GoCardless direct-debit mandate.
+- name: PaRegistration
+  description: Plateforme Agréée e-invoicing registration.
+relationships:
+- from: CustomerInvoice
+  to: Customer
+  type: belongs_to
+  via: customer
+- from: CustomerInvoice
+  to: Product
+  type: has_many
+  via: line_items
+- from: CustomerInvoice
+  to: Transaction
+  type: has_many
+  via: matched_transactions
+- from: SupplierInvoice
+  to: Supplier
+  type: belongs_to
+  via: supplier
+- from: Quote
+  to: Customer
+  type: belongs_to
+  via: customer
+- from: Quote
+  to: CustomerInvoice
+  type: has_one
+  via: converted_invoice
+- from: BillingSubscription
+  to: Customer
+  type: belongs_to
+  via: customer
+- from: BillingSubscription
+  to: Mandate
+  type: has_one
+  via: mandate
+- from: Mandate
+  to: Customer
+  type: belongs_to
+  via: customer
+- from: Transaction
+  to: BankAccount
+  type: belongs_to
+  via: bank_account
+- from: LedgerEntry
+  to: Journal
+  type: belongs_to
+  via: journal
+- from: LedgerEntry
+  to: LedgerEntryLine
+  type: has_many
+  via: lines
+- from: LedgerEntryLine
+  to: LedgerAccount
+  type: belongs_to
+  via: ledger_account
+- from: Customer
+  to: Category
+  type: has_many
+  via: categories
