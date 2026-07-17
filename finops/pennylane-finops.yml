@@ -1,0 +1,71 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Pennylane
+providerId: pennylane
+created: '2026-07-17'
+modified: '2026-07-17'
+reconciled: false
+tags:
+- Accounting
+- Invoicing
+- Fintech
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of Pennylane. Pennylane is billed as a SaaS subscription (in EUR),
+  not as a usage-metered API. There is no per-call, per-token, or per-request API
+  charge to allocate; the API is included with company and firm subscriptions and
+  with OAuth partner access. FinOps attention therefore centers on subscription
+  seat/plan allocation and on staying within the fixed 25 req / 5 s per-token rate
+  limit rather than on variable consumption cost.
+notes: >-
+  No usage-based API meters exist to reconcile against FOCUS consumption columns;
+  cost is a fixed recurring subscription. Verify current EUR tiers on the pricing page.
+sources:
+- https://www.pennylane.com/fr/nos-tarifs
+- https://pennylane.readme.io/docs/rate-limiting-1
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Pennylane
+serviceCategory: Finance and Accounting Software
+billingModel:
+  pricingCategory: Subscription-Based
+  billingFrequency: Monthly
+  billingCurrency: EUR
+  chargeCategories:
+  - Purchase
+meters:
+- name: subscription_seats
+  description: SaaS subscription plan / seats billed in EUR per month. Not a per-API-call meter.
+  unit: subscription
+  aggregation: max
+  dimensions:
+  - company
+  - plan
+- name: api_requests
+  description: >-
+    API requests are rate-limited (25 per 5 seconds per token) but not billed; tracked
+    only for throttling, not for consumption cost.
+  unit: requests
+  aggregation: sum
+  dimensions:
+  - token
+principles:
+- name: Visibility
+  description: Track which subscriptions/seats are active and which OAuth tokens drive API traffic.
+- name: Allocation
+  description: Map company and firm subscriptions to internal cost centers; no variable API spend to allocate.
+- name: Optimization
+  description: Right-size subscription plans/seats; batch and cache reads to stay within the 25 req / 5 s per-token rate limit.
+- name: Accountability
+  description: Assign an owner per subscription and per OAuth integration; review plan fit periodically.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

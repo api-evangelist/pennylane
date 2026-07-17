@@ -1,0 +1,101 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Pennylane
+providerId: pennylane
+created: '2026-07-17'
+modified: '2026-07-17'
+reconciled: false
+tags:
+- Accounting
+- Invoicing
+- Fintech
+- SME
+- Plans
+description: >-
+  Pennylane is a SaaS accounting and financial-management platform billed by
+  subscription (in EUR), sold separately to companies/SMEs and to accounting firms,
+  rather than through usage-based API pricing. API access is not metered or billed
+  per call: the REST API v2 is available to subscribers via Company and Firm API
+  tokens, and to integration partners via OAuth 2.0 apps registered through the
+  Pennylane Partnerships team. There is no public per-request API price list.
+notes: >-
+  Subscription tier names and exact EUR amounts change and are quoted on the French
+  pricing pages / via sales; they are not reproduced here to avoid stale figures.
+  This artifact records the pricing MODEL (subscription SaaS, EUR, API included,
+  partner access via OAuth), not specific tier prices.
+sources:
+- https://www.pennylane.com/fr/nos-tarifs
+- https://pennylane.readme.io/docs/what-apis-are-available
+- https://pennylane.readme.io/docs/oauth-20-walkthrough
+plans:
+- id: pennylane-company-subscription
+  name: Company Subscription
+  type: subscription
+  description: >-
+    SaaS subscription for SMEs and companies (invoicing, accounting, banking, cash
+    management). Includes API access via a Company API token. Priced in EUR; see the
+    French pricing page for current tiers.
+  entries:
+  - label: Company plan (EUR)
+    name: company_subscription
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: FR
+    currency: EUR
+    unit: 1
+    price: see pennylane.com/fr/nos-tarifs
+    userMultiplied: false
+  elements:
+  - name: Invoicing
+  - name: Accounting
+  - name: Banking
+  - name: Company API token
+- id: pennylane-firm-subscription
+  name: Accounting Firm Subscription
+  type: subscription
+  description: >-
+    Subscription for accounting firms managing multiple client companies. Includes
+    Firm API tokens that can access resources across managed companies.
+  entries:
+  - label: Firm plan (EUR)
+    name: firm_subscription
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: FR
+    currency: EUR
+    unit: 1
+    price: contact Pennylane / see pricing page
+    userMultiplied: false
+  elements:
+  - name: Multi-company management
+  - name: Firm API token
+- id: pennylane-partner-integration
+  name: Integration Partner (OAuth)
+  type: partner
+  description: >-
+    Integration-partner access via OAuth 2.0 apps registered through the Pennylane
+    Partnerships team. No separate metered API fee; access is governed by scopes and
+    the 25 req / 5 s per-token rate limit.
+  entries:
+  - label: OAuth partner access
+    name: oauth_partner
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    currency: EUR
+    unit: 1
+    price: contact Partnerships team
+    userMultiplied: false
+  elements:
+  - name: OAuth 2.0 app
+  - name: Scoped, multi-company consent
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

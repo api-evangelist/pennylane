@@ -1,0 +1,824 @@
+# Provenance: modeled-from-docs (2026-07-17)
+# Source: Pennylane Company API v2 developer documentation at https://pennylane.readme.io
+#   - Endpoint list + operationIds: https://pennylane.readme.io/llms.txt and /reference/*
+#   - Confirmed base URL from live reference example requests: https://app.pennylane.com/api/external/v2
+#   - Auth (Bearer token: Company API token, Firm API token, or OAuth 2.0 access token)
+#     confirmed from https://pennylane.readme.io/docs/getting-started and /docs/oauth-20-walkthrough
+# No first-party OpenAPI/Swagger file is published for download; this document models the
+# documented REST surface. Paths and operationIds mirror the published API Reference; a
+# representative (not exhaustive) subset of Pennylane's ~150 v2 operations is included.
+openapi: 3.0.1
+info:
+  title: Pennylane Company API
+  description: >-
+    Pennylane is a French financial and accounting operating system for SMEs and
+    accounting firms. The Company API (v2) lets companies, firms, and integration
+    partners access and sync invoicing, accounting, banking, and financial data,
+    and automate end-to-end workflows. V2 is the stable version; V1 is deprecated.
+  termsOfService: https://pennylane.readme.io/docs/api-contract-terms
+  contact:
+    name: Pennylane API Support
+    url: https://pennylane.readme.io/docs/how-to-reach-out-to-us
+  version: '2.0'
+servers:
+  - url: https://app.pennylane.com/api/external/v2
+    description: Production (v2)
+security:
+  - bearerAuth: []
+tags:
+  - name: Account
+  - name: Journals
+  - name: Ledger Accounts
+  - name: Ledger Entries
+  - name: Accounting Exports
+  - name: Categories
+  - name: Customer Invoices
+  - name: Supplier Invoices
+  - name: Quotes
+  - name: Billing Subscriptions
+  - name: Products
+  - name: Customers
+  - name: Suppliers
+  - name: Bank Accounts
+  - name: Transactions
+  - name: Mandates
+  - name: File Attachments
+  - name: Change Events
+  - name: E-Invoicing
+paths:
+  /me:
+    get:
+      operationId: getMe
+      tags: [Account]
+      summary: User profile
+      description: Returns information about the company and the user associated to the token.
+      responses:
+        '200':
+          description: OK
+  /journals:
+    get:
+      operationId: getJournals
+      tags: [Journals]
+      summary: List journals
+      description: 'List journals. Requires scope: journals:readonly or journals:all.'
+      parameters:
+        - $ref: '#/components/parameters/Cursor'
+        - $ref: '#/components/parameters/Limit'
+      responses:
+        '200': { description: OK }
+        '429': { $ref: '#/components/responses/TooManyRequests' }
+    post:
+      operationId: postJournals
+      tags: [Journals]
+      summary: Create a journal
+      description: 'Create a journal. Requires scope: journals:all.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '201': { description: Created }
+  /journals/{id}:
+    get:
+      operationId: getJournal
+      tags: [Journals]
+      summary: Retrieve a journal
+      parameters:
+        - $ref: '#/components/parameters/PathId'
+      responses:
+        '200': { description: OK }
+        '404': { $ref: '#/components/responses/NotFound' }
+  /ledger_accounts:
+    get:
+      operationId: getLedgerAccounts
+      tags: [Ledger Accounts]
+      summary: List ledger accounts
+      description: 'Requires scope: ledger_accounts:readonly or ledger_accounts:all.'
+      parameters:
+        - $ref: '#/components/parameters/Cursor'
+        - $ref: '#/components/parameters/Limit'
+      responses:
+        '200': { description: OK }
+    post:
+      operationId: postLedgerAccounts
+      tags: [Ledger Accounts]
+      summary: Create a ledger account
+      description: 'Requires scope: ledger_accounts:all.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '201': { description: Created }
+  /ledger_accounts/{id}:
+    get:
+      operationId: getLedgerAccount
+      tags: [Ledger Accounts]
+      summary: Get a ledger account
+      parameters:
+        - $ref: '#/components/parameters/PathId'
+      responses:
+        '200': { description: OK }
+    put:
+      operationId: updateLedgerAccount
+      tags: [Ledger Accounts]
+      summary: Update a ledger account
+      description: 'Requires scope: ledger_accounts:all.'
+      parameters:
+        - $ref: '#/components/parameters/PathId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '200': { description: OK }
+  /ledger_entries:
+    get:
+      operationId: getLedgerEntries
+      tags: [Ledger Entries]
+      summary: List ledger entries
+      description: 'Requires scope: ledger_entries:readonly or ledger_entries:all.'
+      parameters:
+        - $ref: '#/components/parameters/Cursor'
+        - $ref: '#/components/parameters/Limit'
+      responses:
+        '200': { description: OK }
+    post:
+      operationId: postLedgerEntries
+      tags: [Ledger Entries]
+      summary: Create a ledger entry
+      description: 'Requires scope: ledger_entries:all.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '201': { description: Created }
+  /ledger_entries/{id}:
+    get:
+      operationId: getLedgerEntry
+      tags: [Ledger Entries]
+      summary: Retrieve a ledger entry
+      parameters:
+        - $ref: '#/components/parameters/PathId'
+      responses:
+        '200': { description: OK }
+    put:
+      operationId: putLedgerEntries
+      tags: [Ledger Entries]
+      summary: Update a ledger entry
+      parameters:
+        - $ref: '#/components/parameters/PathId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '200': { description: OK }
+  /trial_balance:
+    get:
+      operationId: getTrialBalance
+      tags: [Ledger Entries]
+      summary: Get the trial balance
+      description: 'Returns the trial balance for the given period. Requires scope: trial_balance:readonly.'
+      parameters:
+        - name: period_start
+          in: query
+          schema: { type: string, format: date }
+        - name: period_end
+          in: query
+          schema: { type: string, format: date }
+      responses:
+        '200': { description: OK }
+  /fiscal_years:
+    get:
+      operationId: getFiscalYears
+      tags: [Ledger Entries]
+      summary: List company fiscal years
+      description: 'Requires scope: fiscal_years:readonly.'
+      responses:
+        '200': { description: OK }
+  /exports/general_ledger:
+    post:
+      operationId: exportGeneralLedger
+      tags: [Accounting Exports]
+      summary: Create a General Ledger export
+      description: 'Creates an xlsx General Ledger export. Requires scope: exports:gl.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '201': { description: Created }
+  /exports/fec:
+    post:
+      operationId: exportFec
+      tags: [Accounting Exports]
+      summary: Create a FEC export
+      description: 'Creates a FEC (Fichier des Ecritures Comptables) export. Requires scope: exports:fec.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '201': { description: Created }
+  /categories:
+    get:
+      operationId: getCategories
+      tags: [Categories]
+      summary: List categories
+      description: 'Requires scope: categories:readonly or categories:all.'
+      responses:
+        '200': { description: OK }
+    post:
+      operationId: postCategories
+      tags: [Categories]
+      summary: Create a category
+      description: 'Requires scope: categories:all.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '201': { description: Created }
+  /category_groups:
+    get:
+      operationId: getCategoryGroups
+      tags: [Categories]
+      summary: List category groups
+      responses:
+        '200': { description: OK }
+  /customer_invoices:
+    get:
+      operationId: getCustomerInvoices
+      tags: [Customer Invoices]
+      summary: List customer invoices
+      description: 'List customer invoices and credit notes. Requires scope: customer_invoices:readonly or customer_invoices:all.'
+      parameters:
+        - $ref: '#/components/parameters/Cursor'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Filter'
+      responses:
+        '200': { description: OK }
+        '429': { $ref: '#/components/responses/TooManyRequests' }
+    post:
+      operationId: postCustomerInvoices
+      tags: [Customer Invoices]
+      summary: Create a customer invoice
+      description: 'Create a draft or finalized customer invoice or credit note. Requires scope: customer_invoices:all.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '201': { description: Created }
+        '422': { $ref: '#/components/responses/UnprocessableEntity' }
+  /customer_invoices/import:
+    post:
+      operationId: importCustomerInvoices
+      tags: [Customer Invoices]
+      summary: Import an invoice with file attached
+      description: 'Import a customer invoice with a file attached. Requires scope: customer_invoices:all.'
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema: { type: object }
+      responses:
+        '201': { description: Created }
+  /customer_invoices/{id}:
+    get:
+      operationId: getCustomerInvoice
+      tags: [Customer Invoices]
+      summary: Retrieve a customer invoice
+      parameters:
+        - $ref: '#/components/parameters/PathId'
+      responses:
+        '200': { description: OK }
+    put:
+      operationId: updateCustomerInvoice
+      tags: [Customer Invoices]
+      summary: Update a customer invoice
+      parameters:
+        - $ref: '#/components/parameters/PathId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '200': { description: OK }
+  /customer_invoices/{id}/finalize:
+    put:
+      operationId: finalizeCustomerInvoice
+      tags: [Customer Invoices]
+      summary: Finalize a draft customer invoice
+      description: 'Convert a draft invoice or credit note into a finalized one; once finalized it can no longer be edited.'
+      parameters:
+        - $ref: '#/components/parameters/PathId'
+      responses:
+        '200': { description: OK }
+  /customer_invoices/{id}/mark_as_paid:
+    put:
+      operationId: markAsPaidCustomerInvoice
+      tags: [Customer Invoices]
+      summary: Mark a customer invoice as paid
+      parameters:
+        - $ref: '#/components/parameters/PathId'
+      responses:
+        '200': { description: OK }
+  /customer_invoices/{id}/send_by_email:
+    post:
+      operationId: sendByEmailCustomerInvoice
+      tags: [Customer Invoices]
+      summary: Send a customer invoice by email
+      description: 'Sends a finalized, imported customer invoice or credit note by email. May return 409 if the PDF is not yet generated; retry shortly.'
+      parameters:
+        - $ref: '#/components/parameters/PathId'
+      responses:
+        '204': { description: Email queued }
+        '409': { $ref: '#/components/responses/Conflict' }
+  /customer_invoices/{id}/matched_transactions:
+    post:
+      operationId: postCustomerInvoiceMatchedTransactions
+      tags: [Customer Invoices]
+      summary: Match a transaction to a customer invoice
+      parameters:
+        - $ref: '#/components/parameters/PathId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '200': { description: OK }
+  /supplier_invoices:
+    get:
+      operationId: getSupplierInvoices
+      tags: [Supplier Invoices]
+      summary: List supplier invoices
+      description: 'Requires scope: supplier_invoices:readonly or supplier_invoices:all.'
+      parameters:
+        - $ref: '#/components/parameters/Cursor'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Filter'
+      responses:
+        '200': { description: OK }
+  /supplier_invoices/import:
+    post:
+      operationId: importSupplierInvoice
+      tags: [Supplier Invoices]
+      summary: Import a supplier invoice with a file attached
+      description: 'Requires scope: supplier_invoices:all.'
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema: { type: object }
+      responses:
+        '201': { description: Created }
+  /supplier_invoices/{id}:
+    get:
+      operationId: getSupplierInvoice
+      tags: [Supplier Invoices]
+      summary: Retrieve a supplier invoice
+      parameters:
+        - $ref: '#/components/parameters/PathId'
+      responses:
+        '200': { description: OK }
+    put:
+      operationId: putSupplierInvoice
+      tags: [Supplier Invoices]
+      summary: Update a supplier invoice
+      parameters:
+        - $ref: '#/components/parameters/PathId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '200': { description: OK }
+  /supplier_invoices/{id}/validate_accounting:
+    put:
+      operationId: validateAccountingSupplierInvoice
+      tags: [Supplier Invoices]
+      summary: Validate the accounting of a supplier invoice
+      description: Turn the supplier invoice into a Complete state.
+      parameters:
+        - $ref: '#/components/parameters/PathId'
+      responses:
+        '200': { description: OK }
+  /quotes:
+    get:
+      operationId: listQuotes
+      tags: [Quotes]
+      summary: List quotes
+      description: 'Requires scope: quotes:readonly or quotes:all.'
+      responses:
+        '200': { description: OK }
+    post:
+      operationId: postQuotes
+      tags: [Quotes]
+      summary: Create a quote
+      description: 'Requires scope: quotes:all.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '201': { description: Created }
+  /quotes/{id}:
+    get:
+      operationId: getQuote
+      tags: [Quotes]
+      summary: Retrieve a quote
+      parameters:
+        - $ref: '#/components/parameters/PathId'
+      responses:
+        '200': { description: OK }
+  /billing_subscriptions:
+    get:
+      operationId: getBillingSubscriptions
+      tags: [Billing Subscriptions]
+      summary: List billing subscriptions
+      description: 'Requires scope: billing_subscriptions:readonly or billing_subscriptions:all.'
+      responses:
+        '200': { description: OK }
+    post:
+      operationId: postBillingSubscriptions
+      tags: [Billing Subscriptions]
+      summary: Create a billing subscription
+      description: 'Pennylane generates the customer invoice each month. Requires scope: billing_subscriptions:all.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '201': { description: Created }
+  /products:
+    get:
+      operationId: getProducts
+      tags: [Products]
+      summary: List products
+      description: 'Requires scope: products:readonly or products:all.'
+      responses:
+        '200': { description: OK }
+    post:
+      operationId: postProducts
+      tags: [Products]
+      summary: Create a product
+      description: 'Requires scope: products:all.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '201': { description: Created }
+  /products/{id}:
+    get:
+      operationId: getProduct
+      tags: [Products]
+      summary: Retrieve a product
+      parameters:
+        - $ref: '#/components/parameters/PathId'
+      responses:
+        '200': { description: OK }
+    put:
+      operationId: putProduct
+      tags: [Products]
+      summary: Update a product
+      parameters:
+        - $ref: '#/components/parameters/PathId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '200': { description: OK }
+  /customers:
+    get:
+      operationId: getCustomers
+      tags: [Customers]
+      summary: List customers (company and individual)
+      description: 'Requires scope: customers:readonly or customers:all.'
+      responses:
+        '200': { description: OK }
+  /customers/{id}:
+    get:
+      operationId: getCustomer
+      tags: [Customers]
+      summary: Retrieve a customer
+      parameters:
+        - $ref: '#/components/parameters/PathId'
+      responses:
+        '200': { description: OK }
+  /company_customers:
+    post:
+      operationId: postCompanyCustomer
+      tags: [Customers]
+      summary: Create a company customer
+      description: 'Requires scope: customers:all.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '201': { description: Created }
+  /individual_customers:
+    post:
+      operationId: postIndividualCustomer
+      tags: [Customers]
+      summary: Create an individual customer
+      description: 'Requires scope: customers:all.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '201': { description: Created }
+  /suppliers:
+    get:
+      operationId: getSuppliers
+      tags: [Suppliers]
+      summary: List suppliers
+      description: 'Requires scope: suppliers:readonly or suppliers:all.'
+      responses:
+        '200': { description: OK }
+    post:
+      operationId: postSupplier
+      tags: [Suppliers]
+      summary: Create a supplier
+      description: 'Requires scope: suppliers:all.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '201': { description: Created }
+  /suppliers/{id}:
+    get:
+      operationId: getSupplier
+      tags: [Suppliers]
+      summary: Retrieve a supplier
+      parameters:
+        - $ref: '#/components/parameters/PathId'
+      responses:
+        '200': { description: OK }
+    put:
+      operationId: putSupplier
+      tags: [Suppliers]
+      summary: Update a supplier
+      parameters:
+        - $ref: '#/components/parameters/PathId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '200': { description: OK }
+  /bank_accounts:
+    get:
+      operationId: getBankAccounts
+      tags: [Bank Accounts]
+      summary: List bank accounts
+      description: 'Requires scope: bank_accounts:readonly or bank_accounts:all.'
+      responses:
+        '200': { description: OK }
+    post:
+      operationId: postBankAccount
+      tags: [Bank Accounts]
+      summary: Create a bank account
+      description: 'Requires scope: bank_accounts:all.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '201': { description: Created }
+  /bank_accounts/{id}:
+    get:
+      operationId: getBankAccount
+      tags: [Bank Accounts]
+      summary: Retrieve a bank account
+      parameters:
+        - $ref: '#/components/parameters/PathId'
+      responses:
+        '200': { description: OK }
+  /transactions:
+    get:
+      operationId: getTransactions
+      tags: [Transactions]
+      summary: List transactions
+      description: 'Requires scope: transactions:readonly or transactions:all.'
+      responses:
+        '200': { description: OK }
+    post:
+      operationId: createTransaction
+      tags: [Transactions]
+      summary: Create a banking transaction
+      description: 'Requires scope: transactions:all.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '201': { description: Created }
+  /transactions/{id}:
+    get:
+      operationId: getTransaction
+      tags: [Transactions]
+      summary: Retrieve a transaction
+      parameters:
+        - $ref: '#/components/parameters/PathId'
+      responses:
+        '200': { description: OK }
+    put:
+      operationId: updateTransaction
+      tags: [Transactions]
+      summary: Update a transaction
+      parameters:
+        - $ref: '#/components/parameters/PathId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '200': { description: OK }
+  /sepa_mandates:
+    get:
+      operationId: getSepaMandates
+      tags: [Mandates]
+      summary: List SEPA mandates
+      description: 'Requires scope: customer_mandates:readonly or customer_mandates:all.'
+      responses:
+        '200': { description: OK }
+    post:
+      operationId: postSepaMandates
+      tags: [Mandates]
+      summary: Create a SEPA mandate
+      description: 'Create a SEPA mandate to enable direct debit payments. Requires scope: customer_mandates:all.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '201': { description: Created }
+  /gocardless_mandates:
+    get:
+      operationId: getGocardlessMandates
+      tags: [Mandates]
+      summary: List GoCardless mandates
+      description: 'Requires scope: customer_mandates:readonly or customer_mandates:all.'
+      responses:
+        '200': { description: OK }
+  /file_attachments:
+    post:
+      operationId: postFileAttachments
+      tags: [File Attachments]
+      summary: Upload a file
+      description: >-
+        Upload a file to attach to any resource that provides a file_attachment_id.
+        Maximum file size 100MB. Requires scope: file_attachments:all.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema: { type: object }
+      responses:
+        '201': { description: Created }
+  /customer_invoices/changes:
+    get:
+      operationId: getCustomerInvoicesChanges
+      tags: [Change Events]
+      summary: Get customer invoice change events
+      description: >-
+        Returns the list of changes from the provided start_date (last 4 weeks retained),
+        ordered by processed_at ASC. Requires scope: customer_invoices:readonly or customer_invoices:all.
+      parameters:
+        - name: start_date
+          in: query
+          schema: { type: string, format: date-time }
+      responses:
+        '200': { description: OK }
+  /supplier_invoices/changes:
+    get:
+      operationId: getSupplierInvoicesChanges
+      tags: [Change Events]
+      summary: Get supplier invoice change events
+      parameters:
+        - name: start_date
+          in: query
+          schema: { type: string, format: date-time }
+      responses:
+        '200': { description: OK }
+  /pa_registrations:
+    get:
+      operationId: getPaRegistrations
+      tags: [E-Invoicing]
+      summary: List PA (Plateforme Agréée) registrations
+      description: >-
+        Returns all PA registrations for the company, including activation status and
+        exchange direction, for French e-invoicing onboarding. Requires scope: pa_registrations:readonly.
+      responses:
+        '200': { description: OK }
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: token
+      description: >-
+        Bearer token in the Authorization header. The token may be a Company API token,
+        a Firm API token, or an OAuth 2.0 access token obtained via
+        https://app.pennylane.com/oauth/authorize and /oauth/token.
+  parameters:
+    PathId:
+      name: id
+      in: path
+      required: true
+      description: Internal Pennylane resource id (v2 uses internal ids only, not source_id).
+      schema: { type: integer }
+    Cursor:
+      name: cursor
+      in: query
+      required: false
+      description: Opaque cursor for cursor-based pagination.
+      schema: { type: string }
+    Limit:
+      name: limit
+      in: query
+      required: false
+      description: Page size.
+      schema: { type: integer, default: 100 }
+    Filter:
+      name: filter
+      in: query
+      required: false
+      description: JSON filter expression applied on listing endpoints.
+      schema: { type: string }
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+    Conflict:
+      description: Conflict (e.g. PDF not yet generated)
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+    UnprocessableEntity:
+      description: Validation error
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+    TooManyRequests:
+      description: >-
+        Rate limit exceeded (25 requests per 5 seconds per token). Includes
+        retry-after, ratelimit-limit, ratelimit-remaining, and ratelimit-reset headers.
+      headers:
+        retry-after:
+          schema: { type: integer }
+        ratelimit-limit:
+          schema: { type: integer }
+        ratelimit-remaining:
+          schema: { type: integer }
+        ratelimit-reset:
+          schema: { type: integer }
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+  schemas:
+    Error:
+      type: object
+      description: Consistent JSON error schema returned across the API.
+      properties:
+        status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: object
+          description: Actionable field-level information, most useful for 422 validation errors.

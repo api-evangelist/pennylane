@@ -1,0 +1,296 @@
+{
+  "info": {
+    "name": "Pennylane Company API v2",
+    "description": "Representative Postman collection for the Pennylane Company API v2 (https://app.pennylane.com/api/external/v2). Auth is a Bearer token: a Company API token, a Firm API token, or an OAuth 2.0 access token. Set the {{token}} and {{baseUrl}} collection variables. Modeled from https://pennylane.readme.io on 2026-07-17.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      { "key": "token", "value": "{{token}}", "type": "string" }
+    ]
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "https://app.pennylane.com/api/external/v2" },
+    { "key": "token", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "Account",
+      "item": [
+        {
+          "name": "User profile",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Accept", "value": "application/json" } ],
+            "url": { "raw": "{{baseUrl}}/me", "host": [ "{{baseUrl}}" ], "path": [ "me" ] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Customer Invoices",
+      "item": [
+        {
+          "name": "List customer invoices",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Accept", "value": "application/json" } ],
+            "url": {
+              "raw": "{{baseUrl}}/customer_invoices?limit=100",
+              "host": [ "{{baseUrl}}" ],
+              "path": [ "customer_invoices" ],
+              "query": [ { "key": "limit", "value": "100" } ]
+            }
+          }
+        },
+        {
+          "name": "Create a customer invoice",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"invoice\": {\n    \"customer_id\": 42,\n    \"date\": \"2026-07-17\",\n    \"deadline\": \"2026-08-17\",\n    \"currency\": \"EUR\",\n    \"invoice_lines\": [\n      { \"label\": \"Consulting\", \"quantity\": 1, \"unit_amount\": \"1000.00\", \"vat_rate\": \"FR_200\" }\n    ]\n  }\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/customer_invoices", "host": [ "{{baseUrl}}" ], "path": [ "customer_invoices" ] }
+          }
+        },
+        {
+          "name": "Retrieve a customer invoice",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Accept", "value": "application/json" } ],
+            "url": { "raw": "{{baseUrl}}/customer_invoices/42", "host": [ "{{baseUrl}}" ], "path": [ "customer_invoices", "42" ] }
+          }
+        },
+        {
+          "name": "Finalize a draft customer invoice",
+          "request": {
+            "method": "PUT",
+            "header": [ { "key": "Accept", "value": "application/json" } ],
+            "url": { "raw": "{{baseUrl}}/customer_invoices/42/finalize", "host": [ "{{baseUrl}}" ], "path": [ "customer_invoices", "42", "finalize" ] }
+          }
+        },
+        {
+          "name": "Send a customer invoice by email",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Accept", "value": "application/json" } ],
+            "url": { "raw": "{{baseUrl}}/customer_invoices/42/send_by_email", "host": [ "{{baseUrl}}" ], "path": [ "customer_invoices", "42", "send_by_email" ] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Supplier Invoices",
+      "item": [
+        {
+          "name": "List supplier invoices",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Accept", "value": "application/json" } ],
+            "url": { "raw": "{{baseUrl}}/supplier_invoices?limit=100", "host": [ "{{baseUrl}}" ], "path": [ "supplier_invoices" ], "query": [ { "key": "limit", "value": "100" } ] }
+          }
+        },
+        {
+          "name": "Retrieve a supplier invoice",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Accept", "value": "application/json" } ],
+            "url": { "raw": "{{baseUrl}}/supplier_invoices/42", "host": [ "{{baseUrl}}" ], "path": [ "supplier_invoices", "42" ] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Accounting & Ledger",
+      "item": [
+        {
+          "name": "List journals",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Accept", "value": "application/json" } ],
+            "url": { "raw": "{{baseUrl}}/journals", "host": [ "{{baseUrl}}" ], "path": [ "journals" ] }
+          }
+        },
+        {
+          "name": "List ledger accounts",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Accept", "value": "application/json" } ],
+            "url": { "raw": "{{baseUrl}}/ledger_accounts", "host": [ "{{baseUrl}}" ], "path": [ "ledger_accounts" ] }
+          }
+        },
+        {
+          "name": "List ledger entries",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Accept", "value": "application/json" } ],
+            "url": { "raw": "{{baseUrl}}/ledger_entries", "host": [ "{{baseUrl}}" ], "path": [ "ledger_entries" ] }
+          }
+        },
+        {
+          "name": "Get the trial balance",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Accept", "value": "application/json" } ],
+            "url": {
+              "raw": "{{baseUrl}}/trial_balance?period_start=2026-01-01&period_end=2026-06-30",
+              "host": [ "{{baseUrl}}" ],
+              "path": [ "trial_balance" ],
+              "query": [
+                { "key": "period_start", "value": "2026-01-01" },
+                { "key": "period_end", "value": "2026-06-30" }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Accounting Exports",
+      "item": [
+        {
+          "name": "Create a FEC export",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"fiscal_year_id\": 1\n}" },
+            "url": { "raw": "{{baseUrl}}/exports/fec", "host": [ "{{baseUrl}}" ], "path": [ "exports", "fec" ] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Banking",
+      "item": [
+        {
+          "name": "List bank accounts",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Accept", "value": "application/json" } ],
+            "url": { "raw": "{{baseUrl}}/bank_accounts", "host": [ "{{baseUrl}}" ], "path": [ "bank_accounts" ] }
+          }
+        },
+        {
+          "name": "List transactions",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Accept", "value": "application/json" } ],
+            "url": { "raw": "{{baseUrl}}/transactions", "host": [ "{{baseUrl}}" ], "path": [ "transactions" ] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Customers & Suppliers",
+      "item": [
+        {
+          "name": "List customers",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Accept", "value": "application/json" } ],
+            "url": { "raw": "{{baseUrl}}/customers", "host": [ "{{baseUrl}}" ], "path": [ "customers" ] }
+          }
+        },
+        {
+          "name": "Create a company customer",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"customer\": {\n    \"name\": \"ACME SAS\",\n    \"reg_no\": \"12345678900010\",\n    \"country_alpha2\": \"FR\",\n    \"emails\": [\"billing@acme.example\"]\n  }\n}" },
+            "url": { "raw": "{{baseUrl}}/company_customers", "host": [ "{{baseUrl}}" ], "path": [ "company_customers" ] }
+          }
+        },
+        {
+          "name": "List suppliers",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Accept", "value": "application/json" } ],
+            "url": { "raw": "{{baseUrl}}/suppliers", "host": [ "{{baseUrl}}" ], "path": [ "suppliers" ] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "List products",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Accept", "value": "application/json" } ],
+            "url": { "raw": "{{baseUrl}}/products", "host": [ "{{baseUrl}}" ], "path": [ "products" ] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Quotes",
+      "item": [
+        {
+          "name": "List quotes",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Accept", "value": "application/json" } ],
+            "url": { "raw": "{{baseUrl}}/quotes", "host": [ "{{baseUrl}}" ], "path": [ "quotes" ] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Mandates",
+      "item": [
+        {
+          "name": "List SEPA mandates",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Accept", "value": "application/json" } ],
+            "url": { "raw": "{{baseUrl}}/sepa_mandates", "host": [ "{{baseUrl}}" ], "path": [ "sepa_mandates" ] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Change Events",
+      "item": [
+        {
+          "name": "Get customer invoice change events",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Accept", "value": "application/json" } ],
+            "url": {
+              "raw": "{{baseUrl}}/customer_invoices/changes?start_date=2026-07-01T00:00:00Z",
+              "host": [ "{{baseUrl}}" ],
+              "path": [ "customer_invoices", "changes" ],
+              "query": [ { "key": "start_date", "value": "2026-07-01T00:00:00Z" } ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "E-Invoicing",
+      "item": [
+        {
+          "name": "List PA registrations",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Accept", "value": "application/json" } ],
+            "url": { "raw": "{{baseUrl}}/pa_registrations", "host": [ "{{baseUrl}}" ], "path": [ "pa_registrations" ] }
+          }
+        }
+      ]
+    }
+  ]
+}

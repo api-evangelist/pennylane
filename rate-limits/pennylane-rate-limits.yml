@@ -1,0 +1,54 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Pennylane
+providerId: pennylane
+created: '2026-07-17'
+modified: '2026-07-17'
+reconciled: true
+tags:
+- Accounting
+- Invoicing
+- Fintech
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  Pennylane API v2 enforces a fixed rate limit of 25 requests every 5 seconds,
+  applied at the token level. For OAuth apps the limit applies per generated token;
+  for developer (Company/Firm) tokens it applies directly to the token. Rate limiting
+  is enabled on both production and sandbox and affects all endpoints. Exceeding the
+  limit returns HTTP 429 with a retry-after header. All responses (including
+  non-throttled ones) carry ratelimit-limit, ratelimit-remaining, and ratelimit-reset
+  headers for proactive monitoring.
+notes: >-
+  Values confirmed from https://pennylane.readme.io/docs/rate-limiting-1 (Rate Limiting
+  in API v2) on 2026-07-17.
+sources:
+- https://pennylane.readme.io/docs/rate-limiting-1
+responseCodes:
+  throttled: 429
+limits:
+- name: Requests per window
+  scope: token
+  metric: requests
+  limit: 25
+  window: 5 seconds
+  notes: 25 requests every 5 seconds per token, across all endpoints.
+headers:
+- name: retry-after
+  description: Seconds to wait before retrying (429 responses only).
+- name: ratelimit-limit
+  description: Maximum requests allowed per window.
+- name: ratelimit-remaining
+  description: Requests remaining in the current window.
+- name: ratelimit-reset
+  description: Unix timestamp when the rate limit window resets.
+policies:
+- name: Token-Level Limiting
+  description: Limits are tracked per token (per OAuth-generated token or per developer token).
+- name: Backoff Strategy
+  description: Honor retry-after; use ratelimit-reset to schedule retries and implement exponential backoff with jitter.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

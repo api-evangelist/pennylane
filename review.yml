@@ -1,0 +1,68 @@
+aid: pennylane
+name: Pennylane
+review:
+  question: Does Pennylane expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-17'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was created. Pennylane's Company API v2 is a synchronous
+    REST (HTTPS) API only. It has no WebSocket surface and no Server-Sent Events
+    streaming surface. Near-real-time synchronization is offered instead through
+    polled "change events" endpoints (e.g. GET /customer_invoices/changes), which
+    are ordinary paginated HTTPS GET requests, not a streaming transport, so there
+    is nothing to model in AsyncAPI under current scope.
+findings:
+  summary: |
+    Pennylane does not publish a documented public WebSocket API. The Company API
+    v2 exposes only REST (HTTPS) endpoints under
+    https://app.pennylane.com/api/external/v2, authenticated with a Bearer token
+    (Company API token, Firm API token, or OAuth 2.0 access token). To track data
+    changes, Pennylane provides polling "change events" endpoints that return the
+    list of changes since a start_date (last 4 weeks retained) in processed_at ASC
+    order — a request/response REST pattern, not WebSocket or SSE. No ws:// or wss://
+    endpoint is documented anywhere in the developer docs or API reference.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://app.pennylane.com/api/external/v2
+      documented: true
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented in Pennylane's API reference or guides as of the review date.
+    - protocol: SSE
+      scheme: https
+      documented: false
+      note: No Server-Sent Events streaming surface is documented; change tracking is polling-based.
+  endpointsConfirmedRest:
+    - GET  https://app.pennylane.com/api/external/v2/me
+    - GET  https://app.pennylane.com/api/external/v2/customer_invoices
+    - POST https://app.pennylane.com/api/external/v2/customer_invoices
+    - GET  https://app.pennylane.com/api/external/v2/supplier_invoices
+    - GET  https://app.pennylane.com/api/external/v2/ledger_entries
+    - GET  https://app.pennylane.com/api/external/v2/journals
+    - GET  https://app.pennylane.com/api/external/v2/transactions
+    - GET  https://app.pennylane.com/api/external/v2/bank_accounts
+    - GET  https://app.pennylane.com/api/external/v2/customer_invoices/changes
+sources:
+  - url: https://pennylane.readme.io/docs/getting-started
+    type: Documentation
+    note: Introduces the REST API v2; Bearer token auth; no WebSocket mentioned.
+  - url: https://pennylane.readme.io/reference
+    type: APIReference
+    note: All documented endpoints are HTTPS REST.
+  - url: https://pennylane.readme.io/docs/tracking-data-changes-with-pennylane-api
+    type: Documentation
+    note: Change tracking uses polled change-events GET endpoints (start_date, processed_at ASC), not streaming.
+  - url: https://pennylane.readme.io/docs/rate-limiting-1
+    type: Documentation
+    note: Rate limit expressed per HTTP request (25 / 5s per token); consistent with a request/response REST API.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: false
+  reason: |
+    No WebSocket or SSE protocol surface exists. Change tracking is polling-based
+    REST, which is out of scope for AsyncAPI modeling. No AsyncAPI document was
+    authored and no AsyncAPI pointer was added to apis.yml.

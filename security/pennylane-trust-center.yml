@@ -1,0 +1,26 @@
+generated: '2026-07-17'
+method: searched
+probe: true
+source: https://www.pennylane.com/fr/securite
+url: https://www.pennylane.com/fr/securite
+certifications:
+- ISO 27001
+- SOC 2
+- GDPR
+evidence:
+- source: https://www.pennylane.com/fr/securite
+  keywords:
+  - iso 27001
+  - soc 2
+  - gdpr
+  - securite
+- source: https://assets.ctfassets.net/b76knntgaaiu/1ZoQOqZDrK32aeBHsQPrb6/49b971c8886615ebf3577371a182773a/Pennylane_ISO27001_certificate_FR_EN_2025.pdf
+  kind: ISO 27001 certificate (audited by BSI)
+- source: https://assets.ctfassets.net/b76knntgaaiu/1xf9YuGD9OH4GUvTHBVO4s/9a766eb1d751bcaea8dfbf5d0db391cb/Pennylane_-_Security_Whitepaper.pdf
+  kind: Security Whitepaper
+notes: >-
+  Pennylane is ISO 27001 certified (audited annually by independent body BSI across
+  the standard's control set), operates in compliance with SOC 2, and processes
+  personal data in accordance with the GDPR. AI features are documented as compliant
+  with ISO 27001 policy, GDPR, and the EU AI Act. ISO 27001 is a stepping stone
+  toward French PDP (Plateforme de Dématérialisation Partenaire) e-invoicing accreditation.

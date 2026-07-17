@@ -1,0 +1,38 @@
+generated: '2026-07-17'
+method: derived
+source: openapi/pennylane-openapi.yml
+summary:
+  types:
+  - http
+  - oauth2
+notes: >-
+  Pennylane API v2 requires a Bearer token in the Authorization header on every
+  request. The token can be a Company API token (generated in company account
+  settings), a Firm API token (generated in firm account settings), or an
+  OAuth 2.0 access token for integration partners. OAuth apps are registered via
+  the Pennylane Partnerships team; the authorization code grant is used with
+  refresh tokens. Scopes follow a resource:readonly / resource:all pattern and
+  enforce least privilege (403 Forbidden when a required scope is missing).
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: token
+  sources:
+  - openapi/pennylane-openapi.yml
+  - https://pennylane.readme.io/docs/getting-started
+- name: oauth2
+  type: oauth2
+  flow: authorizationCode
+  authorizationUrl: https://app.pennylane.com/oauth/authorize
+  tokenUrl: https://app.pennylane.com/oauth/token
+  revocationUrl: https://app.pennylane.com/oauth/revoke
+  sources:
+  - https://pennylane.readme.io/docs/oauth-20-walkthrough
+tokenContexts:
+- name: Company API Token
+  description: Generated in a company's Pennylane account settings; scoped to that company.
+- name: Firm API Token
+  description: Generated in a firm's account settings; can access resources across managed client companies, filtered by the granting user's permissions.
+- name: OAuth 2.0
+  description: For integration partners; authorization code grant with refresh tokens, per-company or per-firm consent.
