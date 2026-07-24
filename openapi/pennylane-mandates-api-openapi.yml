@@ -1,0 +1,59 @@
+openapi: 3.0.1
+info:
+  title: Pennylane Company Account Mandates API
+  description: Pennylane is a French financial and accounting operating system for SMEs and accounting firms. The Company API (v2) lets companies, firms, and integration partners access and sync invoicing, accounting, banking, and financial data, and automate end-to-end workflows. V2 is the stable version; V1 is deprecated.
+  termsOfService: https://pennylane.readme.io/docs/api-contract-terms
+  contact:
+    name: Pennylane API Support
+    url: https://pennylane.readme.io/docs/how-to-reach-out-to-us
+  version: '2.0'
+servers:
+- url: https://app.pennylane.com/api/external/v2
+  description: Production (v2)
+security:
+- bearerAuth: []
+tags:
+- name: Mandates
+paths:
+  /sepa_mandates:
+    get:
+      operationId: getSepaMandates
+      tags:
+      - Mandates
+      summary: List SEPA mandates
+      description: 'Requires scope: customer_mandates:readonly or customer_mandates:all.'
+      responses:
+        '200':
+          description: OK
+    post:
+      operationId: postSepaMandates
+      tags:
+      - Mandates
+      summary: Create a SEPA mandate
+      description: 'Create a SEPA mandate to enable direct debit payments. Requires scope: customer_mandates:all.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '201':
+          description: Created
+  /gocardless_mandates:
+    get:
+      operationId: getGocardlessMandates
+      tags:
+      - Mandates
+      summary: List GoCardless mandates
+      description: 'Requires scope: customer_mandates:readonly or customer_mandates:all.'
+      responses:
+        '200':
+          description: OK
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: token
+      description: Bearer token in the Authorization header. The token may be a Company API token, a Firm API token, or an OAuth 2.0 access token obtained via https://app.pennylane.com/oauth/authorize and /oauth/token.

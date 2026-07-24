@@ -1,0 +1,84 @@
+openapi: 3.0.1
+info:
+  title: Pennylane Company Account Transactions API
+  description: Pennylane is a French financial and accounting operating system for SMEs and accounting firms. The Company API (v2) lets companies, firms, and integration partners access and sync invoicing, accounting, banking, and financial data, and automate end-to-end workflows. V2 is the stable version; V1 is deprecated.
+  termsOfService: https://pennylane.readme.io/docs/api-contract-terms
+  contact:
+    name: Pennylane API Support
+    url: https://pennylane.readme.io/docs/how-to-reach-out-to-us
+  version: '2.0'
+servers:
+- url: https://app.pennylane.com/api/external/v2
+  description: Production (v2)
+security:
+- bearerAuth: []
+tags:
+- name: Transactions
+paths:
+  /transactions:
+    get:
+      operationId: getTransactions
+      tags:
+      - Transactions
+      summary: List transactions
+      description: 'Requires scope: transactions:readonly or transactions:all.'
+      responses:
+        '200':
+          description: OK
+    post:
+      operationId: createTransaction
+      tags:
+      - Transactions
+      summary: Create a banking transaction
+      description: 'Requires scope: transactions:all.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '201':
+          description: Created
+  /transactions/{id}:
+    get:
+      operationId: getTransaction
+      tags:
+      - Transactions
+      summary: Retrieve a transaction
+      parameters:
+      - $ref: '#/components/parameters/PathId'
+      responses:
+        '200':
+          description: OK
+    put:
+      operationId: updateTransaction
+      tags:
+      - Transactions
+      summary: Update a transaction
+      parameters:
+      - $ref: '#/components/parameters/PathId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: OK
+components:
+  parameters:
+    PathId:
+      name: id
+      in: path
+      required: true
+      description: Internal Pennylane resource id (v2 uses internal ids only, not source_id).
+      schema:
+        type: integer
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: token
+      description: Bearer token in the Authorization header. The token may be a Company API token, a Firm API token, or an OAuth 2.0 access token obtained via https://app.pennylane.com/oauth/authorize and /oauth/token.

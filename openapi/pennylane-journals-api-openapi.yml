@@ -1,0 +1,128 @@
+openapi: 3.0.1
+info:
+  title: Pennylane Company Account Journals API
+  description: Pennylane is a French financial and accounting operating system for SMEs and accounting firms. The Company API (v2) lets companies, firms, and integration partners access and sync invoicing, accounting, banking, and financial data, and automate end-to-end workflows. V2 is the stable version; V1 is deprecated.
+  termsOfService: https://pennylane.readme.io/docs/api-contract-terms
+  contact:
+    name: Pennylane API Support
+    url: https://pennylane.readme.io/docs/how-to-reach-out-to-us
+  version: '2.0'
+servers:
+- url: https://app.pennylane.com/api/external/v2
+  description: Production (v2)
+security:
+- bearerAuth: []
+tags:
+- name: Journals
+paths:
+  /journals:
+    get:
+      operationId: getJournals
+      tags:
+      - Journals
+      summary: List journals
+      description: 'List journals. Requires scope: journals:readonly or journals:all.'
+      parameters:
+      - $ref: '#/components/parameters/Cursor'
+      - $ref: '#/components/parameters/Limit'
+      responses:
+        '200':
+          description: OK
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+    post:
+      operationId: postJournals
+      tags:
+      - Journals
+      summary: Create a journal
+      description: 'Create a journal. Requires scope: journals:all.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '201':
+          description: Created
+  /journals/{id}:
+    get:
+      operationId: getJournal
+      tags:
+      - Journals
+      summary: Retrieve a journal
+      parameters:
+      - $ref: '#/components/parameters/PathId'
+      responses:
+        '200':
+          description: OK
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  parameters:
+    PathId:
+      name: id
+      in: path
+      required: true
+      description: Internal Pennylane resource id (v2 uses internal ids only, not source_id).
+      schema:
+        type: integer
+    Cursor:
+      name: cursor
+      in: query
+      required: false
+      description: Opaque cursor for cursor-based pagination.
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      required: false
+      description: Page size.
+      schema:
+        type: integer
+        default: 100
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    TooManyRequests:
+      description: Rate limit exceeded (25 requests per 5 seconds per token). Includes retry-after, ratelimit-limit, ratelimit-remaining, and ratelimit-reset headers.
+      headers:
+        retry-after:
+          schema:
+            type: integer
+        ratelimit-limit:
+          schema:
+            type: integer
+        ratelimit-remaining:
+          schema:
+            type: integer
+        ratelimit-reset:
+          schema:
+            type: integer
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Error:
+      type: object
+      description: Consistent JSON error schema returned across the API.
+      properties:
+        status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: object
+          description: Actionable field-level information, most useful for 422 validation errors.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: token
+      description: Bearer token in the Authorization header. The token may be a Company API token, a Firm API token, or an OAuth 2.0 access token obtained via https://app.pennylane.com/oauth/authorize and /oauth/token.

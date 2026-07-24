@@ -1,0 +1,228 @@
+openapi: 3.0.1
+info:
+  title: Pennylane Company Account Customer Invoices API
+  description: Pennylane is a French financial and accounting operating system for SMEs and accounting firms. The Company API (v2) lets companies, firms, and integration partners access and sync invoicing, accounting, banking, and financial data, and automate end-to-end workflows. V2 is the stable version; V1 is deprecated.
+  termsOfService: https://pennylane.readme.io/docs/api-contract-terms
+  contact:
+    name: Pennylane API Support
+    url: https://pennylane.readme.io/docs/how-to-reach-out-to-us
+  version: '2.0'
+servers:
+- url: https://app.pennylane.com/api/external/v2
+  description: Production (v2)
+security:
+- bearerAuth: []
+tags:
+- name: Customer Invoices
+paths:
+  /customer_invoices:
+    get:
+      operationId: getCustomerInvoices
+      tags:
+      - Customer Invoices
+      summary: List customer invoices
+      description: 'List customer invoices and credit notes. Requires scope: customer_invoices:readonly or customer_invoices:all.'
+      parameters:
+      - $ref: '#/components/parameters/Cursor'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Filter'
+      responses:
+        '200':
+          description: OK
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+    post:
+      operationId: postCustomerInvoices
+      tags:
+      - Customer Invoices
+      summary: Create a customer invoice
+      description: 'Create a draft or finalized customer invoice or credit note. Requires scope: customer_invoices:all.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '201':
+          description: Created
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  /customer_invoices/import:
+    post:
+      operationId: importCustomerInvoices
+      tags:
+      - Customer Invoices
+      summary: Import an invoice with file attached
+      description: 'Import a customer invoice with a file attached. Requires scope: customer_invoices:all.'
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+      responses:
+        '201':
+          description: Created
+  /customer_invoices/{id}:
+    get:
+      operationId: getCustomerInvoice
+      tags:
+      - Customer Invoices
+      summary: Retrieve a customer invoice
+      parameters:
+      - $ref: '#/components/parameters/PathId'
+      responses:
+        '200':
+          description: OK
+    put:
+      operationId: updateCustomerInvoice
+      tags:
+      - Customer Invoices
+      summary: Update a customer invoice
+      parameters:
+      - $ref: '#/components/parameters/PathId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: OK
+  /customer_invoices/{id}/finalize:
+    put:
+      operationId: finalizeCustomerInvoice
+      tags:
+      - Customer Invoices
+      summary: Finalize a draft customer invoice
+      description: Convert a draft invoice or credit note into a finalized one; once finalized it can no longer be edited.
+      parameters:
+      - $ref: '#/components/parameters/PathId'
+      responses:
+        '200':
+          description: OK
+  /customer_invoices/{id}/mark_as_paid:
+    put:
+      operationId: markAsPaidCustomerInvoice
+      tags:
+      - Customer Invoices
+      summary: Mark a customer invoice as paid
+      parameters:
+      - $ref: '#/components/parameters/PathId'
+      responses:
+        '200':
+          description: OK
+  /customer_invoices/{id}/send_by_email:
+    post:
+      operationId: sendByEmailCustomerInvoice
+      tags:
+      - Customer Invoices
+      summary: Send a customer invoice by email
+      description: Sends a finalized, imported customer invoice or credit note by email. May return 409 if the PDF is not yet generated; retry shortly.
+      parameters:
+      - $ref: '#/components/parameters/PathId'
+      responses:
+        '204':
+          description: Email queued
+        '409':
+          $ref: '#/components/responses/Conflict'
+  /customer_invoices/{id}/matched_transactions:
+    post:
+      operationId: postCustomerInvoiceMatchedTransactions
+      tags:
+      - Customer Invoices
+      summary: Match a transaction to a customer invoice
+      parameters:
+      - $ref: '#/components/parameters/PathId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: OK
+components:
+  parameters:
+    Filter:
+      name: filter
+      in: query
+      required: false
+      description: JSON filter expression applied on listing endpoints.
+      schema:
+        type: string
+    PathId:
+      name: id
+      in: path
+      required: true
+      description: Internal Pennylane resource id (v2 uses internal ids only, not source_id).
+      schema:
+        type: integer
+    Cursor:
+      name: cursor
+      in: query
+      required: false
+      description: Opaque cursor for cursor-based pagination.
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      required: false
+      description: Page size.
+      schema:
+        type: integer
+        default: 100
+  responses:
+    UnprocessableEntity:
+      description: Validation error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Conflict:
+      description: Conflict (e.g. PDF not yet generated)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    TooManyRequests:
+      description: Rate limit exceeded (25 requests per 5 seconds per token). Includes retry-after, ratelimit-limit, ratelimit-remaining, and ratelimit-reset headers.
+      headers:
+        retry-after:
+          schema:
+            type: integer
+        ratelimit-limit:
+          schema:
+            type: integer
+        ratelimit-remaining:
+          schema:
+            type: integer
+        ratelimit-reset:
+          schema:
+            type: integer
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Error:
+      type: object
+      description: Consistent JSON error schema returned across the API.
+      properties:
+        status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: object
+          description: Actionable field-level information, most useful for 422 validation errors.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: token
+      description: Bearer token in the Authorization header. The token may be a Company API token, a Firm API token, or an OAuth 2.0 access token obtained via https://app.pennylane.com/oauth/authorize and /oauth/token.

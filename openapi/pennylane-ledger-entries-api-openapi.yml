@@ -1,0 +1,133 @@
+openapi: 3.0.1
+info:
+  title: Pennylane Company Account Ledger Entries API
+  description: Pennylane is a French financial and accounting operating system for SMEs and accounting firms. The Company API (v2) lets companies, firms, and integration partners access and sync invoicing, accounting, banking, and financial data, and automate end-to-end workflows. V2 is the stable version; V1 is deprecated.
+  termsOfService: https://pennylane.readme.io/docs/api-contract-terms
+  contact:
+    name: Pennylane API Support
+    url: https://pennylane.readme.io/docs/how-to-reach-out-to-us
+  version: '2.0'
+servers:
+- url: https://app.pennylane.com/api/external/v2
+  description: Production (v2)
+security:
+- bearerAuth: []
+tags:
+- name: Ledger Entries
+paths:
+  /ledger_entries:
+    get:
+      operationId: getLedgerEntries
+      tags:
+      - Ledger Entries
+      summary: List ledger entries
+      description: 'Requires scope: ledger_entries:readonly or ledger_entries:all.'
+      parameters:
+      - $ref: '#/components/parameters/Cursor'
+      - $ref: '#/components/parameters/Limit'
+      responses:
+        '200':
+          description: OK
+    post:
+      operationId: postLedgerEntries
+      tags:
+      - Ledger Entries
+      summary: Create a ledger entry
+      description: 'Requires scope: ledger_entries:all.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '201':
+          description: Created
+  /ledger_entries/{id}:
+    get:
+      operationId: getLedgerEntry
+      tags:
+      - Ledger Entries
+      summary: Retrieve a ledger entry
+      parameters:
+      - $ref: '#/components/parameters/PathId'
+      responses:
+        '200':
+          description: OK
+    put:
+      operationId: putLedgerEntries
+      tags:
+      - Ledger Entries
+      summary: Update a ledger entry
+      parameters:
+      - $ref: '#/components/parameters/PathId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: OK
+  /trial_balance:
+    get:
+      operationId: getTrialBalance
+      tags:
+      - Ledger Entries
+      summary: Get the trial balance
+      description: 'Returns the trial balance for the given period. Requires scope: trial_balance:readonly.'
+      parameters:
+      - name: period_start
+        in: query
+        schema:
+          type: string
+          format: date
+      - name: period_end
+        in: query
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+  /fiscal_years:
+    get:
+      operationId: getFiscalYears
+      tags:
+      - Ledger Entries
+      summary: List company fiscal years
+      description: 'Requires scope: fiscal_years:readonly.'
+      responses:
+        '200':
+          description: OK
+components:
+  parameters:
+    PathId:
+      name: id
+      in: path
+      required: true
+      description: Internal Pennylane resource id (v2 uses internal ids only, not source_id).
+      schema:
+        type: integer
+    Limit:
+      name: limit
+      in: query
+      required: false
+      description: Page size.
+      schema:
+        type: integer
+        default: 100
+    Cursor:
+      name: cursor
+      in: query
+      required: false
+      description: Opaque cursor for cursor-based pagination.
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: token
+      description: Bearer token in the Authorization header. The token may be a Company API token, a Firm API token, or an OAuth 2.0 access token obtained via https://app.pennylane.com/oauth/authorize and /oauth/token.
