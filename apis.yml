@@ -8,7 +8,20 @@ description: Pennylane is a French financial and accounting operating system for
   a REST interface, and automate end-to-end workflows. V2 is the stable version; V1
   is deprecated. All amounts are in EUR and the platform is built around French
   accounting (FEC exports, Plateforme Agréée e-invoicing, SEPA/GoCardless mandates).
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: paid
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Paid · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/pennylane.png
 tags:
 - Accounting
 - Invoicing
@@ -21,217 +34,997 @@ created: '2026-07-17'
 modified: '2026-07-17'
 specificationVersion: '0.19'
 apis:
-- aid: pennylane:pennylane-customer-invoicing-api
-  name: Pennylane Customer Invoicing API
-  tags:
-  - Customer Invoices
-  - Credit Notes
-  - E-Invoicing
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+- aid: pennylane:pennylane-account-api
+  name: Pennylane Account API
+  description: The Account API from Pennylane — 1 operation(s) for account.
   humanURL: https://pennylane.readme.io/reference/getcustomerinvoices
   baseURL: https://app.pennylane.com/api/external/v2
-  properties:
-  - url: https://pennylane.readme.io/docs/customer-invoicing
-    type: Documentation
-  - url: https://pennylane.readme.io/reference/getcustomerinvoices
-    type: APIReference
-  - url: openapi/pennylane-openapi.yml
-    type: OpenAPI
-  - url: collections/pennylane.postman_collection.json
-    type: PostmanCollection
-  description: Create, import, finalize, categorize, send, and match customer invoices
-    and credit notes, including Factur-X / UBL / CII e-invoice import and quote-to-invoice
-    conversion.
-- aid: pennylane:pennylane-supplier-invoicing-api
-  name: Pennylane Supplier Invoicing API
   tags:
-  - Supplier Invoices
-  - Accounts Payable
-  - E-Invoicing
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://pennylane.readme.io/reference/getsupplierinvoices
-  baseURL: https://app.pennylane.com/api/external/v2
+  - Account
   properties:
-  - url: https://pennylane.readme.io/docs/supplier-invoicing
-    type: Documentation
-  - url: https://pennylane.readme.io/reference/getsupplierinvoices
-    type: APIReference
-  - url: openapi/pennylane-openapi.yml
-    type: OpenAPI
-  description: Import, update, validate, and match supplier invoices, link purchase
-    requests, and manage e-invoice lifecycle transitions for accounts payable.
-- aid: pennylane:pennylane-accounting-ledger-api
-  name: Pennylane Accounting & Ledger API
-  tags:
-  - Accounting
-  - Ledger
-  - Journals
-  - Trial Balance
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://pennylane.readme.io/reference/getledgerentries
-  baseURL: https://app.pennylane.com/api/external/v2
-  properties:
-  - url: https://pennylane.readme.io/docs/create-a-ledger-entry
-    type: Documentation
-  - url: https://pennylane.readme.io/reference/getledgerentries
-    type: APIReference
-  - url: openapi/pennylane-openapi.yml
-    type: OpenAPI
-  description: Read and write journals, ledger accounts, ledger entries and entry
-    lines, lettering, trial balance, and fiscal years for double-entry accounting.
+  - type: OpenAPI
+    url: openapi/pennylane-account-api-openapi.yml
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/customer-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoices
+  - type: PostmanCollection
+    url: collections/pennylane.postman_collection.json
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/supplier-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsupplierinvoices
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/create-a-ledger-entry
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getledgerentries
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/accounting-reporting
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/exportgeneralledger
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/automating-payment-matching
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/gettransactions
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-customers
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomers
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-products
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getproducts
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/listquotes
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getbillingsubscriptions
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsepamandates
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/tracking-data-changes-with-pennylane-api
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoiceschanges
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getparegistrations
 - aid: pennylane:pennylane-accounting-exports-api
   name: Pennylane Accounting Exports API
-  tags:
-  - Exports
-  - FEC
-  - General Ledger
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://pennylane.readme.io/reference/exportgeneralledger
+  description: The Accounting Exports API from Pennylane — 2 operation(s) for accounting exports.
+  humanURL: https://pennylane.readme.io/reference/getcustomerinvoices
   baseURL: https://app.pennylane.com/api/external/v2
-  properties:
-  - url: https://pennylane.readme.io/docs/accounting-reporting
-    type: Documentation
-  - url: https://pennylane.readme.io/reference/exportgeneralledger
-    type: APIReference
-  - url: openapi/pennylane-openapi.yml
-    type: OpenAPI
-  description: Generate General Ledger, Analytical General Ledger, and French FEC
-    (Fichier des Écritures Comptables) exports as downloadable xlsx / FEC files.
-- aid: pennylane:pennylane-banking-api
-  name: Pennylane Banking API
   tags:
-  - Banking
-  - Transactions
-  - Reconciliation
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://pennylane.readme.io/reference/gettransactions
-  baseURL: https://app.pennylane.com/api/external/v2
+  - Accounting Exports
   properties:
-  - url: https://pennylane.readme.io/docs/automating-payment-matching
-    type: Documentation
-  - url: https://pennylane.readme.io/reference/gettransactions
-    type: APIReference
-  - url: openapi/pennylane-openapi.yml
-    type: OpenAPI
-  description: Manage bank accounts and establishments, banking transactions, and
-    automate matching of transactions to customer and supplier invoices.
-- aid: pennylane:pennylane-customers-suppliers-api
-  name: Pennylane Customers & Suppliers API
+  - type: OpenAPI
+    url: openapi/pennylane-accounting-exports-api-openapi.yml
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/customer-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoices
+  - type: PostmanCollection
+    url: collections/pennylane.postman_collection.json
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/supplier-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsupplierinvoices
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/create-a-ledger-entry
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getledgerentries
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/accounting-reporting
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/exportgeneralledger
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/automating-payment-matching
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/gettransactions
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-customers
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomers
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-products
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getproducts
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/listquotes
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getbillingsubscriptions
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsepamandates
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/tracking-data-changes-with-pennylane-api
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoiceschanges
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getparegistrations
+- aid: pennylane:pennylane-bank-accounts-api
+  name: Pennylane Bank Accounts API
+  description: The Bank Accounts API from Pennylane — 2 operation(s) for bank accounts.
+  humanURL: https://pennylane.readme.io/reference/getcustomerinvoices
+  baseURL: https://app.pennylane.com/api/external/v2
   tags:
-  - Customers
-  - Suppliers
-  - Contacts
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://pennylane.readme.io/reference/getcustomers
-  baseURL: https://app.pennylane.com/api/external/v2
+  - Bank Accounts
   properties:
-  - url: https://pennylane.readme.io/docs/filter-my-customers
-    type: Documentation
-  - url: https://pennylane.readme.io/reference/getcustomers
-    type: APIReference
-  - url: openapi/pennylane-openapi.yml
-    type: OpenAPI
-  description: Create and manage company and individual customers and suppliers,
-    their contacts, and analytical categorization.
-- aid: pennylane:pennylane-products-catalog-api
-  name: Pennylane Products Catalog API
-  tags:
-  - Products
-  - Catalog
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://pennylane.readme.io/reference/getproducts
-  baseURL: https://app.pennylane.com/api/external/v2
-  properties:
-  - url: https://pennylane.readme.io/docs/filter-my-products
-    type: Documentation
-  - url: https://pennylane.readme.io/reference/getproducts
-    type: APIReference
-  - url: openapi/pennylane-openapi.yml
-    type: OpenAPI
-  description: List, create, and update the product catalog used on invoices, quotes,
-    and subscriptions.
-- aid: pennylane:pennylane-quotes-api
-  name: Pennylane Quotes API
-  tags:
-  - Quotes
-  - Estimates
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://pennylane.readme.io/reference/listquotes
-  baseURL: https://app.pennylane.com/api/external/v2
-  properties:
-  - url: https://pennylane.readme.io/reference/listquotes
-    type: APIReference
-  - url: openapi/pennylane-openapi.yml
-    type: OpenAPI
-  description: Create, update, send, and status-manage sales quotes, and convert an
-    accepted quote into a customer invoice.
+  - type: OpenAPI
+    url: openapi/pennylane-bank-accounts-api-openapi.yml
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/customer-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoices
+  - type: PostmanCollection
+    url: collections/pennylane.postman_collection.json
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/supplier-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsupplierinvoices
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/create-a-ledger-entry
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getledgerentries
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/accounting-reporting
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/exportgeneralledger
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/automating-payment-matching
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/gettransactions
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-customers
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomers
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-products
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getproducts
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/listquotes
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getbillingsubscriptions
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsepamandates
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/tracking-data-changes-with-pennylane-api
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoiceschanges
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getparegistrations
 - aid: pennylane:pennylane-billing-subscriptions-api
   name: Pennylane Billing Subscriptions API
-  tags:
-  - Subscriptions
-  - Recurring Billing
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://pennylane.readme.io/reference/getbillingsubscriptions
+  description: The Billing Subscriptions API from Pennylane — 1 operation(s) for billing subscriptions.
+  humanURL: https://pennylane.readme.io/reference/getcustomerinvoices
   baseURL: https://app.pennylane.com/api/external/v2
-  properties:
-  - url: https://pennylane.readme.io/reference/getbillingsubscriptions
-    type: APIReference
-  - url: openapi/pennylane-openapi.yml
-    type: OpenAPI
-  description: Create and manage recurring billing subscriptions that automatically
-    generate monthly customer invoices, optionally linked to a GoCardless mandate.
-- aid: pennylane:pennylane-mandates-api
-  name: Pennylane Direct Debit Mandates API
   tags:
-  - SEPA
-  - GoCardless
-  - Direct Debit
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://pennylane.readme.io/reference/getsepamandates
-  baseURL: https://app.pennylane.com/api/external/v2
+  - Billing Subscriptions
   properties:
-  - url: https://pennylane.readme.io/reference/getsepamandates
-    type: APIReference
-  - url: openapi/pennylane-openapi.yml
-    type: OpenAPI
-  description: Create and manage SEPA direct debit mandates and GoCardless mandates
-    for automated customer collection.
+  - type: OpenAPI
+    url: openapi/pennylane-billing-subscriptions-api-openapi.yml
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/customer-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoices
+  - type: PostmanCollection
+    url: collections/pennylane.postman_collection.json
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/supplier-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsupplierinvoices
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/create-a-ledger-entry
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getledgerentries
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/accounting-reporting
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/exportgeneralledger
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/automating-payment-matching
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/gettransactions
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-customers
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomers
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-products
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getproducts
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/listquotes
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getbillingsubscriptions
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsepamandates
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/tracking-data-changes-with-pennylane-api
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoiceschanges
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getparegistrations
+- aid: pennylane:pennylane-categories-api
+  name: Pennylane Categories API
+  description: The Categories API from Pennylane — 2 operation(s) for categories.
+  humanURL: https://pennylane.readme.io/reference/getcustomerinvoices
+  baseURL: https://app.pennylane.com/api/external/v2
+  tags:
+  - Categories
+  properties:
+  - type: OpenAPI
+    url: openapi/pennylane-categories-api-openapi.yml
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/customer-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoices
+  - type: PostmanCollection
+    url: collections/pennylane.postman_collection.json
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/supplier-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsupplierinvoices
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/create-a-ledger-entry
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getledgerentries
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/accounting-reporting
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/exportgeneralledger
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/automating-payment-matching
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/gettransactions
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-customers
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomers
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-products
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getproducts
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/listquotes
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getbillingsubscriptions
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsepamandates
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/tracking-data-changes-with-pennylane-api
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoiceschanges
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getparegistrations
 - aid: pennylane:pennylane-change-events-api
   name: Pennylane Change Events API
+  description: The Change Events API from Pennylane — 2 operation(s) for change events.
+  humanURL: https://pennylane.readme.io/reference/getcustomerinvoices
+  baseURL: https://app.pennylane.com/api/external/v2
   tags:
   - Change Events
-  - Sync
-  - Webhooks Alternative
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://pennylane.readme.io/docs/tracking-data-changes-with-pennylane-api
-  baseURL: https://app.pennylane.com/api/external/v2
   properties:
-  - url: https://pennylane.readme.io/docs/tracking-data-changes-with-pennylane-api
-    type: Documentation
-  - url: https://pennylane.readme.io/reference/getcustomerinvoiceschanges
-    type: APIReference
-  - url: openapi/pennylane-openapi.yml
-    type: OpenAPI
-  description: Poll change-event feeds for invoices, customers, suppliers, products,
-    transactions, quotes, and ledger entry lines (last 4 weeks retained) to keep
-    integrations in sync without webhooks.
-- aid: pennylane:pennylane-einvoicing-pa-api
-  name: Pennylane E-Invoicing (Plateforme Agréée) API
+  - type: OpenAPI
+    url: openapi/pennylane-change-events-api-openapi.yml
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/customer-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoices
+  - type: PostmanCollection
+    url: collections/pennylane.postman_collection.json
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/supplier-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsupplierinvoices
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/create-a-ledger-entry
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getledgerentries
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/accounting-reporting
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/exportgeneralledger
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/automating-payment-matching
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/gettransactions
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-customers
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomers
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-products
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getproducts
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/listquotes
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getbillingsubscriptions
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsepamandates
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/tracking-data-changes-with-pennylane-api
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoiceschanges
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getparegistrations
+- aid: pennylane:pennylane-customer-invoices-api
+  name: Pennylane Customer Invoices API
+  description: The Customer Invoices API from Pennylane — 7 operation(s) for customer invoices.
+  humanURL: https://pennylane.readme.io/reference/getcustomerinvoices
+  baseURL: https://app.pennylane.com/api/external/v2
+  tags:
+  - Customer Invoices
+  properties:
+  - type: OpenAPI
+    url: openapi/pennylane-customer-invoices-api-openapi.yml
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/customer-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoices
+  - type: PostmanCollection
+    url: collections/pennylane.postman_collection.json
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/supplier-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsupplierinvoices
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/create-a-ledger-entry
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getledgerentries
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/accounting-reporting
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/exportgeneralledger
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/automating-payment-matching
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/gettransactions
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-customers
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomers
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-products
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getproducts
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/listquotes
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getbillingsubscriptions
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsepamandates
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/tracking-data-changes-with-pennylane-api
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoiceschanges
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getparegistrations
+- aid: pennylane:pennylane-customers-api
+  name: Pennylane Customers API
+  description: The Customers API from Pennylane — 4 operation(s) for customers.
+  humanURL: https://pennylane.readme.io/reference/getcustomerinvoices
+  baseURL: https://app.pennylane.com/api/external/v2
+  tags:
+  - Customers
+  properties:
+  - type: OpenAPI
+    url: openapi/pennylane-customers-api-openapi.yml
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/customer-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoices
+  - type: PostmanCollection
+    url: collections/pennylane.postman_collection.json
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/supplier-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsupplierinvoices
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/create-a-ledger-entry
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getledgerentries
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/accounting-reporting
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/exportgeneralledger
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/automating-payment-matching
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/gettransactions
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-customers
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomers
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-products
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getproducts
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/listquotes
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getbillingsubscriptions
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsepamandates
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/tracking-data-changes-with-pennylane-api
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoiceschanges
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getparegistrations
+- aid: pennylane:pennylane-e-invoicing-api
+  name: Pennylane E-Invoicing API
+  description: The E-Invoicing API from Pennylane — 1 operation(s) for e-invoicing.
+  humanURL: https://pennylane.readme.io/reference/getcustomerinvoices
+  baseURL: https://app.pennylane.com/api/external/v2
   tags:
   - E-Invoicing
-  - Factur-X
-  - Plateforme Agréée
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://pennylane.readme.io/reference/getparegistrations
-  baseURL: https://app.pennylane.com/api/external/v2
   properties:
-  - url: https://pennylane.readme.io/reference/getparegistrations
-    type: APIReference
-  - url: openapi/pennylane-openapi.yml
-    type: OpenAPI
-  description: Manage French electronic-invoicing onboarding via Plateforme Agréée (PA)
-    registrations, and send customer e-invoices to the partner dematerialization platform.
+  - type: OpenAPI
+    url: openapi/pennylane-e-invoicing-api-openapi.yml
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/customer-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoices
+  - type: PostmanCollection
+    url: collections/pennylane.postman_collection.json
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/supplier-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsupplierinvoices
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/create-a-ledger-entry
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getledgerentries
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/accounting-reporting
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/exportgeneralledger
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/automating-payment-matching
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/gettransactions
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-customers
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomers
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-products
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getproducts
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/listquotes
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getbillingsubscriptions
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsepamandates
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/tracking-data-changes-with-pennylane-api
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoiceschanges
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getparegistrations
+- aid: pennylane:pennylane-file-attachments-api
+  name: Pennylane File Attachments API
+  description: The File Attachments API from Pennylane — 1 operation(s) for file attachments.
+  humanURL: https://pennylane.readme.io/reference/getcustomerinvoices
+  baseURL: https://app.pennylane.com/api/external/v2
+  tags:
+  - File Attachments
+  properties:
+  - type: OpenAPI
+    url: openapi/pennylane-file-attachments-api-openapi.yml
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/customer-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoices
+  - type: PostmanCollection
+    url: collections/pennylane.postman_collection.json
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/supplier-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsupplierinvoices
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/create-a-ledger-entry
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getledgerentries
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/accounting-reporting
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/exportgeneralledger
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/automating-payment-matching
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/gettransactions
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-customers
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomers
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-products
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getproducts
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/listquotes
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getbillingsubscriptions
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsepamandates
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/tracking-data-changes-with-pennylane-api
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoiceschanges
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getparegistrations
+- aid: pennylane:pennylane-journals-api
+  name: Pennylane Journals API
+  description: The Journals API from Pennylane — 2 operation(s) for journals.
+  humanURL: https://pennylane.readme.io/reference/getcustomerinvoices
+  baseURL: https://app.pennylane.com/api/external/v2
+  tags:
+  - Journals
+  properties:
+  - type: OpenAPI
+    url: openapi/pennylane-journals-api-openapi.yml
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/customer-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoices
+  - type: PostmanCollection
+    url: collections/pennylane.postman_collection.json
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/supplier-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsupplierinvoices
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/create-a-ledger-entry
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getledgerentries
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/accounting-reporting
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/exportgeneralledger
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/automating-payment-matching
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/gettransactions
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-customers
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomers
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-products
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getproducts
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/listquotes
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getbillingsubscriptions
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsepamandates
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/tracking-data-changes-with-pennylane-api
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoiceschanges
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getparegistrations
+- aid: pennylane:pennylane-ledger-accounts-api
+  name: Pennylane Ledger Accounts API
+  description: The Ledger Accounts API from Pennylane — 2 operation(s) for ledger accounts.
+  humanURL: https://pennylane.readme.io/reference/getcustomerinvoices
+  baseURL: https://app.pennylane.com/api/external/v2
+  tags:
+  - Ledger Accounts
+  properties:
+  - type: OpenAPI
+    url: openapi/pennylane-ledger-accounts-api-openapi.yml
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/customer-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoices
+  - type: PostmanCollection
+    url: collections/pennylane.postman_collection.json
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/supplier-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsupplierinvoices
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/create-a-ledger-entry
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getledgerentries
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/accounting-reporting
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/exportgeneralledger
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/automating-payment-matching
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/gettransactions
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-customers
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomers
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-products
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getproducts
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/listquotes
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getbillingsubscriptions
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsepamandates
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/tracking-data-changes-with-pennylane-api
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoiceschanges
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getparegistrations
+- aid: pennylane:pennylane-ledger-entries-api
+  name: Pennylane Ledger Entries API
+  description: The Ledger Entries API from Pennylane — 4 operation(s) for ledger entries.
+  humanURL: https://pennylane.readme.io/reference/getcustomerinvoices
+  baseURL: https://app.pennylane.com/api/external/v2
+  tags:
+  - Ledger Entries
+  properties:
+  - type: OpenAPI
+    url: openapi/pennylane-ledger-entries-api-openapi.yml
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/customer-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoices
+  - type: PostmanCollection
+    url: collections/pennylane.postman_collection.json
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/supplier-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsupplierinvoices
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/create-a-ledger-entry
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getledgerentries
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/accounting-reporting
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/exportgeneralledger
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/automating-payment-matching
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/gettransactions
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-customers
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomers
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-products
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getproducts
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/listquotes
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getbillingsubscriptions
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsepamandates
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/tracking-data-changes-with-pennylane-api
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoiceschanges
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getparegistrations
+- aid: pennylane:pennylane-mandates-api
+  name: Pennylane Mandates API
+  description: The Mandates API from Pennylane — 2 operation(s) for mandates.
+  humanURL: https://pennylane.readme.io/reference/getcustomerinvoices
+  baseURL: https://app.pennylane.com/api/external/v2
+  tags:
+  - Mandates
+  properties:
+  - type: OpenAPI
+    url: openapi/pennylane-mandates-api-openapi.yml
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/customer-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoices
+  - type: PostmanCollection
+    url: collections/pennylane.postman_collection.json
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/supplier-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsupplierinvoices
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/create-a-ledger-entry
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getledgerentries
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/accounting-reporting
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/exportgeneralledger
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/automating-payment-matching
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/gettransactions
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-customers
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomers
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-products
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getproducts
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/listquotes
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getbillingsubscriptions
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsepamandates
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/tracking-data-changes-with-pennylane-api
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoiceschanges
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getparegistrations
+- aid: pennylane:pennylane-products-api
+  name: Pennylane Products API
+  description: The Products API from Pennylane — 2 operation(s) for products.
+  humanURL: https://pennylane.readme.io/reference/getcustomerinvoices
+  baseURL: https://app.pennylane.com/api/external/v2
+  tags:
+  - Products
+  properties:
+  - type: OpenAPI
+    url: openapi/pennylane-products-api-openapi.yml
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/customer-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoices
+  - type: PostmanCollection
+    url: collections/pennylane.postman_collection.json
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/supplier-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsupplierinvoices
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/create-a-ledger-entry
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getledgerentries
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/accounting-reporting
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/exportgeneralledger
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/automating-payment-matching
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/gettransactions
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-customers
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomers
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-products
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getproducts
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/listquotes
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getbillingsubscriptions
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsepamandates
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/tracking-data-changes-with-pennylane-api
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoiceschanges
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getparegistrations
+- aid: pennylane:pennylane-quotes-api
+  name: Pennylane Quotes API
+  description: The Quotes API from Pennylane — 2 operation(s) for quotes.
+  humanURL: https://pennylane.readme.io/reference/getcustomerinvoices
+  baseURL: https://app.pennylane.com/api/external/v2
+  tags:
+  - Quotes
+  properties:
+  - type: OpenAPI
+    url: openapi/pennylane-quotes-api-openapi.yml
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/customer-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoices
+  - type: PostmanCollection
+    url: collections/pennylane.postman_collection.json
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/supplier-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsupplierinvoices
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/create-a-ledger-entry
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getledgerentries
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/accounting-reporting
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/exportgeneralledger
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/automating-payment-matching
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/gettransactions
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-customers
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomers
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-products
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getproducts
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/listquotes
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getbillingsubscriptions
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsepamandates
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/tracking-data-changes-with-pennylane-api
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoiceschanges
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getparegistrations
+- aid: pennylane:pennylane-supplier-invoices-api
+  name: Pennylane Supplier Invoices API
+  description: The Supplier Invoices API from Pennylane — 4 operation(s) for supplier invoices.
+  humanURL: https://pennylane.readme.io/reference/getcustomerinvoices
+  baseURL: https://app.pennylane.com/api/external/v2
+  tags:
+  - Supplier Invoices
+  properties:
+  - type: OpenAPI
+    url: openapi/pennylane-supplier-invoices-api-openapi.yml
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/customer-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoices
+  - type: PostmanCollection
+    url: collections/pennylane.postman_collection.json
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/supplier-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsupplierinvoices
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/create-a-ledger-entry
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getledgerentries
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/accounting-reporting
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/exportgeneralledger
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/automating-payment-matching
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/gettransactions
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-customers
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomers
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-products
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getproducts
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/listquotes
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getbillingsubscriptions
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsepamandates
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/tracking-data-changes-with-pennylane-api
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoiceschanges
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getparegistrations
+- aid: pennylane:pennylane-suppliers-api
+  name: Pennylane Suppliers API
+  description: The Suppliers API from Pennylane — 2 operation(s) for suppliers.
+  humanURL: https://pennylane.readme.io/reference/getcustomerinvoices
+  baseURL: https://app.pennylane.com/api/external/v2
+  tags:
+  - Suppliers
+  properties:
+  - type: OpenAPI
+    url: openapi/pennylane-suppliers-api-openapi.yml
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/customer-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoices
+  - type: PostmanCollection
+    url: collections/pennylane.postman_collection.json
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/supplier-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsupplierinvoices
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/create-a-ledger-entry
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getledgerentries
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/accounting-reporting
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/exportgeneralledger
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/automating-payment-matching
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/gettransactions
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-customers
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomers
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-products
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getproducts
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/listquotes
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getbillingsubscriptions
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsepamandates
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/tracking-data-changes-with-pennylane-api
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoiceschanges
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getparegistrations
+- aid: pennylane:pennylane-transactions-api
+  name: Pennylane Transactions API
+  description: The Transactions API from Pennylane — 2 operation(s) for transactions.
+  humanURL: https://pennylane.readme.io/reference/getcustomerinvoices
+  baseURL: https://app.pennylane.com/api/external/v2
+  tags:
+  - Transactions
+  properties:
+  - type: OpenAPI
+    url: openapi/pennylane-transactions-api-openapi.yml
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/customer-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoices
+  - type: PostmanCollection
+    url: collections/pennylane.postman_collection.json
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/supplier-invoicing
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsupplierinvoices
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/create-a-ledger-entry
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getledgerentries
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/accounting-reporting
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/exportgeneralledger
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/automating-payment-matching
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/gettransactions
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-customers
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomers
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/filter-my-products
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getproducts
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/listquotes
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getbillingsubscriptions
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getsepamandates
+  - type: Documentation
+    url: https://pennylane.readme.io/docs/tracking-data-changes-with-pennylane-api
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getcustomerinvoiceschanges
+  - type: APIReference
+    url: https://pennylane.readme.io/reference/getparegistrations
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/pennylane/overview
 - type: AgenticAccess
   url: agentic-access/pennylane-agentic-access.yml
 - type: TrustCenter
