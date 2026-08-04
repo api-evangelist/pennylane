@@ -1,0 +1,268 @@
+{
+  "info": {
+    "_postman_id": "3cb6d060-1713-42de-87a9-876b499a568a",
+    "name": "Pennylane Company Account Quotes API",
+    "description": "Pennylane is a French financial and accounting operating system for SMEs and accounting firms. The Company API (v2) lets companies, firms, and integration partners access and sync invoicing, accounting, banking, and financial data, and automate end-to-end workflows. V2 is the stable version; V1 is deprecated.\n\nContact Support:\n Name: Pennylane API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:36:35.000Z",
+    "updatedAt": "2026-07-28T02:36:35.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3cb6d060-1713-42de-87a9-876b499a568a"
+  },
+  "item": [
+    {
+      "name": "quotes",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Retrieve a quote",
+              "id": "c4bc2e66-9159-47e1-ad8c-7ab5c8cfeba6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/quotes/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "quotes",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "7e39c01d-50e5-45a1-8f42-6ab349086680",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) Internal Pennylane resource id (v2 uses internal ids only, not source_id)."
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "0835263e-15b3-46cf-9c98-541c12fef76f",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/quotes/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "quotes",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:36:35.000Z",
+                  "updatedAt": "2026-07-28T02:36:35.000Z",
+                  "uid": "35240-0835263e-15b3-46cf-9c98-541c12fef76f"
+                }
+              ],
+              "createdAt": "2026-07-28T02:36:35.000Z",
+              "updatedAt": "2026-07-28T02:36:35.000Z",
+              "uid": "35240-c4bc2e66-9159-47e1-ad8c-7ab5c8cfeba6"
+            }
+          ],
+          "id": "1f640e03-aaaa-4e2e-8a96-8315e2a8aa7b",
+          "createdAt": "2026-07-28T02:36:35.000Z",
+          "updatedAt": "2026-07-28T02:36:35.000Z",
+          "uid": "35240-1f640e03-aaaa-4e2e-8a96-8315e2a8aa7b"
+        },
+        {
+          "name": "List quotes",
+          "id": "769d9296-7e7c-4f4a-9990-c1cf8bc517d3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/quotes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "quotes"
+              ]
+            },
+            "description": "Requires scope: quotes:readonly or quotes:all."
+          },
+          "response": [
+            {
+              "id": "9e6b8aa5-4d9d-4de5-9dd9-fe879ea484be",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/quotes",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "quotes"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:36:35.000Z",
+              "updatedAt": "2026-07-28T02:36:35.000Z",
+              "uid": "35240-9e6b8aa5-4d9d-4de5-9dd9-fe879ea484be"
+            }
+          ],
+          "createdAt": "2026-07-28T02:36:35.000Z",
+          "updatedAt": "2026-07-28T02:36:35.000Z",
+          "uid": "35240-769d9296-7e7c-4f4a-9990-c1cf8bc517d3"
+        },
+        {
+          "name": "Create a quote",
+          "id": "c4f38904-6e3b-4659-8a43-e30ad35661d3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/quotes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "quotes"
+              ]
+            },
+            "description": "Requires scope: quotes:all."
+          },
+          "response": [
+            {
+              "id": "43c9bb45-a670-416c-8cbb-3143b6ebea19",
+              "name": "Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/quotes",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "quotes"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:36:35.000Z",
+              "updatedAt": "2026-07-28T02:36:35.000Z",
+              "uid": "35240-43c9bb45-a670-416c-8cbb-3143b6ebea19"
+            }
+          ],
+          "createdAt": "2026-07-28T02:36:35.000Z",
+          "updatedAt": "2026-07-28T02:36:35.000Z",
+          "uid": "35240-c4f38904-6e3b-4659-8a43-e30ad35661d3"
+        }
+      ],
+      "id": "4d3d74da-53ba-4058-afa3-c7124b7bb530",
+      "createdAt": "2026-07-28T02:36:35.000Z",
+      "updatedAt": "2026-07-28T02:36:35.000Z",
+      "uid": "35240-4d3d74da-53ba-4058-afa3-c7124b7bb530"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.pennylane.com/api/external/v2"
+    }
+  ]
+}

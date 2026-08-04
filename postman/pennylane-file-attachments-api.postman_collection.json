@@ -1,0 +1,115 @@
+{
+  "info": {
+    "_postman_id": "2610ae0e-004e-4e16-a655-c5cd6e577767",
+    "name": "Pennylane Company Account File Attachments API",
+    "description": "Pennylane is a French financial and accounting operating system for SMEs and accounting firms. The Company API (v2) lets companies, firms, and integration partners access and sync invoicing, accounting, banking, and financial data, and automate end-to-end workflows. V2 is the stable version; V1 is deprecated.\n\nContact Support:\n Name: Pennylane API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:35:03.000Z",
+    "updatedAt": "2026-07-28T02:35:03.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2610ae0e-004e-4e16-a655-c5cd6e577767"
+  },
+  "item": [
+    {
+      "name": "file_attachments",
+      "item": [
+        {
+          "name": "Upload a file",
+          "id": "82b3ae2a-1b7a-44d5-8ad8-988b514d82f4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": {
+              "raw": "{{baseUrl}}/file_attachments",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "file_attachments"
+              ]
+            },
+            "description": "Upload a file to attach to any resource that provides a file_attachment_id. Maximum file size 100MB. Requires scope: file_attachments:all."
+          },
+          "response": [
+            {
+              "id": "5d2fda7c-1c6a-436a-ab55-6f0b899ad076",
+              "name": "Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/file_attachments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "file_attachments"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:35:03.000Z",
+              "updatedAt": "2026-07-28T02:35:03.000Z",
+              "uid": "35240-5d2fda7c-1c6a-436a-ab55-6f0b899ad076"
+            }
+          ],
+          "createdAt": "2026-07-28T02:35:03.000Z",
+          "updatedAt": "2026-07-28T02:35:03.000Z",
+          "uid": "35240-82b3ae2a-1b7a-44d5-8ad8-988b514d82f4"
+        }
+      ],
+      "id": "784008dc-dccf-4cc8-bc9e-ff303087f992",
+      "createdAt": "2026-07-28T02:35:03.000Z",
+      "updatedAt": "2026-07-28T02:35:03.000Z",
+      "uid": "35240-784008dc-dccf-4cc8-bc9e-ff303087f992"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.pennylane.com/api/external/v2"
+    }
+  ]
+}

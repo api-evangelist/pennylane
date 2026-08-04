@@ -1,0 +1,186 @@
+{
+  "info": {
+    "_postman_id": "2fb3664f-8b92-43af-89af-f48731f56138",
+    "name": "Pennylane Company Account Billing Subscriptions API",
+    "description": "Pennylane is a French financial and accounting operating system for SMEs and accounting firms. The Company API (v2) lets companies, firms, and integration partners access and sync invoicing, accounting, banking, and financial data, and automate end-to-end workflows. V2 is the stable version; V1 is deprecated.\n\nContact Support:\n Name: Pennylane API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:34:52.000Z",
+    "updatedAt": "2026-07-28T02:34:52.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2fb3664f-8b92-43af-89af-f48731f56138"
+  },
+  "item": [
+    {
+      "name": "billing_subscriptions",
+      "item": [
+        {
+          "name": "List billing subscriptions",
+          "id": "f11624e4-6efd-4f9c-bb98-4d5dda71a14b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/billing_subscriptions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "billing_subscriptions"
+              ]
+            },
+            "description": "Requires scope: billing_subscriptions:readonly or billing_subscriptions:all."
+          },
+          "response": [
+            {
+              "id": "1c07673b-79e2-4fb1-8d0a-1f248cafd5f6",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/billing_subscriptions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "billing_subscriptions"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:34:53.000Z",
+              "updatedAt": "2026-07-28T02:34:53.000Z",
+              "uid": "35240-1c07673b-79e2-4fb1-8d0a-1f248cafd5f6"
+            }
+          ],
+          "createdAt": "2026-07-28T02:34:53.000Z",
+          "updatedAt": "2026-07-28T02:34:53.000Z",
+          "uid": "35240-f11624e4-6efd-4f9c-bb98-4d5dda71a14b"
+        },
+        {
+          "name": "Create a billing subscription",
+          "id": "e812a975-9666-4618-a198-7995b9651ed1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/billing_subscriptions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "billing_subscriptions"
+              ]
+            },
+            "description": "Pennylane generates the customer invoice each month. Requires scope: billing_subscriptions:all."
+          },
+          "response": [
+            {
+              "id": "1d93a3f6-65f2-4921-90dc-2d55151bc8f4",
+              "name": "Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/billing_subscriptions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "billing_subscriptions"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:34:53.000Z",
+              "updatedAt": "2026-07-28T02:34:53.000Z",
+              "uid": "35240-1d93a3f6-65f2-4921-90dc-2d55151bc8f4"
+            }
+          ],
+          "createdAt": "2026-07-28T02:34:53.000Z",
+          "updatedAt": "2026-07-28T02:34:53.000Z",
+          "uid": "35240-e812a975-9666-4618-a198-7995b9651ed1"
+        }
+      ],
+      "id": "de311d3c-a31f-46b3-8a5d-da4dd7dc225c",
+      "createdAt": "2026-07-28T02:34:53.000Z",
+      "updatedAt": "2026-07-28T02:34:53.000Z",
+      "uid": "35240-de311d3c-a31f-46b3-8a5d-da4dd7dc225c"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.pennylane.com/api/external/v2"
+    }
+  ]
+}

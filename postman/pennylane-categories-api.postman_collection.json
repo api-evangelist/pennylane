@@ -1,0 +1,253 @@
+{
+  "info": {
+    "_postman_id": "ba2fef43-4b7c-4d35-b96f-4a2c9c21d6fc",
+    "name": "Pennylane Company Account Categories API",
+    "description": "Pennylane is a French financial and accounting operating system for SMEs and accounting firms. The Company API (v2) lets companies, firms, and integration partners access and sync invoicing, accounting, banking, and financial data, and automate end-to-end workflows. V2 is the stable version; V1 is deprecated.\n\nContact Support:\n Name: Pennylane API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:34:57.000Z",
+    "updatedAt": "2026-07-28T02:34:57.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ba2fef43-4b7c-4d35-b96f-4a2c9c21d6fc"
+  },
+  "item": [
+    {
+      "name": "categories",
+      "item": [
+        {
+          "name": "List categories",
+          "id": "072e2632-341a-4e81-b778-72f84725e7ae",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/categories",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "categories"
+              ]
+            },
+            "description": "Requires scope: categories:readonly or categories:all."
+          },
+          "response": [
+            {
+              "id": "d8615ed1-7595-44fd-8878-406c62858c98",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/categories",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "categories"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:34:58.000Z",
+              "updatedAt": "2026-07-28T02:34:58.000Z",
+              "uid": "35240-d8615ed1-7595-44fd-8878-406c62858c98"
+            }
+          ],
+          "createdAt": "2026-07-28T02:34:58.000Z",
+          "updatedAt": "2026-07-28T02:34:58.000Z",
+          "uid": "35240-072e2632-341a-4e81-b778-72f84725e7ae"
+        },
+        {
+          "name": "Create a category",
+          "id": "9d2c4ea0-9c87-4f86-a672-8b8fe84d8a72",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/categories",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "categories"
+              ]
+            },
+            "description": "Requires scope: categories:all."
+          },
+          "response": [
+            {
+              "id": "26d82147-c9bf-4b8a-9b48-8244ac412ea4",
+              "name": "Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/categories",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "categories"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:34:58.000Z",
+              "updatedAt": "2026-07-28T02:34:58.000Z",
+              "uid": "35240-26d82147-c9bf-4b8a-9b48-8244ac412ea4"
+            }
+          ],
+          "createdAt": "2026-07-28T02:34:58.000Z",
+          "updatedAt": "2026-07-28T02:34:58.000Z",
+          "uid": "35240-9d2c4ea0-9c87-4f86-a672-8b8fe84d8a72"
+        }
+      ],
+      "id": "167ce40c-b997-4e45-9b27-35bc32e41c8a",
+      "createdAt": "2026-07-28T02:34:58.000Z",
+      "updatedAt": "2026-07-28T02:34:58.000Z",
+      "uid": "35240-167ce40c-b997-4e45-9b27-35bc32e41c8a"
+    },
+    {
+      "name": "category_groups",
+      "item": [
+        {
+          "name": "List category groups",
+          "id": "85716b0e-33b2-400e-9014-9580a2c66d57",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/category_groups",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "category_groups"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d7141683-619a-44f8-ad85-0f28dec24fff",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/category_groups",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "category_groups"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:34:58.000Z",
+              "updatedAt": "2026-07-28T02:34:58.000Z",
+              "uid": "35240-d7141683-619a-44f8-ad85-0f28dec24fff"
+            }
+          ],
+          "createdAt": "2026-07-28T02:34:58.000Z",
+          "updatedAt": "2026-07-28T02:34:58.000Z",
+          "uid": "35240-85716b0e-33b2-400e-9014-9580a2c66d57"
+        }
+      ],
+      "id": "f61a965e-83b8-40fa-8890-317acfce0d30",
+      "createdAt": "2026-07-28T02:34:58.000Z",
+      "updatedAt": "2026-07-28T02:34:58.000Z",
+      "uid": "35240-f61a965e-83b8-40fa-8890-317acfce0d30"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.pennylane.com/api/external/v2"
+    }
+  ]
+}

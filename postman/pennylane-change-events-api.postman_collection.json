@@ -1,0 +1,211 @@
+{
+  "info": {
+    "_postman_id": "b3c7f866-7480-4bfc-aa93-63b0baa0ec25",
+    "name": "Pennylane Company Account Change Events API",
+    "description": "Pennylane is a French financial and accounting operating system for SMEs and accounting firms. The Company API (v2) lets companies, firms, and integration partners access and sync invoicing, accounting, banking, and financial data, and automate end-to-end workflows. V2 is the stable version; V1 is deprecated.\n\nContact Support:\n Name: Pennylane API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:34:58.000Z",
+    "updatedAt": "2026-07-28T02:34:58.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b3c7f866-7480-4bfc-aa93-63b0baa0ec25"
+  },
+  "item": [
+    {
+      "name": "customer_invoices",
+      "item": [
+        {
+          "name": "changes",
+          "item": [
+            {
+              "name": "Get customer invoice change events",
+              "id": "e1a0caaa-653e-4ea4-b609-cba2e7e76929",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/customer_invoices/changes?start_date=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "customer_invoices",
+                    "changes"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                },
+                "description": "Returns the list of changes from the provided start_date (last 4 weeks retained), ordered by processed_at ASC. Requires scope: customer_invoices:readonly or customer_invoices:all."
+              },
+              "response": [
+                {
+                  "id": "4d5aef22-759f-4eb4-8de7-c5a7b0e6a8e2",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/customer_invoices/changes?start_date=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customer_invoices",
+                        "changes"
+                      ],
+                      "query": [
+                        {
+                          "key": "start_date",
+                          "value": "<dateTime>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:34:59.000Z",
+                  "updatedAt": "2026-07-28T02:34:59.000Z",
+                  "uid": "35240-4d5aef22-759f-4eb4-8de7-c5a7b0e6a8e2"
+                }
+              ],
+              "createdAt": "2026-07-28T02:34:59.000Z",
+              "updatedAt": "2026-07-28T02:34:59.000Z",
+              "uid": "35240-e1a0caaa-653e-4ea4-b609-cba2e7e76929"
+            }
+          ],
+          "id": "2dd6a61b-c353-401c-8160-bba8bafe820c",
+          "createdAt": "2026-07-28T02:34:59.000Z",
+          "updatedAt": "2026-07-28T02:34:59.000Z",
+          "uid": "35240-2dd6a61b-c353-401c-8160-bba8bafe820c"
+        }
+      ],
+      "id": "a14b1f2a-916e-4388-84b4-4e7d519aa35d",
+      "createdAt": "2026-07-28T02:34:59.000Z",
+      "updatedAt": "2026-07-28T02:34:59.000Z",
+      "uid": "35240-a14b1f2a-916e-4388-84b4-4e7d519aa35d"
+    },
+    {
+      "name": "supplier_invoices",
+      "item": [
+        {
+          "name": "changes",
+          "item": [
+            {
+              "name": "Get supplier invoice change events",
+              "id": "2c247993-b2c7-44cd-9e55-c22a9ac0db25",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/supplier_invoices/changes?start_date=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "supplier_invoices",
+                    "changes"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "ea9a4a85-af5c-4b22-bc6a-07171c2fc275",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/supplier_invoices/changes?start_date=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "supplier_invoices",
+                        "changes"
+                      ],
+                      "query": [
+                        {
+                          "key": "start_date",
+                          "value": "<dateTime>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:34:59.000Z",
+                  "updatedAt": "2026-07-28T02:34:59.000Z",
+                  "uid": "35240-ea9a4a85-af5c-4b22-bc6a-07171c2fc275"
+                }
+              ],
+              "createdAt": "2026-07-28T02:34:59.000Z",
+              "updatedAt": "2026-07-28T02:34:59.000Z",
+              "uid": "35240-2c247993-b2c7-44cd-9e55-c22a9ac0db25"
+            }
+          ],
+          "id": "c43c979c-4d57-488a-978e-18bbc84c01d6",
+          "createdAt": "2026-07-28T02:34:59.000Z",
+          "updatedAt": "2026-07-28T02:34:59.000Z",
+          "uid": "35240-c43c979c-4d57-488a-978e-18bbc84c01d6"
+        }
+      ],
+      "id": "905d7734-77eb-482f-960b-517c639691c8",
+      "createdAt": "2026-07-28T02:34:59.000Z",
+      "updatedAt": "2026-07-28T02:34:59.000Z",
+      "uid": "35240-905d7734-77eb-482f-960b-517c639691c8"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.pennylane.com/api/external/v2"
+    }
+  ]
+}

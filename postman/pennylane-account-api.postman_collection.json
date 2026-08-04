@@ -1,0 +1,98 @@
+{
+  "info": {
+    "_postman_id": "b07d19ac-78e5-435b-abb4-4b52238ccb45",
+    "name": "Pennylane Company Account API",
+    "description": "Pennylane is a French financial and accounting operating system for SMEs and accounting firms. The Company API (v2) lets companies, firms, and integration partners access and sync invoicing, accounting, banking, and financial data, and automate end-to-end workflows. V2 is the stable version; V1 is deprecated.\n\nContact Support:\n Name: Pennylane API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:34:48.000Z",
+    "updatedAt": "2026-07-28T02:34:48.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b07d19ac-78e5-435b-abb4-4b52238ccb45"
+  },
+  "item": [
+    {
+      "name": "me",
+      "item": [
+        {
+          "name": "User profile",
+          "id": "a3aac80c-ae42-4be7-9711-545b776c3749",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/me",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "me"
+              ]
+            },
+            "description": "Returns information about the company and the user associated to the token."
+          },
+          "response": [
+            {
+              "id": "2f41e761-0071-4459-958a-f58ec8e17a14",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/me",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "me"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:34:48.000Z",
+              "updatedAt": "2026-07-28T02:34:48.000Z",
+              "uid": "35240-2f41e761-0071-4459-958a-f58ec8e17a14"
+            }
+          ],
+          "createdAt": "2026-07-28T02:34:48.000Z",
+          "updatedAt": "2026-07-28T02:34:48.000Z",
+          "uid": "35240-a3aac80c-ae42-4be7-9711-545b776c3749"
+        }
+      ],
+      "id": "e5cc0705-2949-4e54-85e5-66657150b577",
+      "createdAt": "2026-07-28T02:34:48.000Z",
+      "updatedAt": "2026-07-28T02:34:48.000Z",
+      "uid": "35240-e5cc0705-2949-4e54-85e5-66657150b577"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.pennylane.com/api/external/v2"
+    }
+  ]
+}

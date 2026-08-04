@@ -1,0 +1,374 @@
+{
+  "info": {
+    "_postman_id": "27e60dd2-e8a4-4f2a-8d90-bef5214e14f7",
+    "name": "Pennylane Company Account Customers API",
+    "description": "Pennylane is a French financial and accounting operating system for SMEs and accounting firms. The Company API (v2) lets companies, firms, and integration partners access and sync invoicing, accounting, banking, and financial data, and automate end-to-end workflows. V2 is the stable version; V1 is deprecated.\n\nContact Support:\n Name: Pennylane API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:35:00.000Z",
+    "updatedAt": "2026-07-28T02:35:01.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-27e60dd2-e8a4-4f2a-8d90-bef5214e14f7"
+  },
+  "item": [
+    {
+      "name": "customers",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Retrieve a customer",
+              "id": "f4d2adc2-eb8f-45ba-92ea-54d1abc84e66",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/customers/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "customers",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "94a53590-cbe6-4b63-8f84-17c5ac8b8023",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) Internal Pennylane resource id (v2 uses internal ids only, not source_id)."
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "cbb903e9-ddfc-4dd8-aedf-3b96e8c7f717",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/customers/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customers",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:35:01.000Z",
+                  "updatedAt": "2026-07-28T02:35:01.000Z",
+                  "uid": "35240-cbb903e9-ddfc-4dd8-aedf-3b96e8c7f717"
+                }
+              ],
+              "createdAt": "2026-07-28T02:35:01.000Z",
+              "updatedAt": "2026-07-28T02:35:01.000Z",
+              "uid": "35240-f4d2adc2-eb8f-45ba-92ea-54d1abc84e66"
+            }
+          ],
+          "id": "4bf124f5-f5eb-4474-9734-b89ec658f60e",
+          "createdAt": "2026-07-28T02:35:01.000Z",
+          "updatedAt": "2026-07-28T02:35:01.000Z",
+          "uid": "35240-4bf124f5-f5eb-4474-9734-b89ec658f60e"
+        },
+        {
+          "name": "List customers (company and individual)",
+          "id": "66dc0893-c9ed-40f7-9b6b-dbfc4225a17e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/customers",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "customers"
+              ]
+            },
+            "description": "Requires scope: customers:readonly or customers:all."
+          },
+          "response": [
+            {
+              "id": "ede1e1d1-3f8d-4a25-befd-8ad24a3fc8d3",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/customers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "customers"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:35:01.000Z",
+              "updatedAt": "2026-07-28T02:35:01.000Z",
+              "uid": "35240-ede1e1d1-3f8d-4a25-befd-8ad24a3fc8d3"
+            }
+          ],
+          "createdAt": "2026-07-28T02:35:01.000Z",
+          "updatedAt": "2026-07-28T02:35:01.000Z",
+          "uid": "35240-66dc0893-c9ed-40f7-9b6b-dbfc4225a17e"
+        }
+      ],
+      "id": "fa225270-5d1d-4db1-9f97-1db20a37c308",
+      "createdAt": "2026-07-28T02:35:01.000Z",
+      "updatedAt": "2026-07-28T02:35:01.000Z",
+      "uid": "35240-fa225270-5d1d-4db1-9f97-1db20a37c308"
+    },
+    {
+      "name": "company_customers",
+      "item": [
+        {
+          "name": "Create a company customer",
+          "id": "6dbd174b-34bb-4ed9-8f8c-c2e36ed64274",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/company_customers",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "company_customers"
+              ]
+            },
+            "description": "Requires scope: customers:all."
+          },
+          "response": [
+            {
+              "id": "5150294c-348e-4bf7-b594-2c2f2beaf401",
+              "name": "Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/company_customers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "company_customers"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:35:01.000Z",
+              "updatedAt": "2026-07-28T02:35:01.000Z",
+              "uid": "35240-5150294c-348e-4bf7-b594-2c2f2beaf401"
+            }
+          ],
+          "createdAt": "2026-07-28T02:35:01.000Z",
+          "updatedAt": "2026-07-28T02:35:01.000Z",
+          "uid": "35240-6dbd174b-34bb-4ed9-8f8c-c2e36ed64274"
+        }
+      ],
+      "id": "becf47ba-79d8-483c-9f44-5276c007120d",
+      "createdAt": "2026-07-28T02:35:01.000Z",
+      "updatedAt": "2026-07-28T02:35:01.000Z",
+      "uid": "35240-becf47ba-79d8-483c-9f44-5276c007120d"
+    },
+    {
+      "name": "individual_customers",
+      "item": [
+        {
+          "name": "Create an individual customer",
+          "id": "ecd5896b-f6a6-4dfb-819a-3710d8b2c9af",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/individual_customers",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "individual_customers"
+              ]
+            },
+            "description": "Requires scope: customers:all."
+          },
+          "response": [
+            {
+              "id": "ab76c0f1-3cce-46b5-a70a-028bdb0fdb2e",
+              "name": "Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/individual_customers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "individual_customers"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:35:01.000Z",
+              "updatedAt": "2026-07-28T02:35:01.000Z",
+              "uid": "35240-ab76c0f1-3cce-46b5-a70a-028bdb0fdb2e"
+            }
+          ],
+          "createdAt": "2026-07-28T02:35:01.000Z",
+          "updatedAt": "2026-07-28T02:35:01.000Z",
+          "uid": "35240-ecd5896b-f6a6-4dfb-819a-3710d8b2c9af"
+        }
+      ],
+      "id": "ced57cd2-3d98-4fa9-9d52-75dc88fe4bdc",
+      "createdAt": "2026-07-28T02:35:01.000Z",
+      "updatedAt": "2026-07-28T02:35:01.000Z",
+      "uid": "35240-ced57cd2-3d98-4fa9-9d52-75dc88fe4bdc"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.pennylane.com/api/external/v2"
+    }
+  ]
+}

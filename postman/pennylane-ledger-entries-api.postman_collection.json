@@ -1,0 +1,550 @@
+{
+  "info": {
+    "_postman_id": "0eabcf15-e8d7-4782-a104-d6b695b5f6c8",
+    "name": "Pennylane Company Account Ledger Entries API",
+    "description": "Pennylane is a French financial and accounting operating system for SMEs and accounting firms. The Company API (v2) lets companies, firms, and integration partners access and sync invoicing, accounting, banking, and financial data, and automate end-to-end workflows. V2 is the stable version; V1 is deprecated.\n\nContact Support:\n Name: Pennylane API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:35:21.000Z",
+    "updatedAt": "2026-07-28T02:35:21.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0eabcf15-e8d7-4782-a104-d6b695b5f6c8"
+  },
+  "item": [
+    {
+      "name": "ledger_entries",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Retrieve a ledger entry",
+              "id": "25184c4a-34c5-464c-adc4-8fa7a36401c6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/ledger_entries/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ledger_entries",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "66cf84c9-85c2-4bb7-a430-28b77558179b",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) Internal Pennylane resource id (v2 uses internal ids only, not source_id)."
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "d0b4f5f9-bdcf-4ab6-bc78-11529edcebcb",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/ledger_entries/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "ledger_entries",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:35:21.000Z",
+                  "updatedAt": "2026-07-28T02:35:21.000Z",
+                  "uid": "35240-d0b4f5f9-bdcf-4ab6-bc78-11529edcebcb"
+                }
+              ],
+              "createdAt": "2026-07-28T02:35:21.000Z",
+              "updatedAt": "2026-07-28T02:35:21.000Z",
+              "uid": "35240-25184c4a-34c5-464c-adc4-8fa7a36401c6"
+            },
+            {
+              "name": "Update a ledger entry",
+              "id": "619f6b03-e757-4a79-8897-98a9fac85ef7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ledger_entries/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ledger_entries",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "b4ecae66-91ed-4590-b04d-18c2d584fa99",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) Internal Pennylane resource id (v2 uses internal ids only, not source_id)."
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "baeb80fe-e349-44e8-821f-e7d6b3808d84",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/ledger_entries/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "ledger_entries",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:35:21.000Z",
+                  "updatedAt": "2026-07-28T02:35:21.000Z",
+                  "uid": "35240-baeb80fe-e349-44e8-821f-e7d6b3808d84"
+                }
+              ],
+              "createdAt": "2026-07-28T02:35:21.000Z",
+              "updatedAt": "2026-07-28T02:35:21.000Z",
+              "uid": "35240-619f6b03-e757-4a79-8897-98a9fac85ef7"
+            }
+          ],
+          "id": "2f2583c9-b3bc-4b79-95b1-b291dc7749fa",
+          "createdAt": "2026-07-28T02:35:21.000Z",
+          "updatedAt": "2026-07-28T02:35:21.000Z",
+          "uid": "35240-2f2583c9-b3bc-4b79-95b1-b291dc7749fa"
+        },
+        {
+          "name": "List ledger entries",
+          "id": "938cab0e-6ddd-42c3-952e-ca6a9ce12631",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ledger_entries?cursor=<string>&limit=100",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ledger_entries"
+              ],
+              "query": [
+                {
+                  "description": "Opaque cursor for cursor-based pagination.",
+                  "key": "cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Page size.",
+                  "key": "limit",
+                  "value": "100"
+                }
+              ]
+            },
+            "description": "Requires scope: ledger_entries:readonly or ledger_entries:all."
+          },
+          "response": [
+            {
+              "id": "3c43e22c-4144-4db8-8028-389c67342652",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/ledger_entries?cursor=<string>&limit=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ledger_entries"
+                  ],
+                  "query": [
+                    {
+                      "description": "Opaque cursor for cursor-based pagination.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Page size.",
+                      "key": "limit",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:35:21.000Z",
+              "updatedAt": "2026-07-28T02:35:21.000Z",
+              "uid": "35240-3c43e22c-4144-4db8-8028-389c67342652"
+            }
+          ],
+          "createdAt": "2026-07-28T02:35:21.000Z",
+          "updatedAt": "2026-07-28T02:35:21.000Z",
+          "uid": "35240-938cab0e-6ddd-42c3-952e-ca6a9ce12631"
+        },
+        {
+          "name": "Create a ledger entry",
+          "id": "952571ef-2b44-4ce1-8c4b-ce2af9d207aa",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ledger_entries",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ledger_entries"
+              ]
+            },
+            "description": "Requires scope: ledger_entries:all."
+          },
+          "response": [
+            {
+              "id": "a3d52efc-6b4e-45c6-a41c-4795567e802e",
+              "name": "Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ledger_entries",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ledger_entries"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:35:21.000Z",
+              "updatedAt": "2026-07-28T02:35:21.000Z",
+              "uid": "35240-a3d52efc-6b4e-45c6-a41c-4795567e802e"
+            }
+          ],
+          "createdAt": "2026-07-28T02:35:21.000Z",
+          "updatedAt": "2026-07-28T02:35:21.000Z",
+          "uid": "35240-952571ef-2b44-4ce1-8c4b-ce2af9d207aa"
+        }
+      ],
+      "id": "12732f25-c943-44e8-a446-a6fb016228f6",
+      "createdAt": "2026-07-28T02:35:21.000Z",
+      "updatedAt": "2026-07-28T02:35:21.000Z",
+      "uid": "35240-12732f25-c943-44e8-a446-a6fb016228f6"
+    },
+    {
+      "name": "trial_balance",
+      "item": [
+        {
+          "name": "Get the trial balance",
+          "id": "7b27dfb3-93a7-4da7-b99b-fe5eb257aefa",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/trial_balance?period_start=<date>&period_end=<date>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "trial_balance"
+              ],
+              "query": [
+                {
+                  "key": "period_start",
+                  "value": "<date>"
+                },
+                {
+                  "key": "period_end",
+                  "value": "<date>"
+                }
+              ]
+            },
+            "description": "Returns the trial balance for the given period. Requires scope: trial_balance:readonly."
+          },
+          "response": [
+            {
+              "id": "2249d326-2ad5-414f-b78f-1e02d71ae20c",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/trial_balance?period_start=<date>&period_end=<date>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "trial_balance"
+                  ],
+                  "query": [
+                    {
+                      "key": "period_start",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "period_end",
+                      "value": "<date>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:35:21.000Z",
+              "updatedAt": "2026-07-28T02:35:21.000Z",
+              "uid": "35240-2249d326-2ad5-414f-b78f-1e02d71ae20c"
+            }
+          ],
+          "createdAt": "2026-07-28T02:35:21.000Z",
+          "updatedAt": "2026-07-28T02:35:21.000Z",
+          "uid": "35240-7b27dfb3-93a7-4da7-b99b-fe5eb257aefa"
+        }
+      ],
+      "id": "ed1ba60c-5a5f-4d72-b4d7-a49f38754145",
+      "createdAt": "2026-07-28T02:35:21.000Z",
+      "updatedAt": "2026-07-28T02:35:21.000Z",
+      "uid": "35240-ed1ba60c-5a5f-4d72-b4d7-a49f38754145"
+    },
+    {
+      "name": "fiscal_years",
+      "item": [
+        {
+          "name": "List company fiscal years",
+          "id": "0d4cd334-073a-42ba-8278-2a7e91949e06",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fiscal_years",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fiscal_years"
+              ]
+            },
+            "description": "Requires scope: fiscal_years:readonly."
+          },
+          "response": [
+            {
+              "id": "29985eca-6f7c-4b8e-8776-186472ce3303",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/fiscal_years",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "fiscal_years"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:35:21.000Z",
+              "updatedAt": "2026-07-28T02:35:21.000Z",
+              "uid": "35240-29985eca-6f7c-4b8e-8776-186472ce3303"
+            }
+          ],
+          "createdAt": "2026-07-28T02:35:21.000Z",
+          "updatedAt": "2026-07-28T02:35:21.000Z",
+          "uid": "35240-0d4cd334-073a-42ba-8278-2a7e91949e06"
+        }
+      ],
+      "id": "74cdae38-38ff-4444-b6ce-6bba51786d60",
+      "createdAt": "2026-07-28T02:35:21.000Z",
+      "updatedAt": "2026-07-28T02:35:21.000Z",
+      "uid": "35240-74cdae38-38ff-4444-b6ce-6bba51786d60"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.pennylane.com/api/external/v2"
+    }
+  ]
+}

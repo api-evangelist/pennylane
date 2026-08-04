@@ -1,0 +1,370 @@
+{
+  "info": {
+    "_postman_id": "1fbe3376-3236-4901-870b-620f8014b558",
+    "name": "Pennylane Company Account Suppliers API",
+    "description": "Pennylane is a French financial and accounting operating system for SMEs and accounting firms. The Company API (v2) lets companies, firms, and integration partners access and sync invoicing, accounting, banking, and financial data, and automate end-to-end workflows. V2 is the stable version; V1 is deprecated.\n\nContact Support:\n Name: Pennylane API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:36:38.000Z",
+    "updatedAt": "2026-07-28T02:36:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1fbe3376-3236-4901-870b-620f8014b558"
+  },
+  "item": [
+    {
+      "name": "suppliers",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Retrieve a supplier",
+              "id": "96230fc8-ecd7-492b-9efa-13a6b25d1979",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/suppliers/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "suppliers",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "8b3821b7-2c38-4dcc-839c-20755080da09",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) Internal Pennylane resource id (v2 uses internal ids only, not source_id)."
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "37d333c8-5496-40ac-85ff-7c7fea7c2476",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/suppliers/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "suppliers",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:36:38.000Z",
+                  "updatedAt": "2026-07-28T02:36:38.000Z",
+                  "uid": "35240-37d333c8-5496-40ac-85ff-7c7fea7c2476"
+                }
+              ],
+              "createdAt": "2026-07-28T02:36:38.000Z",
+              "updatedAt": "2026-07-28T02:36:38.000Z",
+              "uid": "35240-96230fc8-ecd7-492b-9efa-13a6b25d1979"
+            },
+            {
+              "name": "Update a supplier",
+              "id": "63d2b86e-4580-495a-80bd-ad66a72b91d5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/suppliers/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "suppliers",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "b3d97d81-565a-4531-8747-23c2a0975ad1",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) Internal Pennylane resource id (v2 uses internal ids only, not source_id)."
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "2ccaf232-2333-4dd6-9ad3-20a604aacc65",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/suppliers/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "suppliers",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:36:38.000Z",
+                  "updatedAt": "2026-07-28T02:36:38.000Z",
+                  "uid": "35240-2ccaf232-2333-4dd6-9ad3-20a604aacc65"
+                }
+              ],
+              "createdAt": "2026-07-28T02:36:38.000Z",
+              "updatedAt": "2026-07-28T02:36:38.000Z",
+              "uid": "35240-63d2b86e-4580-495a-80bd-ad66a72b91d5"
+            }
+          ],
+          "id": "9cd6aa0b-28e8-46d8-8570-ed2ce4f459f4",
+          "createdAt": "2026-07-28T02:36:38.000Z",
+          "updatedAt": "2026-07-28T02:36:38.000Z",
+          "uid": "35240-9cd6aa0b-28e8-46d8-8570-ed2ce4f459f4"
+        },
+        {
+          "name": "List suppliers",
+          "id": "d3c2574b-edc8-4394-b478-c62ab85dc62f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/suppliers",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "suppliers"
+              ]
+            },
+            "description": "Requires scope: suppliers:readonly or suppliers:all."
+          },
+          "response": [
+            {
+              "id": "f851634d-a876-4b44-bb9a-09e452b8f6d5",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/suppliers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "suppliers"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:36:38.000Z",
+              "updatedAt": "2026-07-28T02:36:38.000Z",
+              "uid": "35240-f851634d-a876-4b44-bb9a-09e452b8f6d5"
+            }
+          ],
+          "createdAt": "2026-07-28T02:36:38.000Z",
+          "updatedAt": "2026-07-28T02:36:38.000Z",
+          "uid": "35240-d3c2574b-edc8-4394-b478-c62ab85dc62f"
+        },
+        {
+          "name": "Create a supplier",
+          "id": "9d3be575-647a-4ee7-8146-1ba37fb4199c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/suppliers",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "suppliers"
+              ]
+            },
+            "description": "Requires scope: suppliers:all."
+          },
+          "response": [
+            {
+              "id": "33ff3d7a-b3ed-4d43-a82a-1e98ba80731b",
+              "name": "Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/suppliers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "suppliers"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:36:38.000Z",
+              "updatedAt": "2026-07-28T02:36:38.000Z",
+              "uid": "35240-33ff3d7a-b3ed-4d43-a82a-1e98ba80731b"
+            }
+          ],
+          "createdAt": "2026-07-28T02:36:38.000Z",
+          "updatedAt": "2026-07-28T02:36:38.000Z",
+          "uid": "35240-9d3be575-647a-4ee7-8146-1ba37fb4199c"
+        }
+      ],
+      "id": "be11c61a-f295-4b58-80bf-31e280dbfeb9",
+      "createdAt": "2026-07-28T02:36:38.000Z",
+      "updatedAt": "2026-07-28T02:36:38.000Z",
+      "uid": "35240-be11c61a-f295-4b58-80bf-31e280dbfeb9"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.pennylane.com/api/external/v2"
+    }
+  ]
+}

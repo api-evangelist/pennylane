@@ -1,0 +1,395 @@
+{
+  "info": {
+    "_postman_id": "fc3c6e64-8397-4eb1-bb15-3268e31dc87a",
+    "name": "Pennylane Company Account Ledger Accounts API",
+    "description": "Pennylane is a French financial and accounting operating system for SMEs and accounting firms. The Company API (v2) lets companies, firms, and integration partners access and sync invoicing, accounting, banking, and financial data, and automate end-to-end workflows. V2 is the stable version; V1 is deprecated.\n\nContact Support:\n Name: Pennylane API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:35:05.000Z",
+    "updatedAt": "2026-07-28T02:35:05.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-fc3c6e64-8397-4eb1-bb15-3268e31dc87a"
+  },
+  "item": [
+    {
+      "name": "ledger_accounts",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Get a ledger account",
+              "id": "b68e12a7-3641-4b52-90d3-9eeb47ad9dcc",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/ledger_accounts/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ledger_accounts",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "c71cd184-f187-4f9b-9049-1ffde574dc03",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) Internal Pennylane resource id (v2 uses internal ids only, not source_id)."
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "cce13741-bacc-4fdf-8344-8d592fceefa1",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/ledger_accounts/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "ledger_accounts",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:35:05.000Z",
+                  "updatedAt": "2026-07-28T02:35:05.000Z",
+                  "uid": "35240-cce13741-bacc-4fdf-8344-8d592fceefa1"
+                }
+              ],
+              "createdAt": "2026-07-28T02:35:05.000Z",
+              "updatedAt": "2026-07-28T02:35:05.000Z",
+              "uid": "35240-b68e12a7-3641-4b52-90d3-9eeb47ad9dcc"
+            },
+            {
+              "name": "Update a ledger account",
+              "id": "5164cc41-83fc-44f8-9491-bb4a87576438",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ledger_accounts/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ledger_accounts",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "eb509ef7-c2b5-494a-a106-ceb0e0f86c09",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) Internal Pennylane resource id (v2 uses internal ids only, not source_id)."
+                    }
+                  ]
+                },
+                "description": "Requires scope: ledger_accounts:all."
+              },
+              "response": [
+                {
+                  "id": "c8558492-d59d-47ae-9d90-a49dfe322d8d",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/ledger_accounts/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "ledger_accounts",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:35:05.000Z",
+                  "updatedAt": "2026-07-28T02:35:05.000Z",
+                  "uid": "35240-c8558492-d59d-47ae-9d90-a49dfe322d8d"
+                }
+              ],
+              "createdAt": "2026-07-28T02:35:05.000Z",
+              "updatedAt": "2026-07-28T02:35:05.000Z",
+              "uid": "35240-5164cc41-83fc-44f8-9491-bb4a87576438"
+            }
+          ],
+          "id": "3a6727e6-e17c-42dd-8f3d-13433f0196eb",
+          "createdAt": "2026-07-28T02:35:05.000Z",
+          "updatedAt": "2026-07-28T02:35:05.000Z",
+          "uid": "35240-3a6727e6-e17c-42dd-8f3d-13433f0196eb"
+        },
+        {
+          "name": "List ledger accounts",
+          "id": "546a7dc1-e18f-4d1d-ad2c-352e8a3655e2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ledger_accounts?cursor=<string>&limit=100",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ledger_accounts"
+              ],
+              "query": [
+                {
+                  "description": "Opaque cursor for cursor-based pagination.",
+                  "key": "cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Page size.",
+                  "key": "limit",
+                  "value": "100"
+                }
+              ]
+            },
+            "description": "Requires scope: ledger_accounts:readonly or ledger_accounts:all."
+          },
+          "response": [
+            {
+              "id": "c40f1748-fbd9-433e-a311-2174e9840af6",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/ledger_accounts?cursor=<string>&limit=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ledger_accounts"
+                  ],
+                  "query": [
+                    {
+                      "description": "Opaque cursor for cursor-based pagination.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Page size.",
+                      "key": "limit",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:35:05.000Z",
+              "updatedAt": "2026-07-28T02:35:05.000Z",
+              "uid": "35240-c40f1748-fbd9-433e-a311-2174e9840af6"
+            }
+          ],
+          "createdAt": "2026-07-28T02:35:05.000Z",
+          "updatedAt": "2026-07-28T02:35:05.000Z",
+          "uid": "35240-546a7dc1-e18f-4d1d-ad2c-352e8a3655e2"
+        },
+        {
+          "name": "Create a ledger account",
+          "id": "d8852922-3aab-4801-bf2b-1a1a3cb9ae2e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ledger_accounts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ledger_accounts"
+              ]
+            },
+            "description": "Requires scope: ledger_accounts:all."
+          },
+          "response": [
+            {
+              "id": "540cf271-753e-4f55-980f-2aa8629b56c8",
+              "name": "Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ledger_accounts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ledger_accounts"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:35:05.000Z",
+              "updatedAt": "2026-07-28T02:35:05.000Z",
+              "uid": "35240-540cf271-753e-4f55-980f-2aa8629b56c8"
+            }
+          ],
+          "createdAt": "2026-07-28T02:35:05.000Z",
+          "updatedAt": "2026-07-28T02:35:05.000Z",
+          "uid": "35240-d8852922-3aab-4801-bf2b-1a1a3cb9ae2e"
+        }
+      ],
+      "id": "427d381d-5a96-4f66-b6b5-54a0a1266554",
+      "createdAt": "2026-07-28T02:35:05.000Z",
+      "updatedAt": "2026-07-28T02:35:05.000Z",
+      "uid": "35240-427d381d-5a96-4f66-b6b5-54a0a1266554"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.pennylane.com/api/external/v2"
+    }
+  ]
+}

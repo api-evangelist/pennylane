@@ -1,0 +1,370 @@
+{
+  "info": {
+    "_postman_id": "e75503b3-9b92-4dab-9a46-fa4da4ba128d",
+    "name": "Pennylane Company Account Transactions API",
+    "description": "Pennylane is a French financial and accounting operating system for SMEs and accounting firms. The Company API (v2) lets companies, firms, and integration partners access and sync invoicing, accounting, banking, and financial data, and automate end-to-end workflows. V2 is the stable version; V1 is deprecated.\n\nContact Support:\n Name: Pennylane API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:36:39.000Z",
+    "updatedAt": "2026-07-28T02:36:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e75503b3-9b92-4dab-9a46-fa4da4ba128d"
+  },
+  "item": [
+    {
+      "name": "transactions",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Retrieve a transaction",
+              "id": "878649cc-e360-45be-924c-09e5963d70c5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/transactions/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "transactions",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "8e231cfe-b499-470c-affb-81bf9319a538",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) Internal Pennylane resource id (v2 uses internal ids only, not source_id)."
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "7376b30f-c4b0-4018-81f7-f073295148ee",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/transactions/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "transactions",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:36:39.000Z",
+                  "updatedAt": "2026-07-28T02:36:39.000Z",
+                  "uid": "35240-7376b30f-c4b0-4018-81f7-f073295148ee"
+                }
+              ],
+              "createdAt": "2026-07-28T02:36:39.000Z",
+              "updatedAt": "2026-07-28T02:36:39.000Z",
+              "uid": "35240-878649cc-e360-45be-924c-09e5963d70c5"
+            },
+            {
+              "name": "Update a transaction",
+              "id": "e09fb2eb-41d0-4119-a19c-9dbe5968759d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/transactions/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "transactions",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "77bbef6a-eeec-4a03-810a-55f054add458",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) Internal Pennylane resource id (v2 uses internal ids only, not source_id)."
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "c9cb4300-8b79-4119-b68d-ee2cf1ba81dd",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/transactions/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "transactions",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:36:39.000Z",
+                  "updatedAt": "2026-07-28T02:36:39.000Z",
+                  "uid": "35240-c9cb4300-8b79-4119-b68d-ee2cf1ba81dd"
+                }
+              ],
+              "createdAt": "2026-07-28T02:36:39.000Z",
+              "updatedAt": "2026-07-28T02:36:39.000Z",
+              "uid": "35240-e09fb2eb-41d0-4119-a19c-9dbe5968759d"
+            }
+          ],
+          "id": "9d083251-3322-4ac9-9005-b0af17752993",
+          "createdAt": "2026-07-28T02:36:39.000Z",
+          "updatedAt": "2026-07-28T02:36:39.000Z",
+          "uid": "35240-9d083251-3322-4ac9-9005-b0af17752993"
+        },
+        {
+          "name": "List transactions",
+          "id": "855468ee-ae0c-430b-a2aa-699206cd709e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/transactions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "transactions"
+              ]
+            },
+            "description": "Requires scope: transactions:readonly or transactions:all."
+          },
+          "response": [
+            {
+              "id": "15172396-f748-402a-945d-71e9fe603af3",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/transactions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "transactions"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:36:39.000Z",
+              "updatedAt": "2026-07-28T02:36:39.000Z",
+              "uid": "35240-15172396-f748-402a-945d-71e9fe603af3"
+            }
+          ],
+          "createdAt": "2026-07-28T02:36:39.000Z",
+          "updatedAt": "2026-07-28T02:36:39.000Z",
+          "uid": "35240-855468ee-ae0c-430b-a2aa-699206cd709e"
+        },
+        {
+          "name": "Create a banking transaction",
+          "id": "75fc90d7-09fd-47dd-be5a-ebe4294dfb01",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/transactions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "transactions"
+              ]
+            },
+            "description": "Requires scope: transactions:all."
+          },
+          "response": [
+            {
+              "id": "62336a81-4020-4e58-949d-2856d133d4f1",
+              "name": "Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/transactions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "transactions"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:36:39.000Z",
+              "updatedAt": "2026-07-28T02:36:39.000Z",
+              "uid": "35240-62336a81-4020-4e58-949d-2856d133d4f1"
+            }
+          ],
+          "createdAt": "2026-07-28T02:36:39.000Z",
+          "updatedAt": "2026-07-28T02:36:39.000Z",
+          "uid": "35240-75fc90d7-09fd-47dd-be5a-ebe4294dfb01"
+        }
+      ],
+      "id": "79eec71e-5d5d-45c4-806c-361fb232b39a",
+      "createdAt": "2026-07-28T02:36:39.000Z",
+      "updatedAt": "2026-07-28T02:36:39.000Z",
+      "uid": "35240-79eec71e-5d5d-45c4-806c-361fb232b39a"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.pennylane.com/api/external/v2"
+    }
+  ]
+}

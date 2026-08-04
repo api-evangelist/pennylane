@@ -1,0 +1,254 @@
+{
+  "info": {
+    "_postman_id": "5402ccd1-a2a2-4f76-b9c2-cf29c0843bae",
+    "name": "Pennylane Company Account Mandates API",
+    "description": "Pennylane is a French financial and accounting operating system for SMEs and accounting firms. The Company API (v2) lets companies, firms, and integration partners access and sync invoicing, accounting, banking, and financial data, and automate end-to-end workflows. V2 is the stable version; V1 is deprecated.\n\nContact Support:\n Name: Pennylane API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:36:33.000Z",
+    "updatedAt": "2026-07-28T02:36:33.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-5402ccd1-a2a2-4f76-b9c2-cf29c0843bae"
+  },
+  "item": [
+    {
+      "name": "sepa_mandates",
+      "item": [
+        {
+          "name": "List SEPA mandates",
+          "id": "9b25f7d0-6d84-41d7-9290-f1e6e22ced44",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/sepa_mandates",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "sepa_mandates"
+              ]
+            },
+            "description": "Requires scope: customer_mandates:readonly or customer_mandates:all."
+          },
+          "response": [
+            {
+              "id": "fdfaba6d-27e6-470a-8478-63341ed58e39",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/sepa_mandates",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sepa_mandates"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:36:33.000Z",
+              "updatedAt": "2026-07-28T02:36:33.000Z",
+              "uid": "35240-fdfaba6d-27e6-470a-8478-63341ed58e39"
+            }
+          ],
+          "createdAt": "2026-07-28T02:36:33.000Z",
+          "updatedAt": "2026-07-28T02:36:33.000Z",
+          "uid": "35240-9b25f7d0-6d84-41d7-9290-f1e6e22ced44"
+        },
+        {
+          "name": "Create a SEPA mandate",
+          "id": "c65c21b4-338b-4f95-8b7a-0b7125a7de27",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/sepa_mandates",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "sepa_mandates"
+              ]
+            },
+            "description": "Create a SEPA mandate to enable direct debit payments. Requires scope: customer_mandates:all."
+          },
+          "response": [
+            {
+              "id": "a101f8fe-e053-4971-b033-acee7e9f3758",
+              "name": "Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/sepa_mandates",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sepa_mandates"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:36:33.000Z",
+              "updatedAt": "2026-07-28T02:36:33.000Z",
+              "uid": "35240-a101f8fe-e053-4971-b033-acee7e9f3758"
+            }
+          ],
+          "createdAt": "2026-07-28T02:36:33.000Z",
+          "updatedAt": "2026-07-28T02:36:33.000Z",
+          "uid": "35240-c65c21b4-338b-4f95-8b7a-0b7125a7de27"
+        }
+      ],
+      "id": "0af26801-0836-4173-82e5-6032efce9d11",
+      "createdAt": "2026-07-28T02:36:33.000Z",
+      "updatedAt": "2026-07-28T02:36:33.000Z",
+      "uid": "35240-0af26801-0836-4173-82e5-6032efce9d11"
+    },
+    {
+      "name": "gocardless_mandates",
+      "item": [
+        {
+          "name": "List GoCardless mandates",
+          "id": "d9d7549e-5e2a-49fa-943b-a9d665e9225d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/gocardless_mandates",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "gocardless_mandates"
+              ]
+            },
+            "description": "Requires scope: customer_mandates:readonly or customer_mandates:all."
+          },
+          "response": [
+            {
+              "id": "d4243259-7c81-42f2-bd1d-58ff2979c1c9",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/gocardless_mandates",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "gocardless_mandates"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:36:33.000Z",
+              "updatedAt": "2026-07-28T02:36:33.000Z",
+              "uid": "35240-d4243259-7c81-42f2-bd1d-58ff2979c1c9"
+            }
+          ],
+          "createdAt": "2026-07-28T02:36:33.000Z",
+          "updatedAt": "2026-07-28T02:36:33.000Z",
+          "uid": "35240-d9d7549e-5e2a-49fa-943b-a9d665e9225d"
+        }
+      ],
+      "id": "8cee39d2-a094-410e-8bd7-4eab0164207e",
+      "createdAt": "2026-07-28T02:36:33.000Z",
+      "updatedAt": "2026-07-28T02:36:33.000Z",
+      "uid": "35240-8cee39d2-a094-410e-8bd7-4eab0164207e"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.pennylane.com/api/external/v2"
+    }
+  ]
+}

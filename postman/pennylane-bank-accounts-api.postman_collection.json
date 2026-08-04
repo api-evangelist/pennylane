@@ -1,0 +1,268 @@
+{
+  "info": {
+    "_postman_id": "d05d6858-a42a-4998-9fe9-233649e09224",
+    "name": "Pennylane Company Account Bank Accounts API",
+    "description": "Pennylane is a French financial and accounting operating system for SMEs and accounting firms. The Company API (v2) lets companies, firms, and integration partners access and sync invoicing, accounting, banking, and financial data, and automate end-to-end workflows. V2 is the stable version; V1 is deprecated.\n\nContact Support:\n Name: Pennylane API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:34:51.000Z",
+    "updatedAt": "2026-07-28T02:34:51.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d05d6858-a42a-4998-9fe9-233649e09224"
+  },
+  "item": [
+    {
+      "name": "bank_accounts",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Retrieve a bank account",
+              "id": "662ea32c-d439-4a16-ab49-9ef7f266f0e0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/bank_accounts/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "bank_accounts",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "6be38df4-5b48-4db1-8066-9a5744713f84",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) Internal Pennylane resource id (v2 uses internal ids only, not source_id)."
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "d6bd643c-d6f3-4ffc-a7f8-0678ebd85001",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/bank_accounts/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "bank_accounts",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:34:51.000Z",
+                  "updatedAt": "2026-07-28T02:34:51.000Z",
+                  "uid": "35240-d6bd643c-d6f3-4ffc-a7f8-0678ebd85001"
+                }
+              ],
+              "createdAt": "2026-07-28T02:34:51.000Z",
+              "updatedAt": "2026-07-28T02:34:51.000Z",
+              "uid": "35240-662ea32c-d439-4a16-ab49-9ef7f266f0e0"
+            }
+          ],
+          "id": "cd836480-9f92-435f-9098-1a818d31e0b0",
+          "createdAt": "2026-07-28T02:34:51.000Z",
+          "updatedAt": "2026-07-28T02:34:51.000Z",
+          "uid": "35240-cd836480-9f92-435f-9098-1a818d31e0b0"
+        },
+        {
+          "name": "List bank accounts",
+          "id": "751537f9-2e67-4c9d-83f6-0b6cd1ade973",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/bank_accounts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "bank_accounts"
+              ]
+            },
+            "description": "Requires scope: bank_accounts:readonly or bank_accounts:all."
+          },
+          "response": [
+            {
+              "id": "0c989ed2-ad33-484c-91d6-409d96d2fde4",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/bank_accounts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "bank_accounts"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:34:51.000Z",
+              "updatedAt": "2026-07-28T02:34:51.000Z",
+              "uid": "35240-0c989ed2-ad33-484c-91d6-409d96d2fde4"
+            }
+          ],
+          "createdAt": "2026-07-28T02:34:51.000Z",
+          "updatedAt": "2026-07-28T02:34:51.000Z",
+          "uid": "35240-751537f9-2e67-4c9d-83f6-0b6cd1ade973"
+        },
+        {
+          "name": "Create a bank account",
+          "id": "1025cb03-5b27-4d72-940e-ac2f925e65e4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/bank_accounts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "bank_accounts"
+              ]
+            },
+            "description": "Requires scope: bank_accounts:all."
+          },
+          "response": [
+            {
+              "id": "ea3ef871-9c2e-4160-927e-d6c6453c0de8",
+              "name": "Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/bank_accounts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "bank_accounts"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:34:51.000Z",
+              "updatedAt": "2026-07-28T02:34:51.000Z",
+              "uid": "35240-ea3ef871-9c2e-4160-927e-d6c6453c0de8"
+            }
+          ],
+          "createdAt": "2026-07-28T02:34:51.000Z",
+          "updatedAt": "2026-07-28T02:34:51.000Z",
+          "uid": "35240-1025cb03-5b27-4d72-940e-ac2f925e65e4"
+        }
+      ],
+      "id": "6c09a7d7-c55c-40ae-b3a8-8a479cda480b",
+      "createdAt": "2026-07-28T02:34:51.000Z",
+      "updatedAt": "2026-07-28T02:34:51.000Z",
+      "uid": "35240-6c09a7d7-c55c-40ae-b3a8-8a479cda480b"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.pennylane.com/api/external/v2"
+    }
+  ]
+}

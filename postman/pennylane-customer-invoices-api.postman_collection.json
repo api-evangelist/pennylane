@@ -1,0 +1,1072 @@
+{
+  "info": {
+    "_postman_id": "17f073e4-6746-4930-8a44-c57620842fd0",
+    "name": "Pennylane Company Account Customer Invoices API",
+    "description": "Pennylane is a French financial and accounting operating system for SMEs and accounting firms. The Company API (v2) lets companies, firms, and integration partners access and sync invoicing, accounting, banking, and financial data, and automate end-to-end workflows. V2 is the stable version; V1 is deprecated.\n\nContact Support:\n Name: Pennylane API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:34:59.000Z",
+    "updatedAt": "2026-07-28T02:34:59.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-17f073e4-6746-4930-8a44-c57620842fd0"
+  },
+  "item": [
+    {
+      "name": "customer_invoices",
+      "item": [
+        {
+          "name": "import",
+          "item": [
+            {
+              "name": "Import an invoice with file attached",
+              "id": "e3229501-ffe8-44f7-89fd-3358f32a290c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/customer_invoices/import",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "customer_invoices",
+                    "import"
+                  ]
+                },
+                "description": "Import a customer invoice with a file attached. Requires scope: customer_invoices:all."
+              },
+              "response": [
+                {
+                  "id": "a720a960-f6cf-4923-9ad5-7efc1e67f31e",
+                  "name": "Created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": []
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/customer_invoices/import",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customer_invoices",
+                        "import"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:35:00.000Z",
+                  "updatedAt": "2026-07-28T02:35:00.000Z",
+                  "uid": "35240-a720a960-f6cf-4923-9ad5-7efc1e67f31e"
+                }
+              ],
+              "createdAt": "2026-07-28T02:35:00.000Z",
+              "updatedAt": "2026-07-28T02:35:00.000Z",
+              "uid": "35240-e3229501-ffe8-44f7-89fd-3358f32a290c"
+            }
+          ],
+          "id": "c2e40132-581a-49bb-9a09-110d4ab9a6b8",
+          "createdAt": "2026-07-28T02:35:00.000Z",
+          "updatedAt": "2026-07-28T02:35:00.000Z",
+          "uid": "35240-c2e40132-581a-49bb-9a09-110d4ab9a6b8"
+        },
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "finalize",
+              "item": [
+                {
+                  "name": "Finalize a draft customer invoice",
+                  "id": "b245d375-09f1-4f4c-8c18-532e29d77b1a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/customer_invoices/:id/finalize",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customer_invoices",
+                        ":id",
+                        "finalize"
+                      ],
+                      "variable": [
+                        {
+                          "id": "29377ac8-22b2-4cec-bfd3-0f72c2f0955c",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) Internal Pennylane resource id (v2 uses internal ids only, not source_id)."
+                        }
+                      ]
+                    },
+                    "description": "Convert a draft invoice or credit note into a finalized one; once finalized it can no longer be edited."
+                  },
+                  "response": [
+                    {
+                      "id": "29c8b05e-c91f-4ac1-8f5d-c8e30932ffac",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/customer_invoices/:id/finalize",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "customer_invoices",
+                            ":id",
+                            "finalize"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:35:00.000Z",
+                      "updatedAt": "2026-07-28T02:35:00.000Z",
+                      "uid": "35240-29c8b05e-c91f-4ac1-8f5d-c8e30932ffac"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:35:00.000Z",
+                  "updatedAt": "2026-07-28T02:35:00.000Z",
+                  "uid": "35240-b245d375-09f1-4f4c-8c18-532e29d77b1a"
+                }
+              ],
+              "id": "74a8ecd6-1d60-48dc-8a58-eec89ca9b2cc",
+              "createdAt": "2026-07-28T02:35:00.000Z",
+              "updatedAt": "2026-07-28T02:35:00.000Z",
+              "uid": "35240-74a8ecd6-1d60-48dc-8a58-eec89ca9b2cc"
+            },
+            {
+              "name": "mark_as_paid",
+              "item": [
+                {
+                  "name": "Mark a customer invoice as paid",
+                  "id": "56797887-e8c6-424f-948f-eb0b62bfb727",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/customer_invoices/:id/mark_as_paid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customer_invoices",
+                        ":id",
+                        "mark_as_paid"
+                      ],
+                      "variable": [
+                        {
+                          "id": "2ca31b3a-850f-4260-ad52-cd23a47b14e2",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) Internal Pennylane resource id (v2 uses internal ids only, not source_id)."
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "7b357693-aed9-4c41-ac52-a420d0d5b274",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/customer_invoices/:id/mark_as_paid",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "customer_invoices",
+                            ":id",
+                            "mark_as_paid"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:35:00.000Z",
+                      "updatedAt": "2026-07-28T02:35:00.000Z",
+                      "uid": "35240-7b357693-aed9-4c41-ac52-a420d0d5b274"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:35:00.000Z",
+                  "updatedAt": "2026-07-28T02:35:00.000Z",
+                  "uid": "35240-56797887-e8c6-424f-948f-eb0b62bfb727"
+                }
+              ],
+              "id": "1c4666db-5b63-42d4-913d-4793acca35f1",
+              "createdAt": "2026-07-28T02:35:00.000Z",
+              "updatedAt": "2026-07-28T02:35:00.000Z",
+              "uid": "35240-1c4666db-5b63-42d4-913d-4793acca35f1"
+            },
+            {
+              "name": "send_by_email",
+              "item": [
+                {
+                  "name": "Send a customer invoice by email",
+                  "id": "7955ac55-5019-4e27-a879-99eba921d07c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/customer_invoices/:id/send_by_email",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customer_invoices",
+                        ":id",
+                        "send_by_email"
+                      ],
+                      "variable": [
+                        {
+                          "id": "ebb8a9eb-7bf2-4ab4-a9c0-b5386441ab0d",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) Internal Pennylane resource id (v2 uses internal ids only, not source_id)."
+                        }
+                      ]
+                    },
+                    "description": "Sends a finalized, imported customer invoice or credit note by email. May return 409 if the PDF is not yet generated; retry shortly."
+                  },
+                  "response": [
+                    {
+                      "id": "8ffeb1b9-e888-49ae-9cce-66822fc00a3b",
+                      "name": "Email queued",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/customer_invoices/:id/send_by_email",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "customer_invoices",
+                            ":id",
+                            "send_by_email"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:35:00.000Z",
+                      "updatedAt": "2026-07-28T02:35:00.000Z",
+                      "uid": "35240-8ffeb1b9-e888-49ae-9cce-66822fc00a3b"
+                    },
+                    {
+                      "id": "30bb4c5a-b9a7-4b7a-a850-39da3cf5e36c",
+                      "name": "Conflict (e.g. PDF not yet generated)",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/customer_invoices/:id/send_by_email",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "customer_invoices",
+                            ":id",
+                            "send_by_email"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Conflict",
+                      "code": 409,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": {}\n}",
+                      "createdAt": "2026-07-28T02:35:00.000Z",
+                      "updatedAt": "2026-07-28T02:35:00.000Z",
+                      "uid": "35240-30bb4c5a-b9a7-4b7a-a850-39da3cf5e36c"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:35:00.000Z",
+                  "updatedAt": "2026-07-28T02:35:00.000Z",
+                  "uid": "35240-7955ac55-5019-4e27-a879-99eba921d07c"
+                }
+              ],
+              "id": "bbc876a9-cd0f-4c82-bdaf-a2c3bbc78b86",
+              "createdAt": "2026-07-28T02:35:00.000Z",
+              "updatedAt": "2026-07-28T02:35:00.000Z",
+              "uid": "35240-bbc876a9-cd0f-4c82-bdaf-a2c3bbc78b86"
+            },
+            {
+              "name": "matched_transactions",
+              "item": [
+                {
+                  "name": "Match a transaction to a customer invoice",
+                  "id": "1d877f5a-ecdd-4a49-b399-093332b8fedc",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/customer_invoices/:id/matched_transactions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customer_invoices",
+                        ":id",
+                        "matched_transactions"
+                      ],
+                      "variable": [
+                        {
+                          "id": "57f1b9fb-33d4-4277-9c13-94675f009bd4",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) Internal Pennylane resource id (v2 uses internal ids only, not source_id)."
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "f8b40eaf-0b99-4bf8-b68d-ef50d5676e60",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/customer_invoices/:id/matched_transactions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "customer_invoices",
+                            ":id",
+                            "matched_transactions"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:35:00.000Z",
+                      "updatedAt": "2026-07-28T02:35:00.000Z",
+                      "uid": "35240-f8b40eaf-0b99-4bf8-b68d-ef50d5676e60"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:35:00.000Z",
+                  "updatedAt": "2026-07-28T02:35:00.000Z",
+                  "uid": "35240-1d877f5a-ecdd-4a49-b399-093332b8fedc"
+                }
+              ],
+              "id": "a995c9c5-d0c0-4208-9f27-f9d157375036",
+              "createdAt": "2026-07-28T02:35:00.000Z",
+              "updatedAt": "2026-07-28T02:35:00.000Z",
+              "uid": "35240-a995c9c5-d0c0-4208-9f27-f9d157375036"
+            },
+            {
+              "name": "Retrieve a customer invoice",
+              "id": "2e026ff5-a32d-4a59-b8ef-6cc2cac3e3ab",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/customer_invoices/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "customer_invoices",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "a0f7d19c-c57b-4260-a7c6-d546f2711290",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) Internal Pennylane resource id (v2 uses internal ids only, not source_id)."
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "ac558d3f-8cf3-4c5b-a235-f848a083d681",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/customer_invoices/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customer_invoices",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:35:00.000Z",
+                  "updatedAt": "2026-07-28T02:35:00.000Z",
+                  "uid": "35240-ac558d3f-8cf3-4c5b-a235-f848a083d681"
+                }
+              ],
+              "createdAt": "2026-07-28T02:35:00.000Z",
+              "updatedAt": "2026-07-28T02:35:00.000Z",
+              "uid": "35240-2e026ff5-a32d-4a59-b8ef-6cc2cac3e3ab"
+            },
+            {
+              "name": "Update a customer invoice",
+              "id": "3acba67c-7a97-49da-910b-1ab3302ad3d1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/customer_invoices/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "customer_invoices",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "5b37ccb5-29c9-482b-8c33-1579e7ce6aa1",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) Internal Pennylane resource id (v2 uses internal ids only, not source_id)."
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "3052200b-3865-4e23-aa7d-4e9b24861f58",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/customer_invoices/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customer_invoices",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:35:00.000Z",
+                  "updatedAt": "2026-07-28T02:35:00.000Z",
+                  "uid": "35240-3052200b-3865-4e23-aa7d-4e9b24861f58"
+                }
+              ],
+              "createdAt": "2026-07-28T02:35:00.000Z",
+              "updatedAt": "2026-07-28T02:35:00.000Z",
+              "uid": "35240-3acba67c-7a97-49da-910b-1ab3302ad3d1"
+            }
+          ],
+          "id": "876eb04f-bc07-4274-b791-a274b6c4b172",
+          "createdAt": "2026-07-28T02:35:00.000Z",
+          "updatedAt": "2026-07-28T02:35:00.000Z",
+          "uid": "35240-876eb04f-bc07-4274-b791-a274b6c4b172"
+        },
+        {
+          "name": "List customer invoices",
+          "id": "67677a7c-4a28-432d-a9de-32d56d80f1a3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/customer_invoices?cursor=<string>&limit=100&filter=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "customer_invoices"
+              ],
+              "query": [
+                {
+                  "description": "Opaque cursor for cursor-based pagination.",
+                  "key": "cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Page size.",
+                  "key": "limit",
+                  "value": "100"
+                },
+                {
+                  "description": "JSON filter expression applied on listing endpoints.",
+                  "key": "filter",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "List customer invoices and credit notes. Requires scope: customer_invoices:readonly or customer_invoices:all."
+          },
+          "response": [
+            {
+              "id": "69ce9180-1359-4328-89d6-ce189958b0e2",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/customer_invoices?cursor=<string>&limit=100&filter=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "customer_invoices"
+                  ],
+                  "query": [
+                    {
+                      "description": "Opaque cursor for cursor-based pagination.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Page size.",
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "description": "JSON filter expression applied on listing endpoints.",
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:35:00.000Z",
+              "updatedAt": "2026-07-28T02:35:00.000Z",
+              "uid": "35240-69ce9180-1359-4328-89d6-ce189958b0e2"
+            },
+            {
+              "id": "21e2ea3a-3d88-4af8-aca6-5779c188fbee",
+              "name": "Rate limit exceeded (25 requests per 5 seconds per token). Includes retry-after, ratelimit-limit, ratelimit-remaining, and ratelimit-reset headers.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/customer_invoices?cursor=<string>&limit=100&filter=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "customer_invoices"
+                  ],
+                  "query": [
+                    {
+                      "description": "Opaque cursor for cursor-based pagination.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Page size.",
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "description": "JSON filter expression applied on listing endpoints.",
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "retry-after",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "ratelimit-limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "ratelimit-remaining",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "ratelimit-reset",
+                  "value": "<integer>"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": {}\n}",
+              "createdAt": "2026-07-28T02:35:00.000Z",
+              "updatedAt": "2026-07-28T02:35:00.000Z",
+              "uid": "35240-21e2ea3a-3d88-4af8-aca6-5779c188fbee"
+            }
+          ],
+          "createdAt": "2026-07-28T02:35:00.000Z",
+          "updatedAt": "2026-07-28T02:35:00.000Z",
+          "uid": "35240-67677a7c-4a28-432d-a9de-32d56d80f1a3"
+        },
+        {
+          "name": "Create a customer invoice",
+          "id": "4390989b-8d67-43e0-a993-8cac293ed0e6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/customer_invoices",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "customer_invoices"
+              ]
+            },
+            "description": "Create a draft or finalized customer invoice or credit note. Requires scope: customer_invoices:all."
+          },
+          "response": [
+            {
+              "id": "396395f7-7117-4c3e-8961-f993f3c08a40",
+              "name": "Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/customer_invoices",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "customer_invoices"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:35:00.000Z",
+              "updatedAt": "2026-07-28T02:35:00.000Z",
+              "uid": "35240-396395f7-7117-4c3e-8961-f993f3c08a40"
+            },
+            {
+              "id": "ae033bd0-ed93-4d36-b911-77fbc758f0c8",
+              "name": "Validation error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/customer_invoices",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "customer_invoices"
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": {}\n}",
+              "createdAt": "2026-07-28T02:35:00.000Z",
+              "updatedAt": "2026-07-28T02:35:00.000Z",
+              "uid": "35240-ae033bd0-ed93-4d36-b911-77fbc758f0c8"
+            }
+          ],
+          "createdAt": "2026-07-28T02:35:00.000Z",
+          "updatedAt": "2026-07-28T02:35:00.000Z",
+          "uid": "35240-4390989b-8d67-43e0-a993-8cac293ed0e6"
+        }
+      ],
+      "id": "7966bd71-f606-4b16-aaf2-a14cb6e36a85",
+      "createdAt": "2026-07-28T02:35:00.000Z",
+      "updatedAt": "2026-07-28T02:35:00.000Z",
+      "uid": "35240-7966bd71-f606-4b16-aaf2-a14cb6e36a85"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.pennylane.com/api/external/v2"
+    }
+  ]
+}

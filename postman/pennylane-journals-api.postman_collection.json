@@ -1,0 +1,440 @@
+{
+  "info": {
+    "_postman_id": "b9970cf4-ffec-47e3-9465-a162186a62f3",
+    "name": "Pennylane Company Account Journals API",
+    "description": "Pennylane is a French financial and accounting operating system for SMEs and accounting firms. The Company API (v2) lets companies, firms, and integration partners access and sync invoicing, accounting, banking, and financial data, and automate end-to-end workflows. V2 is the stable version; V1 is deprecated.\n\nContact Support:\n Name: Pennylane API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:35:04.000Z",
+    "updatedAt": "2026-07-28T02:35:04.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b9970cf4-ffec-47e3-9465-a162186a62f3"
+  },
+  "item": [
+    {
+      "name": "journals",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Retrieve a journal",
+              "id": "7cd5c501-2dee-49a8-b72e-7b4f4a11bc8c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/journals/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "journals",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "fe97fbf4-a5c5-4328-a2b3-ac0bd15f5bc4",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) Internal Pennylane resource id (v2 uses internal ids only, not source_id)."
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "4c20ea2b-6bb1-4351-b855-c8929660d036",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/journals/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "journals",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:35:04.000Z",
+                  "updatedAt": "2026-07-28T02:35:04.000Z",
+                  "uid": "35240-4c20ea2b-6bb1-4351-b855-c8929660d036"
+                },
+                {
+                  "id": "c494a2d0-3477-4ab8-82cf-d5114160e080",
+                  "name": "Resource not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/journals/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "journals",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": {}\n}",
+                  "createdAt": "2026-07-28T02:35:04.000Z",
+                  "updatedAt": "2026-07-28T02:35:04.000Z",
+                  "uid": "35240-c494a2d0-3477-4ab8-82cf-d5114160e080"
+                }
+              ],
+              "createdAt": "2026-07-28T02:35:04.000Z",
+              "updatedAt": "2026-07-28T02:35:04.000Z",
+              "uid": "35240-7cd5c501-2dee-49a8-b72e-7b4f4a11bc8c"
+            }
+          ],
+          "id": "fcaf6701-10ec-4f19-8457-43cd21e82a84",
+          "createdAt": "2026-07-28T02:35:04.000Z",
+          "updatedAt": "2026-07-28T02:35:04.000Z",
+          "uid": "35240-fcaf6701-10ec-4f19-8457-43cd21e82a84"
+        },
+        {
+          "name": "List journals",
+          "id": "ee74b0a9-8c70-4c03-bfd6-0bbc04f4799f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/journals?cursor=<string>&limit=100",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "journals"
+              ],
+              "query": [
+                {
+                  "description": "Opaque cursor for cursor-based pagination.",
+                  "key": "cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Page size.",
+                  "key": "limit",
+                  "value": "100"
+                }
+              ]
+            },
+            "description": "List journals. Requires scope: journals:readonly or journals:all."
+          },
+          "response": [
+            {
+              "id": "cffe0d43-0b3f-4eed-965f-582df7e91459",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/journals?cursor=<string>&limit=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "journals"
+                  ],
+                  "query": [
+                    {
+                      "description": "Opaque cursor for cursor-based pagination.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Page size.",
+                      "key": "limit",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:35:04.000Z",
+              "updatedAt": "2026-07-28T02:35:04.000Z",
+              "uid": "35240-cffe0d43-0b3f-4eed-965f-582df7e91459"
+            },
+            {
+              "id": "2c58b92a-455e-4bf9-8229-90d1bba33a47",
+              "name": "Rate limit exceeded (25 requests per 5 seconds per token). Includes retry-after, ratelimit-limit, ratelimit-remaining, and ratelimit-reset headers.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/journals?cursor=<string>&limit=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "journals"
+                  ],
+                  "query": [
+                    {
+                      "description": "Opaque cursor for cursor-based pagination.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Page size.",
+                      "key": "limit",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "retry-after",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "ratelimit-limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "ratelimit-remaining",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "ratelimit-reset",
+                  "value": "<integer>"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": {}\n}",
+              "createdAt": "2026-07-28T02:35:04.000Z",
+              "updatedAt": "2026-07-28T02:35:04.000Z",
+              "uid": "35240-2c58b92a-455e-4bf9-8229-90d1bba33a47"
+            }
+          ],
+          "createdAt": "2026-07-28T02:35:04.000Z",
+          "updatedAt": "2026-07-28T02:35:04.000Z",
+          "uid": "35240-ee74b0a9-8c70-4c03-bfd6-0bbc04f4799f"
+        },
+        {
+          "name": "Create a journal",
+          "id": "c54135bd-d0de-4b22-aa90-ee1e4f9e53f6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/journals",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "journals"
+              ]
+            },
+            "description": "Create a journal. Requires scope: journals:all."
+          },
+          "response": [
+            {
+              "id": "bdce99e8-ba05-4933-af58-7edcea4c6bc9",
+              "name": "Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/journals",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "journals"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:35:04.000Z",
+              "updatedAt": "2026-07-28T02:35:04.000Z",
+              "uid": "35240-bdce99e8-ba05-4933-af58-7edcea4c6bc9"
+            }
+          ],
+          "createdAt": "2026-07-28T02:35:04.000Z",
+          "updatedAt": "2026-07-28T02:35:04.000Z",
+          "uid": "35240-c54135bd-d0de-4b22-aa90-ee1e4f9e53f6"
+        }
+      ],
+      "id": "9bb66b55-286c-4eac-811c-ed0b9397ef36",
+      "createdAt": "2026-07-28T02:35:04.000Z",
+      "updatedAt": "2026-07-28T02:35:04.000Z",
+      "uid": "35240-9bb66b55-286c-4eac-811c-ed0b9397ef36"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.pennylane.com/api/external/v2"
+    }
+  ]
+}

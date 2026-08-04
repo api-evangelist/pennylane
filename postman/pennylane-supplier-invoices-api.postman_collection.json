@@ -1,0 +1,488 @@
+{
+  "info": {
+    "_postman_id": "21d759f7-9e19-4ec2-9238-d83bd24d6759",
+    "name": "Pennylane Company Account Supplier Invoices API",
+    "description": "Pennylane is a French financial and accounting operating system for SMEs and accounting firms. The Company API (v2) lets companies, firms, and integration partners access and sync invoicing, accounting, banking, and financial data, and automate end-to-end workflows. V2 is the stable version; V1 is deprecated.\n\nContact Support:\n Name: Pennylane API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:36:36.000Z",
+    "updatedAt": "2026-07-28T02:36:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-21d759f7-9e19-4ec2-9238-d83bd24d6759"
+  },
+  "item": [
+    {
+      "name": "supplier_invoices",
+      "item": [
+        {
+          "name": "import",
+          "item": [
+            {
+              "name": "Import a supplier invoice with a file attached",
+              "id": "151a760a-9e8b-4f63-ba35-8aa02d768e62",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/supplier_invoices/import",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "supplier_invoices",
+                    "import"
+                  ]
+                },
+                "description": "Requires scope: supplier_invoices:all."
+              },
+              "response": [
+                {
+                  "id": "3d3d18d9-63b8-4b44-8c3c-4f500a1dce0a",
+                  "name": "Created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": []
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/supplier_invoices/import",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "supplier_invoices",
+                        "import"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:36:36.000Z",
+                  "updatedAt": "2026-07-28T02:36:36.000Z",
+                  "uid": "35240-3d3d18d9-63b8-4b44-8c3c-4f500a1dce0a"
+                }
+              ],
+              "createdAt": "2026-07-28T02:36:36.000Z",
+              "updatedAt": "2026-07-28T02:36:36.000Z",
+              "uid": "35240-151a760a-9e8b-4f63-ba35-8aa02d768e62"
+            }
+          ],
+          "id": "b835e657-d5cb-427d-9d42-406d466a65d8",
+          "createdAt": "2026-07-28T02:36:36.000Z",
+          "updatedAt": "2026-07-28T02:36:36.000Z",
+          "uid": "35240-b835e657-d5cb-427d-9d42-406d466a65d8"
+        },
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "validate_accounting",
+              "item": [
+                {
+                  "name": "Validate the accounting of a supplier invoice",
+                  "id": "29d22007-256c-45a7-aaff-26a307a6c2dc",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/supplier_invoices/:id/validate_accounting",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "supplier_invoices",
+                        ":id",
+                        "validate_accounting"
+                      ],
+                      "variable": [
+                        {
+                          "id": "e572883b-75e8-4611-bc43-0aec7d802f3d",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) Internal Pennylane resource id (v2 uses internal ids only, not source_id)."
+                        }
+                      ]
+                    },
+                    "description": "Turn the supplier invoice into a Complete state."
+                  },
+                  "response": [
+                    {
+                      "id": "f71e72c3-986e-4b9a-a9dd-5bba4ac679d3",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/supplier_invoices/:id/validate_accounting",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "supplier_invoices",
+                            ":id",
+                            "validate_accounting"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:36:36.000Z",
+                      "updatedAt": "2026-07-28T02:36:36.000Z",
+                      "uid": "35240-f71e72c3-986e-4b9a-a9dd-5bba4ac679d3"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:36:36.000Z",
+                  "updatedAt": "2026-07-28T02:36:36.000Z",
+                  "uid": "35240-29d22007-256c-45a7-aaff-26a307a6c2dc"
+                }
+              ],
+              "id": "96bf193d-249b-4f85-86cf-38efbaca0103",
+              "createdAt": "2026-07-28T02:36:36.000Z",
+              "updatedAt": "2026-07-28T02:36:36.000Z",
+              "uid": "35240-96bf193d-249b-4f85-86cf-38efbaca0103"
+            },
+            {
+              "name": "Retrieve a supplier invoice",
+              "id": "5f5ed78e-18f3-46ba-901f-83cac3e5ce8e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/supplier_invoices/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "supplier_invoices",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "888f0456-c181-4914-901f-438c44dae70a",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) Internal Pennylane resource id (v2 uses internal ids only, not source_id)."
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "5a08449b-d811-4a9e-91e8-5065d5b7c720",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/supplier_invoices/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "supplier_invoices",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:36:36.000Z",
+                  "updatedAt": "2026-07-28T02:36:36.000Z",
+                  "uid": "35240-5a08449b-d811-4a9e-91e8-5065d5b7c720"
+                }
+              ],
+              "createdAt": "2026-07-28T02:36:36.000Z",
+              "updatedAt": "2026-07-28T02:36:36.000Z",
+              "uid": "35240-5f5ed78e-18f3-46ba-901f-83cac3e5ce8e"
+            },
+            {
+              "name": "Update a supplier invoice",
+              "id": "7f3b5c86-1e7c-4100-8689-bca26af7771d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/supplier_invoices/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "supplier_invoices",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "de33a97e-0114-487d-9ad9-a37b7669da5a",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) Internal Pennylane resource id (v2 uses internal ids only, not source_id)."
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "bc326a3f-cca5-4f20-b2ee-6708af8f3ba6",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/supplier_invoices/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "supplier_invoices",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:36:36.000Z",
+                  "updatedAt": "2026-07-28T02:36:36.000Z",
+                  "uid": "35240-bc326a3f-cca5-4f20-b2ee-6708af8f3ba6"
+                }
+              ],
+              "createdAt": "2026-07-28T02:36:36.000Z",
+              "updatedAt": "2026-07-28T02:36:36.000Z",
+              "uid": "35240-7f3b5c86-1e7c-4100-8689-bca26af7771d"
+            }
+          ],
+          "id": "ddf542b7-ceff-47af-944f-a153563330bb",
+          "createdAt": "2026-07-28T02:36:36.000Z",
+          "updatedAt": "2026-07-28T02:36:36.000Z",
+          "uid": "35240-ddf542b7-ceff-47af-944f-a153563330bb"
+        },
+        {
+          "name": "List supplier invoices",
+          "id": "364e51c4-3cae-476b-a920-e3471ac022f8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/supplier_invoices?cursor=<string>&limit=100&filter=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "supplier_invoices"
+              ],
+              "query": [
+                {
+                  "description": "Opaque cursor for cursor-based pagination.",
+                  "key": "cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Page size.",
+                  "key": "limit",
+                  "value": "100"
+                },
+                {
+                  "description": "JSON filter expression applied on listing endpoints.",
+                  "key": "filter",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Requires scope: supplier_invoices:readonly or supplier_invoices:all."
+          },
+          "response": [
+            {
+              "id": "ae1e47f6-9122-462d-8880-ebd6003266a9",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/supplier_invoices?cursor=<string>&limit=100&filter=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "supplier_invoices"
+                  ],
+                  "query": [
+                    {
+                      "description": "Opaque cursor for cursor-based pagination.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Page size.",
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "description": "JSON filter expression applied on listing endpoints.",
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:36:36.000Z",
+              "updatedAt": "2026-07-28T02:36:36.000Z",
+              "uid": "35240-ae1e47f6-9122-462d-8880-ebd6003266a9"
+            }
+          ],
+          "createdAt": "2026-07-28T02:36:36.000Z",
+          "updatedAt": "2026-07-28T02:36:36.000Z",
+          "uid": "35240-364e51c4-3cae-476b-a920-e3471ac022f8"
+        }
+      ],
+      "id": "a4ae4a65-34ab-445a-b1b0-6e41b1cb025e",
+      "createdAt": "2026-07-28T02:36:36.000Z",
+      "updatedAt": "2026-07-28T02:36:36.000Z",
+      "uid": "35240-a4ae4a65-34ab-445a-b1b0-6e41b1cb025e"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.pennylane.com/api/external/v2"
+    }
+  ]
+}

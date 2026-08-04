@@ -1,0 +1,237 @@
+{
+  "info": {
+    "_postman_id": "6b6681d5-12f5-4525-8b31-37424c2d04d9",
+    "name": "Pennylane Company Account Accounting Exports API",
+    "description": "Pennylane is a French financial and accounting operating system for SMEs and accounting firms. The Company API (v2) lets companies, firms, and integration partners access and sync invoicing, accounting, banking, and financial data, and automate end-to-end workflows. V2 is the stable version; V1 is deprecated.\n\nContact Support:\n Name: Pennylane API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:34:50.000Z",
+    "updatedAt": "2026-07-28T02:34:50.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6b6681d5-12f5-4525-8b31-37424c2d04d9"
+  },
+  "item": [
+    {
+      "name": "exports",
+      "item": [
+        {
+          "name": "general_ledger",
+          "item": [
+            {
+              "name": "Create a General Ledger export",
+              "id": "1f747298-991d-492d-a312-0274cd31cf9a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/exports/general_ledger",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "exports",
+                    "general_ledger"
+                  ]
+                },
+                "description": "Creates an xlsx General Ledger export. Requires scope: exports:gl."
+              },
+              "response": [
+                {
+                  "id": "af16b3fc-161a-457b-be32-decf6343e414",
+                  "name": "Created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/exports/general_ledger",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "exports",
+                        "general_ledger"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:34:50.000Z",
+                  "updatedAt": "2026-07-28T02:34:50.000Z",
+                  "uid": "35240-af16b3fc-161a-457b-be32-decf6343e414"
+                }
+              ],
+              "createdAt": "2026-07-28T02:34:50.000Z",
+              "updatedAt": "2026-07-28T02:34:50.000Z",
+              "uid": "35240-1f747298-991d-492d-a312-0274cd31cf9a"
+            }
+          ],
+          "id": "f0928009-9058-40b7-9c1a-3966e7dd98ab",
+          "createdAt": "2026-07-28T02:34:50.000Z",
+          "updatedAt": "2026-07-28T02:34:50.000Z",
+          "uid": "35240-f0928009-9058-40b7-9c1a-3966e7dd98ab"
+        },
+        {
+          "name": "fec",
+          "item": [
+            {
+              "name": "Create a FEC export",
+              "id": "9483bb55-5fbc-463d-9a4b-d0485bb5b526",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/exports/fec",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "exports",
+                    "fec"
+                  ]
+                },
+                "description": "Creates a FEC (Fichier des Ecritures Comptables) export. Requires scope: exports:fec."
+              },
+              "response": [
+                {
+                  "id": "d4c3d884-7b3c-4b6f-94a0-7627918ec6cd",
+                  "name": "Created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/exports/fec",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "exports",
+                        "fec"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:34:50.000Z",
+                  "updatedAt": "2026-07-28T02:34:50.000Z",
+                  "uid": "35240-d4c3d884-7b3c-4b6f-94a0-7627918ec6cd"
+                }
+              ],
+              "createdAt": "2026-07-28T02:34:50.000Z",
+              "updatedAt": "2026-07-28T02:34:50.000Z",
+              "uid": "35240-9483bb55-5fbc-463d-9a4b-d0485bb5b526"
+            }
+          ],
+          "id": "a2f0d23f-ba73-4d85-b7cc-e90ab1402fe0",
+          "createdAt": "2026-07-28T02:34:50.000Z",
+          "updatedAt": "2026-07-28T02:34:50.000Z",
+          "uid": "35240-a2f0d23f-ba73-4d85-b7cc-e90ab1402fe0"
+        }
+      ],
+      "id": "546f0580-6be7-42b3-bbb7-a0e8b2762692",
+      "createdAt": "2026-07-28T02:34:50.000Z",
+      "updatedAt": "2026-07-28T02:34:50.000Z",
+      "uid": "35240-546f0580-6be7-42b3-bbb7-a0e8b2762692"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.pennylane.com/api/external/v2"
+    }
+  ]
+}
