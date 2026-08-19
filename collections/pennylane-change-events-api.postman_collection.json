@@ -1,0 +1,200 @@
+{
+  "item": [
+    {
+      "id": "507152cb-2883-4da5-99ce-c49fd92f6dd7",
+      "name": "Change Events",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "26e5a29a-58fd-4034-9c28-438f4efcb52a",
+          "name": "Get customer invoice change events",
+          "request": {
+            "name": "Get customer invoice change events",
+            "description": {
+              "content": "Returns the list of changes from the provided start_date (last 4 weeks retained), ordered by processed_at ASC. Requires scope: customer_invoices:readonly or customer_invoices:all.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "customer_invoices",
+                "changes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<dateTime>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2de59812-3446-4e1c-9f99-9ac4ddf08232",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customer_invoices",
+                    "changes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "59167e6c-d07e-4d8e-b5d5-557580d32521",
+          "name": "Get supplier invoice change events",
+          "request": {
+            "name": "Get supplier invoice change events",
+            "description": {},
+            "url": {
+              "path": [
+                "supplier_invoices",
+                "changes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<dateTime>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8a22d6f9-8f40-4f94-92b0-d4f90b40abd6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "supplier_invoices",
+                    "changes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.pennylane.com/api/external/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5f7e09ae-e16f-4813-927e-18722e7d68f9",
+    "name": "Pennylane Company Account Change Events API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Pennylane is a French financial and accounting operating system for SMEs and accounting firms. The Company API (v2) lets companies, firms, and integration partners access and sync invoicing, accounting, banking, and financial data, and automate end-to-end workflows. V2 is the stable version; V1 is deprecated.\n\nContact Support:\n Name: Pennylane API Support",
+      "type": "text/plain"
+    }
+  }
+}

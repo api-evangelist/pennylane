@@ -1,0 +1,83 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pennylane Company Account Journals API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Journals",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List journals",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.pennylane.com/api/external/v2/journals",
+            "params": [
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Opaque cursor for cursor-based pagination."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Page size."
+              }
+            ]
+          },
+          "docs": "List journals. Requires scope: journals:readonly or journals:all."
+        },
+        {
+          "info": {
+            "name": "Create a journal",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.pennylane.com/api/external/v2/journals",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a journal. Requires scope: journals:all."
+        },
+        {
+          "info": {
+            "name": "Retrieve a journal",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.pennylane.com/api/external/v2/journals/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Internal Pennylane resource id (v2 uses internal ids only, not source_id)."
+              }
+            ]
+          },
+          "docs": "Retrieve a journal"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

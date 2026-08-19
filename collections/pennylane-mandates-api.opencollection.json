@@ -1,0 +1,61 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pennylane Company Account Mandates API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Mandates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List SEPA mandates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.pennylane.com/api/external/v2/sepa_mandates"
+          },
+          "docs": "Requires scope: customer_mandates:readonly or customer_mandates:all."
+        },
+        {
+          "info": {
+            "name": "Create a SEPA mandate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.pennylane.com/api/external/v2/sepa_mandates",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a SEPA mandate to enable direct debit payments. Requires scope: customer_mandates:all."
+        },
+        {
+          "info": {
+            "name": "List GoCardless mandates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.pennylane.com/api/external/v2/gocardless_mandates"
+          },
+          "docs": "Requires scope: customer_mandates:readonly or customer_mandates:all."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

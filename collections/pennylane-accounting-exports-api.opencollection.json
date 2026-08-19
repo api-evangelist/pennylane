@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pennylane Company Account Accounting Exports API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Accounting Exports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a General Ledger export",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.pennylane.com/api/external/v2/exports/general_ledger",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates an xlsx General Ledger export. Requires scope: exports:gl."
+        },
+        {
+          "info": {
+            "name": "Create a FEC export",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.pennylane.com/api/external/v2/exports/fec",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a FEC (Fichier des Ecritures Comptables) export. Requires scope: exports:fec."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,140 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pennylane Company Account Ledger Entries API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Ledger Entries",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List ledger entries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.pennylane.com/api/external/v2/ledger_entries",
+            "params": [
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Opaque cursor for cursor-based pagination."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Page size."
+              }
+            ]
+          },
+          "docs": "Requires scope: ledger_entries:readonly or ledger_entries:all."
+        },
+        {
+          "info": {
+            "name": "Create a ledger entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.pennylane.com/api/external/v2/ledger_entries",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Requires scope: ledger_entries:all."
+        },
+        {
+          "info": {
+            "name": "Retrieve a ledger entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.pennylane.com/api/external/v2/ledger_entries/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Internal Pennylane resource id (v2 uses internal ids only, not source_id)."
+              }
+            ]
+          },
+          "docs": "Retrieve a ledger entry"
+        },
+        {
+          "info": {
+            "name": "Update a ledger entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.pennylane.com/api/external/v2/ledger_entries/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Internal Pennylane resource id (v2 uses internal ids only, not source_id)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a ledger entry"
+        },
+        {
+          "info": {
+            "name": "Get the trial balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.pennylane.com/api/external/v2/trial_balance",
+            "params": [
+              {
+                "name": "period_start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "period_end",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns the trial balance for the given period. Requires scope: trial_balance:readonly."
+        },
+        {
+          "info": {
+            "name": "List company fiscal years",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.pennylane.com/api/external/v2/fiscal_years"
+          },
+          "docs": "Requires scope: fiscal_years:readonly."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

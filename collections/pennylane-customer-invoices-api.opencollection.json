@@ -1,0 +1,207 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pennylane Company Account Customer Invoices API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Customer Invoices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List customer invoices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices",
+            "params": [
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Opaque cursor for cursor-based pagination."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Page size."
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "JSON filter expression applied on listing endpoints."
+              }
+            ]
+          },
+          "docs": "List customer invoices and credit notes. Requires scope: customer_invoices:readonly or customer_invoices:all."
+        },
+        {
+          "info": {
+            "name": "Create a customer invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a draft or finalized customer invoice or credit note. Requires scope: customer_invoices:all."
+        },
+        {
+          "info": {
+            "name": "Import an invoice with file attached",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/import",
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          },
+          "docs": "Import a customer invoice with a file attached. Requires scope: customer_invoices:all."
+        },
+        {
+          "info": {
+            "name": "Retrieve a customer invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Internal Pennylane resource id (v2 uses internal ids only, not source_id)."
+              }
+            ]
+          },
+          "docs": "Retrieve a customer invoice"
+        },
+        {
+          "info": {
+            "name": "Update a customer invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Internal Pennylane resource id (v2 uses internal ids only, not source_id)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a customer invoice"
+        },
+        {
+          "info": {
+            "name": "Finalize a draft customer invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/:id/finalize",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Internal Pennylane resource id (v2 uses internal ids only, not source_id)."
+              }
+            ]
+          },
+          "docs": "Convert a draft invoice or credit note into a finalized one; once finalized it can no longer be edited."
+        },
+        {
+          "info": {
+            "name": "Mark a customer invoice as paid",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/:id/mark_as_paid",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Internal Pennylane resource id (v2 uses internal ids only, not source_id)."
+              }
+            ]
+          },
+          "docs": "Mark a customer invoice as paid"
+        },
+        {
+          "info": {
+            "name": "Send a customer invoice by email",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/:id/send_by_email",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Internal Pennylane resource id (v2 uses internal ids only, not source_id)."
+              }
+            ]
+          },
+          "docs": "Sends a finalized, imported customer invoice or credit note by email. May return 409 if the PDF is not yet generated; retry shortly."
+        },
+        {
+          "info": {
+            "name": "Match a transaction to a customer invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/:id/matched_transactions",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Internal Pennylane resource id (v2 uses internal ids only, not source_id)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Match a transaction to a customer invoice"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

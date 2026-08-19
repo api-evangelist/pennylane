@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pennylane Company Account Customers API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Customers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List customers (company and individual)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.pennylane.com/api/external/v2/customers"
+          },
+          "docs": "Requires scope: customers:readonly or customers:all."
+        },
+        {
+          "info": {
+            "name": "Retrieve a customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.pennylane.com/api/external/v2/customers/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Internal Pennylane resource id (v2 uses internal ids only, not source_id)."
+              }
+            ]
+          },
+          "docs": "Retrieve a customer"
+        },
+        {
+          "info": {
+            "name": "Create a company customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.pennylane.com/api/external/v2/company_customers",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Requires scope: customers:all."
+        },
+        {
+          "info": {
+            "name": "Create an individual customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.pennylane.com/api/external/v2/individual_customers",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Requires scope: customers:all."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -2,15 +2,12 @@ generated: '2026-07-17'
 method: searched
 status: partial
 source: https://app.pennylane.com/.well-known/oauth-authorization-server
-notes: >-
-  Pennylane's own OAuth authorization server (RFC 8414 metadata at
-  /.well-known/oauth-authorization-server) advertises a set of read-only mcp:* scopes
-  (mcp:account:read, mcp:customer_invoice:read, mcp:transaction:read, mcp:vat_return:read,
-  ..., plus mcp:private_api) and Dynamic Client Registration with PKCE S256 — a
-  first-party Model Context Protocol OAuth surface. No public MCP endpoint URL or tool
-  catalog is documented in the developer docs yet, so this is recorded as partial /
-  first-party-auth-confirmed rather than a fully published server. Several mature
-  community MCP servers wrap the v2 API and are listed under community_servers.
+notes: Pennylane's own OAuth authorization server (RFC 8414 metadata at /.well-known/oauth-authorization-server)
+  advertises a set of read-only mcp:* scopes (mcp:account:read, mcp:customer_invoice:read, mcp:transaction:read,
+  mcp:vat_return:read, ..., plus mcp:private_api) and Dynamic Client Registration with PKCE S256 — a first-party
+  Model Context Protocol OAuth surface. No public MCP endpoint URL or tool catalog is documented in the
+  developer docs yet, so this is recorded as partial / first-party-auth-confirmed rather than a fully
+  published server. Several mature community MCP servers wrap the v2 API and are listed under community_servers.
 first_party:
   oauth_surface: true
   authorization_server: https://app.pennylane.com/.well-known/oauth-authorization-server
@@ -39,27 +36,29 @@ first_party:
   - mcp:vat_return:read
   - mcp:private_api
 community_servers:
-- name: "@wanadev/pennylane-mcp"
+- name: '@wanadev/pennylane-mcp'
   url: https://github.com/wanadev/pennylane-mcp
   transport: stdio
   notes: npm @wanadev/pennylane-mcp; Company API token auth.
 - name: studio-catapulte/mcp-pennylane-company
   url: https://github.com/studio-catapulte/mcp-pennylane-company
-  transport: [stdio, http]
+  transport:
+  - stdio
+  - http
   notes: Exposes the v2 API as ~87 MCP tools; stdio for Claude Desktop, streamable HTTP on :8000.
 - name: FGRibreau/mcp-pennylane
   url: https://github.com/fgribreau/mcp-pennylane
   transport: stdio
-  notes: ~73 essential operations plus pennylane_search_tools / pennylane_execute meta-tools covering the long tail (163 ops).
+  notes: ~73 essential operations plus pennylane_search_tools / pennylane_execute meta-tools covering
+    the long tail (163 ops).
 - name: PennyPilot (HOLCO)
   url: https://claudemarketplaces.com/mcp/holco-apps/pennypilot-mcp
   transport: http
   endpoint: https://apps.holco.co/mcp/pennylane/mcp/v1
   auth: OAuth 2.0 (authorization_code + PKCE)
-candidate_tools_note: >-
-  Candidate tools below are DERIVED one-per-operationId from openapi/pennylane-openapi.yml
-  to illustrate the coverage a Pennylane MCP server exposes; they are not an authoritative
-  provider tool list.
+candidate_tools_note: Candidate tools below are DERIVED one-per-operationId from openapi/pennylane-openapi.yml
+  to illustrate the coverage a Pennylane MCP server exposes; they are not an authoritative provider tool
+  list.
 candidate_tools:
 - name: get_me
   description: Return the company and user associated with the token.
@@ -82,3 +81,8 @@ candidate_tools:
 - name: export_fec
   description: Generate a French FEC accounting export.
   source_operation: openapi/pennylane-openapi.yml#exportFec
+deployment:
+  mode: unclear
+  verified: searched
+  checked: '2026-08-12'
+  source: catalog MCP census

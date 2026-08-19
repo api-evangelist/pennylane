@@ -1,0 +1,50 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pennylane Company Account Billing Subscriptions API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Billing Subscriptions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List billing subscriptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.pennylane.com/api/external/v2/billing_subscriptions"
+          },
+          "docs": "Requires scope: billing_subscriptions:readonly or billing_subscriptions:all."
+        },
+        {
+          "info": {
+            "name": "Create a billing subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.pennylane.com/api/external/v2/billing_subscriptions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Pennylane generates the customer invoice each month. Requires scope: billing_subscriptions:all."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

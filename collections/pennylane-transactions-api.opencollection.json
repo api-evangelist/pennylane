@@ -1,0 +1,92 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pennylane Company Account Transactions API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Transactions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.pennylane.com/api/external/v2/transactions"
+          },
+          "docs": "Requires scope: transactions:readonly or transactions:all."
+        },
+        {
+          "info": {
+            "name": "Create a banking transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.pennylane.com/api/external/v2/transactions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Requires scope: transactions:all."
+        },
+        {
+          "info": {
+            "name": "Retrieve a transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.pennylane.com/api/external/v2/transactions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Internal Pennylane resource id (v2 uses internal ids only, not source_id)."
+              }
+            ]
+          },
+          "docs": "Retrieve a transaction"
+        },
+        {
+          "info": {
+            "name": "Update a transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.pennylane.com/api/external/v2/transactions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Internal Pennylane resource id (v2 uses internal ids only, not source_id)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a transaction"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

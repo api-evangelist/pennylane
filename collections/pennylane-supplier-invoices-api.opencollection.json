@@ -1,0 +1,131 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pennylane Company Account Supplier Invoices API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Supplier Invoices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List supplier invoices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.pennylane.com/api/external/v2/supplier_invoices",
+            "params": [
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Opaque cursor for cursor-based pagination."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Page size."
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "JSON filter expression applied on listing endpoints."
+              }
+            ]
+          },
+          "docs": "Requires scope: supplier_invoices:readonly or supplier_invoices:all."
+        },
+        {
+          "info": {
+            "name": "Import a supplier invoice with a file attached",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/import",
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          },
+          "docs": "Requires scope: supplier_invoices:all."
+        },
+        {
+          "info": {
+            "name": "Retrieve a supplier invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Internal Pennylane resource id (v2 uses internal ids only, not source_id)."
+              }
+            ]
+          },
+          "docs": "Retrieve a supplier invoice"
+        },
+        {
+          "info": {
+            "name": "Update a supplier invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Internal Pennylane resource id (v2 uses internal ids only, not source_id)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a supplier invoice"
+        },
+        {
+          "info": {
+            "name": "Validate the accounting of a supplier invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/:id/validate_accounting",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Internal Pennylane resource id (v2 uses internal ids only, not source_id)."
+              }
+            ]
+          },
+          "docs": "Turn the supplier invoice into a Complete state."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

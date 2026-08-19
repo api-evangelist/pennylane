@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pennylane Company Account E-Invoicing API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "E-Invoicing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List PA (Plateforme Agréée) registrations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.pennylane.com/api/external/v2/pa_registrations"
+          },
+          "docs": "Returns all PA registrations for the company, including activation status and exchange direction, for French e-invoicing onboarding. Requires scope: pa_registrations:readonly."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
