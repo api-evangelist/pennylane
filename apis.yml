@@ -508,6 +508,8 @@ apis:
   humanURL: https://pennylane.readme.io/reference/getcustomerinvoices
   baseURL: https://app.pennylane.com/api/external/v2
   tags:
+  - FileAttachments
+  tags_raw:
   - File Attachments
   properties:
   - type: OpenAPI
@@ -768,6 +770,8 @@ apis:
   humanURL: https://pennylane.readme.io/reference/getcustomerinvoices
   baseURL: https://app.pennylane.com/api/external/v2
   tags:
+  - Product
+  tags_raw:
   - Products
   properties:
   - type: OpenAPI
@@ -976,6 +980,8 @@ apis:
   humanURL: https://pennylane.readme.io/reference/getcustomerinvoices
   baseURL: https://app.pennylane.com/api/external/v2
   tags:
+  - Transaction
+  tags_raw:
   - Transactions
   properties:
   - type: OpenAPI
