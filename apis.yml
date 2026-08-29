@@ -1041,6 +1041,9 @@ apis:
   - type: APIReference
     url: https://pennylane.readme.io/reference/getparegistrations
 common:
+- type: CapabilityMap
+  url: capabilities/pennylane-capability-edges.yml
+  name: Pennylane Business Capability Map
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/pennylane/overview
 - type: AgenticAccess

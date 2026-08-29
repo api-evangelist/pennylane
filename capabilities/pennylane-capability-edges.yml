@@ -1,0 +1,61 @@
+slug: pennylane
+provider: Pennylane
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Banking & Capital Markets
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 5
+edges:
+- tag: Supplier Invoices
+  spec_file: pennylane-supplier-invoices-api-openapi.yml
+  capability_id: BC-200.20
+  capability_id_l1: BC-200
+  capability_name: Accounts Payable Management
+  confidence: 0.92
+  evidence: POST /supplier_invoices/import  Import a supplier invoice with a file attached; PUT /supplier_invoices/{id}/validate_accounting  Validate
+    the accounting of a supplier invoice
+  reason: Supplier (vendor) invoice intake, update and accounting validation is Accounts Payable invoice
+    processing.
+- tag: Customer Invoices
+  spec_file: pennylane-customer-invoices-api-openapi.yml
+  capability_id: BC-200.30
+  capability_id_l1: BC-200
+  capability_name: Accounts Receivable Management
+  confidence: 0.9
+  evidence: POST /customer_invoices 'Create a customer invoice'; 'Mark a customer invoice as paid'; 'Send
+    a customer invoice by email'
+  reason: Customer invoicing, payment marking and transaction matching is accounts receivable management.
+- tag: Ledger Accounts
+  spec_file: pennylane-ledger-accounts-api-openapi.yml
+  capability_id: BC-200.10
+  capability_id_l1: BC-200
+  capability_name: General Ledger Management
+  confidence: 0.9
+  evidence: GET /ledger_accounts  List ledger accounts; POST /ledger_accounts  Create a ledger account
+  reason: Ledger account maintenance is chart-of-accounts management, squarely General Ledger Management.
+- tag: Ledger Entries
+  spec_file: pennylane-ledger-entries-api-openapi.yml
+  capability_id: BC-200.10
+  capability_id_l1: BC-200
+  capability_name: General Ledger Management
+  confidence: 0.9
+  evidence: POST /ledger_entries  Create a ledger entry; GET /trial_balance  Get the trial balance; GET
+    /fiscal_years  List company fiscal years
+  reason: Journal entries, trial balance and fiscal years are the general ledger and period-close surface.
+- tag: Accounting Exports
+  spec_file: pennylane-accounting-exports-api-openapi.yml
+  capability_id: BC-200.10
+  capability_id_l1: BC-200
+  capability_name: General Ledger Management
+  confidence: 0.85
+  evidence: POST /exports/general_ledger 'Create a General Ledger export'; POST /exports/fec 'Create a
+    FEC export'
+  reason: General ledger and French FEC statutory accounting file exports — general ledger / accounting
+    records management.
