@@ -8,6 +8,18 @@ description: Pennylane is a French financial and accounting operating system for
   a REST interface, and automate end-to-end workflows. V2 is the stable version; V1
   is deprecated. All amounts are in EUR and the platform is built around French
   accounting (FEC exports, Plateforme Agréée e-invoicing, SEPA/GoCardless mandates).
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: self-serve
