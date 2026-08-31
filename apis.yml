@@ -520,7 +520,7 @@ apis:
   humanURL: https://pennylane.readme.io/reference/getcustomerinvoices
   baseURL: https://app.pennylane.com/api/external/v2
   tags:
-  - FileAttachments
+  - File Attachments
   tags_raw:
   - File Attachments
   properties:
