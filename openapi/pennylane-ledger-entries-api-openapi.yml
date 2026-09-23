@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Pennylane Company Account Ledger Entries API
+  title: Pennylane Company Ledger Entries API
   description: Pennylane is a French financial and accounting operating system for SMEs and accounting firms. The Company API (v2) lets companies, firms, and integration partners access and sync invoicing, accounting, banking, and financial data, and automate end-to-end workflows. V2 is the stable version; V1 is deprecated.
   termsOfService: https://pennylane.readme.io/docs/api-contract-terms
   contact:
@@ -103,13 +103,13 @@ paths:
           description: OK
 components:
   parameters:
-    PathId:
-      name: id
-      in: path
-      required: true
-      description: Internal Pennylane resource id (v2 uses internal ids only, not source_id).
+    Cursor:
+      name: cursor
+      in: query
+      required: false
+      description: Opaque cursor for cursor-based pagination.
       schema:
-        type: integer
+        type: string
     Limit:
       name: limit
       in: query
@@ -118,13 +118,13 @@ components:
       schema:
         type: integer
         default: 100
-    Cursor:
-      name: cursor
-      in: query
-      required: false
-      description: Opaque cursor for cursor-based pagination.
+    PathId:
+      name: id
+      in: path
+      required: true
+      description: Internal Pennylane resource id (v2 uses internal ids only, not source_id).
       schema:
-        type: string
+        type: integer
   securitySchemes:
     bearerAuth:
       type: http

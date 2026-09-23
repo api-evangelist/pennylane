@@ -1,25 +1,7 @@
 {
   "provider": "pennylane",
   "sources": [
-    "pennylane-account-api-openapi.yml",
-    "pennylane-accounting-exports-api-openapi.yml",
-    "pennylane-bank-accounts-api-openapi.yml",
-    "pennylane-billing-subscriptions-api-openapi.yml",
-    "pennylane-categories-api-openapi.yml",
-    "pennylane-change-events-api-openapi.yml",
-    "pennylane-customer-invoices-api-openapi.yml",
-    "pennylane-customers-api-openapi.yml",
-    "pennylane-e-invoicing-api-openapi.yml",
-    "pennylane-file-attachments-api-openapi.yml",
-    "pennylane-journals-api-openapi.yml",
-    "pennylane-ledger-accounts-api-openapi.yml",
-    "pennylane-ledger-entries-api-openapi.yml",
-    "pennylane-mandates-api-openapi.yml",
-    "pennylane-products-api-openapi.yml",
-    "pennylane-quotes-api-openapi.yml",
-    "pennylane-supplier-invoices-api-openapi.yml",
-    "pennylane-suppliers-api-openapi.yml",
-    "pennylane-transactions-api-openapi.yml"
+    "_original/pennylane-openapi.yml"
   ],
   "outputs": [
     "pennylane-account-api-openapi.yml",
@@ -45,6 +27,30 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "pennylane-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "pennylane-account-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pennylane-accounting-exports-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pennylane-bank-accounts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pennylane-billing-subscriptions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pennylane-categories-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pennylane-change-events-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pennylane-customer-invoices-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pennylane-customers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pennylane-e-invoicing-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pennylane-file-attachments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pennylane-journals-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pennylane-ledger-accounts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pennylane-ledger-entries-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pennylane-mandates-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pennylane-products-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pennylane-quotes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pennylane-supplier-invoices-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pennylane-suppliers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pennylane-transactions-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
