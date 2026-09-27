@@ -59,30 +59,13 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  parameters:
-    Cursor:
-      name: cursor
-      in: query
-      required: false
-      description: Opaque cursor for cursor-based pagination.
-      schema:
-        type: string
-    PathId:
-      name: id
-      in: path
-      required: true
-      description: Internal Pennylane resource id (v2 uses internal ids only, not source_id).
-      schema:
-        type: integer
-    Limit:
-      name: limit
-      in: query
-      required: false
-      description: Page size.
-      schema:
-        type: integer
-        default: 100
   responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
     TooManyRequests:
       description: Rate limit exceeded (25 requests per 5 seconds per token). Includes retry-after, ratelimit-limit, ratelimit-remaining, and ratelimit-reset headers.
       headers:
@@ -102,12 +85,29 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+  parameters:
+    Limit:
+      name: limit
+      in: query
+      required: false
+      description: Page size.
+      schema:
+        type: integer
+        default: 100
+    Cursor:
+      name: cursor
+      in: query
+      required: false
+      description: Opaque cursor for cursor-based pagination.
+      schema:
+        type: string
+    PathId:
+      name: id
+      in: path
+      required: true
+      description: Internal Pennylane resource id (v2 uses internal ids only, not source_id).
+      schema:
+        type: integer
   schemas:
     Error:
       type: object

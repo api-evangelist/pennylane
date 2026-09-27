@@ -146,9 +146,39 @@ paths:
         '200':
           description: OK
 components:
+  parameters:
+    Limit:
+      name: limit
+      in: query
+      required: false
+      description: Page size.
+      schema:
+        type: integer
+        default: 100
+    Cursor:
+      name: cursor
+      in: query
+      required: false
+      description: Opaque cursor for cursor-based pagination.
+      schema:
+        type: string
+    Filter:
+      name: filter
+      in: query
+      required: false
+      description: JSON filter expression applied on listing endpoints.
+      schema:
+        type: string
+    PathId:
+      name: id
+      in: path
+      required: true
+      description: Internal Pennylane resource id (v2 uses internal ids only, not source_id).
+      schema:
+        type: integer
   responses:
-    UnprocessableEntity:
-      description: Validation error
+    Conflict:
+      description: Conflict (e.g. PDF not yet generated)
       content:
         application/json:
           schema:
@@ -172,42 +202,12 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    Conflict:
-      description: Conflict (e.g. PDF not yet generated)
+    UnprocessableEntity:
+      description: Validation error
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-  parameters:
-    Cursor:
-      name: cursor
-      in: query
-      required: false
-      description: Opaque cursor for cursor-based pagination.
-      schema:
-        type: string
-    Filter:
-      name: filter
-      in: query
-      required: false
-      description: JSON filter expression applied on listing endpoints.
-      schema:
-        type: string
-    PathId:
-      name: id
-      in: path
-      required: true
-      description: Internal Pennylane resource id (v2 uses internal ids only, not source_id).
-      schema:
-        type: integer
-    Limit:
-      name: limit
-      in: query
-      required: false
-      description: Page size.
-      schema:
-        type: integer
-        default: 100
   schemas:
     Error:
       type: object

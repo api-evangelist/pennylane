@@ -73,13 +73,6 @@ paths:
           description: OK
 components:
   parameters:
-    Cursor:
-      name: cursor
-      in: query
-      required: false
-      description: Opaque cursor for cursor-based pagination.
-      schema:
-        type: string
     Limit:
       name: limit
       in: query
@@ -95,6 +88,13 @@ components:
       description: Internal Pennylane resource id (v2 uses internal ids only, not source_id).
       schema:
         type: integer
+    Cursor:
+      name: cursor
+      in: query
+      required: false
+      description: Opaque cursor for cursor-based pagination.
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http
