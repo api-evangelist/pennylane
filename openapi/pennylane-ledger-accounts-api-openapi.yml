@@ -73,6 +73,13 @@ paths:
           description: OK
 components:
   parameters:
+    Cursor:
+      name: cursor
+      in: query
+      required: false
+      description: Opaque cursor for cursor-based pagination.
+      schema:
+        type: string
     Limit:
       name: limit
       in: query
@@ -81,13 +88,6 @@ components:
       schema:
         type: integer
         default: 100
-    Cursor:
-      name: cursor
-      in: query
-      required: false
-      description: Opaque cursor for cursor-based pagination.
-      schema:
-        type: string
     PathId:
       name: id
       in: path

@@ -67,13 +67,6 @@ components:
       description: Opaque cursor for cursor-based pagination.
       schema:
         type: string
-    PathId:
-      name: id
-      in: path
-      required: true
-      description: Internal Pennylane resource id (v2 uses internal ids only, not source_id).
-      schema:
-        type: integer
     Limit:
       name: limit
       in: query
@@ -82,13 +75,26 @@ components:
       schema:
         type: integer
         default: 100
+    PathId:
+      name: id
+      in: path
+      required: true
+      description: Internal Pennylane resource id (v2 uses internal ids only, not source_id).
+      schema:
+        type: integer
+  schemas:
+    Error:
+      type: object
+      description: Consistent JSON error schema returned across the API.
+      properties:
+        status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: object
+          description: Actionable field-level information, most useful for 422 validation errors.
   responses:
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
     TooManyRequests:
       description: Rate limit exceeded (25 requests per 5 seconds per token). Includes retry-after, ratelimit-limit, ratelimit-remaining, and ratelimit-reset headers.
       headers:
@@ -108,18 +114,12 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-  schemas:
-    Error:
-      type: object
-      description: Consistent JSON error schema returned across the API.
-      properties:
-        status:
-          type: integer
-        message:
-          type: string
-        details:
-          type: object
-          description: Actionable field-level information, most useful for 422 validation errors.
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     bearerAuth:
       type: http
