@@ -59,7 +59,6 @@
   arazzo: null
 - slug: pennylane-airwallex
   label: Airwallex
-  partner: airwallex
   partner_name: Airwallex
   type: claimed
   evidence: https://www.pennylane.com/fr/integrations/airwallex
@@ -69,7 +68,6 @@
   arazzo: null
 - slug: pennylane-albato
   label: Albato
-  partner: albato
   partner_name: Albato
   type: claimed
   evidence: https://www.pennylane.com/fr/integrations/albato
@@ -457,7 +455,6 @@
   arazzo: null
 - slug: pennylane-chargebee
   label: Chargebee
-  partner: chargebee
   partner_name: Chargebee
   type: claimed
   evidence: https://www.pennylane.com/fr/integrations/chargebee
@@ -683,7 +680,6 @@
   arazzo: null
 - slug: pennylane-dext
   label: Dext
-  partner: dext
   partner_name: Dext
   type: claimed
   evidence: https://www.pennylane.com/fr/integrations/dext
@@ -900,7 +896,6 @@
   arazzo: null
 - slug: pennylane-fintecture
   label: Fintecture
-  partner: fintecture
   partner_name: Fintecture
   type: claimed
   evidence: https://www.pennylane.com/fr/integrations/fintecture
@@ -1027,7 +1022,6 @@
   arazzo: null
 - slug: pennylane-gocardless
   label: Gocardless
-  partner: gocardless
   partner_name: Gocardless
   type: claimed
   evidence: https://www.pennylane.com/fr/integrations/gocardless
@@ -1037,7 +1031,6 @@
   arazzo: null
 - slug: pennylane-google-drive
   label: Google Drive
-  partner: google-drive
   partner_name: Google Drive
   type: claimed
   evidence: https://www.pennylane.com/fr/integrations/google-drive
@@ -1137,7 +1130,6 @@
   arazzo: null
 - slug: pennylane-hubspot
   label: Hubspot
-  partner: hubspot
   partner_name: Hubspot
   type: claimed
   evidence: https://www.pennylane.com/fr/integrations/hubspot
@@ -1147,7 +1139,6 @@
   arazzo: null
 - slug: pennylane-hyperline
   label: Hyperline
-  partner: hyperline
   partner_name: Hyperline
   type: claimed
   evidence: https://www.pennylane.com/fr/integrations/hyperline
@@ -1391,7 +1382,6 @@
   arazzo: null
 - slug: pennylane-lago
   label: Lago
-  partner: lago
   partner_name: Lago
   type: claimed
   evidence: https://www.pennylane.com/fr/integrations/lago
@@ -1446,7 +1436,6 @@
   arazzo: null
 - slug: pennylane-lightspeed
   label: Lightspeed
-  partner: lightspeed
   partner_name: Lightspeed
   type: claimed
   evidence: https://www.pennylane.com/fr/integrations/lightspeed
@@ -1474,7 +1463,6 @@
   arazzo: null
 - slug: pennylane-looker
   label: Looker
-  partner: looker
   partner_name: Looker
   type: claimed
   evidence: https://www.pennylane.com/fr/integrations/looker
@@ -1484,7 +1472,6 @@
   arazzo: null
 - slug: pennylane-magento
   label: Magento
-  partner: magento
   partner_name: Magento
   type: claimed
   evidence: https://www.pennylane.com/fr/integrations/magento
@@ -1494,7 +1481,6 @@
   arazzo: null
 - slug: pennylane-make
   label: Make
-  partner: make
   partner_name: Make
   type: claimed
   evidence: https://www.pennylane.com/fr/integrations/make
@@ -1549,7 +1535,6 @@
   arazzo: null
 - slug: pennylane-metabase
   label: Metabase
-  partner: metabase
   partner_name: Metabase
   type: claimed
   evidence: https://www.pennylane.com/fr/integrations/metabase
@@ -1577,7 +1562,6 @@
   arazzo: null
 - slug: pennylane-mollie
   label: Mollie
-  partner: mollie
   partner_name: Mollie
   type: claimed
   evidence: https://www.pennylane.com/fr/integrations/mollie
@@ -1785,7 +1769,6 @@
   arazzo: null
 - slug: pennylane-payfit
   label: Payfit
-  partner: payfit
   partner_name: Payfit
   type: claimed
   evidence: https://www.pennylane.com/fr/integrations/payfit
@@ -1849,7 +1832,6 @@
   arazzo: null
 - slug: pennylane-pipedrive
   label: Pipedrive
-  partner: pipedrive
   partner_name: Pipedrive
   type: claimed
   evidence: https://www.pennylane.com/fr/integrations/pipedrive
@@ -1904,7 +1886,6 @@
   arazzo: null
 - slug: pennylane-power-bi
   label: Power Bi
-  partner: power-bi
   partner_name: Power Bi
   type: claimed
   evidence: https://www.pennylane.com/fr/integrations/power-bi
@@ -1986,7 +1967,6 @@
   arazzo: null
 - slug: pennylane-qonto
   label: Qonto
-  partner: qonto
   partner_name: Qonto
   type: claimed
   evidence: https://www.pennylane.com/fr/integrations/qonto
@@ -2077,7 +2057,6 @@
   arazzo: null
 - slug: pennylane-salesforce
   label: Salesforce
-  partner: salesforce
   partner_name: Salesforce
   type: claimed
   evidence: https://www.pennylane.com/fr/integrations/salesforce
@@ -2168,7 +2147,6 @@
   arazzo: null
 - slug: pennylane-shopify
   label: Shopify
-  partner: shopify
   partner_name: Shopify
   type: claimed
   evidence: https://www.pennylane.com/fr/integrations/shopify
@@ -2259,7 +2237,6 @@
   arazzo: null
 - slug: pennylane-square
   label: Square
-  partner: square
   partner_name: Square
   type: claimed
   evidence: https://www.pennylane.com/fr/integrations/square
@@ -2278,7 +2255,6 @@
   arazzo: null
 - slug: pennylane-stripe
   label: Stripe
-  partner: stripe
   partner_name: Stripe
   type: claimed
   evidence: https://www.pennylane.com/fr/integrations/stripe
@@ -2297,7 +2273,6 @@
   arazzo: null
 - slug: pennylane-sumup
   label: Sumup
-  partner: sumup
   partner_name: Sumup
   type: claimed
   evidence: https://www.pennylane.com/fr/integrations/sumup
@@ -2316,7 +2291,6 @@
   arazzo: null
 - slug: pennylane-tableau
   label: Tableau
-  partner: tableau
   partner_name: Tableau
   type: claimed
   evidence: https://www.pennylane.com/fr/integrations/tableau
@@ -2452,7 +2426,6 @@
   arazzo: null
 - slug: pennylane-uber-eats
   label: Uber Eats
-  partner: uber-eats
   partner_name: Uber Eats
   type: claimed
   evidence: https://www.pennylane.com/fr/integrations/uber-eats
@@ -2498,7 +2471,6 @@
   arazzo: null
 - slug: pennylane-vesper
   label: Vesper
-  partner: vesper
   partner_name: Vesper
   type: claimed
   evidence: https://www.pennylane.com/fr/integrations/vesper
@@ -2598,7 +2570,6 @@
   arazzo: null
 - slug: pennylane-woocommerce
   label: Woocommerce
-  partner: woocommerce
   partner_name: Woocommerce
   type: claimed
   evidence: https://www.pennylane.com/fr/integrations/woocommerce
@@ -2635,7 +2606,6 @@
   arazzo: null
 - slug: pennylane-zapier
   label: Zapier
-  partner: zapier
   partner_name: Zapier
   type: claimed
   evidence: https://www.pennylane.com/fr/integrations/zapier
@@ -2672,7 +2642,6 @@
   arazzo: null
 - slug: pennylane-zoho
   label: Zoho
-  partner: zoho
   partner_name: Zoho
   type: claimed
   evidence: https://www.pennylane.com/fr/integrations/zoho
