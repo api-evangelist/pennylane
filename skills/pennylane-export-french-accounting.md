@@ -1,5 +1,5 @@
 ---
-name: Export French accounting (FEC / General Ledger)
+name: export-french-accounting
 description: Produce a French FEC export and General Ledger for a fiscal year from Pennylane.
 api: openapi/pennylane-openapi.yml
 operations: [getFiscalYears, getTrialBalance, exportGeneralLedger, exportFec]

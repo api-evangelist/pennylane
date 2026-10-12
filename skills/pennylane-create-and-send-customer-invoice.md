@@ -1,5 +1,5 @@
 ---
-name: Create and send a customer invoice
+name: create-and-send-customer-invoice
 description: Create a draft customer invoice in Pennylane, finalize it, and email it to the customer.
 api: openapi/pennylane-openapi.yml
 operations: [getMe, postCustomerInvoices, finalizeCustomerInvoice, sendByEmailCustomerInvoice]

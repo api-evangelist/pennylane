@@ -8,6 +8,8 @@ notes: >-
   There are no published magic test card numbers or hosted test tokens (Pennylane is an
   accounting/invoicing platform, not a card acquirer); testing is done against a real
   sandbox account with its own API token. No test values are fabricated here.
+description: Pennylane offers a separate sandbox (test) account with its own API token, created from Profile -> Test environment -> Create my sandbox; integration partners request one from the Partnerships team.
+docs: https://pennylane.readme.io/docs/getting-started
 environments:
 - name: sandbox
   base_url: https://app.pennylane.com/api/external/v2

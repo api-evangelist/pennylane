@@ -1,0 +1,20 @@
+generated: '2026-10-12'
+method: derived
+generator: derive-vocabulary.py
+source:
+- openapi/pennylane-account-api-openapi.yml
+- openapi/pennylane-accounting-exports-api-openapi.yml
+- openapi/pennylane-bank-accounts-api-openapi.yml
+- openapi/pennylane-billing-subscriptions-api-openapi.yml
+- openapi/pennylane-categories-api-openapi.yml
+vocabulary:
+  name: Pennylane Domain Vocabulary
+  description: 'Terms declared by Pennylane''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-12'
+  terms:
+  - term: Error
+    definition: Consistent JSON error schema returned across the API.
+    tags:
+    - Object
+    source: openapi/pennylane-customer-invoices-api-openapi.yml#/components/schemas/Error

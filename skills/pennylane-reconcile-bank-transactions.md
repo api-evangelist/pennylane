@@ -1,5 +1,5 @@
 ---
-name: Reconcile bank transactions to invoices
+name: reconcile-bank-transactions
 description: Pull banking transactions and match them to the customer invoices they pay, then mark the invoices paid.
 api: openapi/pennylane-openapi.yml
 operations: [getTransactions, getCustomerInvoices, postCustomerInvoiceMatchedTransactions, markAsPaidCustomerInvoice]

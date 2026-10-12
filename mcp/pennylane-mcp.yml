@@ -82,7 +82,9 @@ candidate_tools:
   description: Generate a French FEC accounting export.
   source_operation: openapi/pennylane-openapi.yml#exportFec
 deployment:
-  mode: unclear
-  verified: searched
-  checked: '2026-08-12'
-  source: catalog MCP census
+  mode: remote
+  endpoint: https://mcp.pennylane.com/mcp
+  auth: oauth
+  verified: probed
+  checked: '2026-10-12'
+  note: POST tools/list returned HTTP 401 with a JSON-RPC error (-32001 Unauthorized) and WWW-Authenticate Bearer resource_metadata=https://mcp.pennylane.com/.well-known/oauth-protected-resource/mcp; live tool schemas need authenticated introspection, so the tool list above stays the derived candidate.

@@ -44,6 +44,21 @@ standards:
   conforms: false
 - id: scim
   conforms: false
+- id: openapi-3.2
+  conforms: true
+  evidence: the document declares 3.2.0
+- id: rfc9457
+  conforms: false
+  evidence: no response declares application/problem+json
+- id: idempotency
+  conforms: false
+  evidence: no idempotency key parameter on mutating operations
+- id: pagination
+  conforms: true
+  evidence: list operations take cursor, limit
+- id: ratelimit-headers
+  conforms: true
+  evidence: responses declare ratelimit-limit, ratelimit-remaining, ratelimit-reset, retry-after
 compliance:
   published: true
   programs:

@@ -1,5 +1,5 @@
 ---
-name: Keep an integration in sync via Change Events
+name: sync-changes
 description: Poll Pennylane change-event feeds to sync invoices and suppliers without webhooks.
 api: openapi/pennylane-openapi.yml
 operations: [getCustomerInvoicesChanges, getSupplierInvoicesChanges]

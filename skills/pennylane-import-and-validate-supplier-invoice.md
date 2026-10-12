@@ -1,5 +1,5 @@
 ---
-name: Import and validate a supplier invoice
+name: import-and-validate-supplier-invoice
 description: Import a supplier (accounts-payable) invoice into Pennylane, update it, and validate its accounting.
 api: openapi/pennylane-openapi.yml
 operations: [importSupplierInvoice, getSupplierInvoice, putSupplierInvoice, validateAccountingSupplierInvoice]

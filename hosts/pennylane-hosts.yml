@@ -1,0 +1,131 @@
+generated: '2026-10-12'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 10
+  own: 6
+  other_domain: 1
+  platform: 3
+  roles:
+  - identity
+  - other
+  - portal
+  - security
+  - source
+  - status
+  - support
+  - website
+hosts:
+- host: app.pennylane.com
+  found_by:
+  - pointer
+  - apis[]
+  types:
+  - Security
+  serves:
+  - api
+  registrable_domain: pennylane.com
+  role: security
+  relation: own
+- host: github.com
+  found_by:
+  - pointer
+  types:
+  - GitHubOrganization
+  serves: []
+  registrable_domain: github.com
+  role: source
+  relation: platform
+- host: help.pennylane.com
+  found_by:
+  - pointer
+  - vendor-detect
+  types:
+  - Support
+  serves:
+  - cdn
+  vendor: cloudfront
+  registrable_domain: pennylane.com
+  role: support
+  relation: own
+- host: mcp.pennylane.com
+  found_by:
+  - apis[]
+  types: []
+  serves:
+  - api
+  - docs
+  registrable_domain: pennylane.com
+  role: other
+  relation: own
+- host: pennylane.readme.io
+  found_by:
+  - pointer
+  - apis[]
+  - vendor-detect
+  types:
+  - Deprecation
+  - DeveloperPortal
+  - Documentation
+  - GettingStarted
+  - TermsOfService
+  - Blog
+  serves:
+  - docs
+  - cdn
+  - developer-portal
+  vendor: cloudflare
+  registrable_domain: readme.io
+  role: portal
+  relation: other-domain
+- host: start.pennylane.com
+  found_by:
+  - pointer
+  types:
+  - SignUp
+  serves: []
+  registrable_domain: pennylane.com
+  role: identity
+  relation: own
+- host: status.pennylane.com
+  found_by:
+  - pointer
+  types:
+  - StatusPage
+  serves: []
+  registrable_domain: pennylane.com
+  role: status
+  relation: own
+- host: www.linkedin.com
+  found_by:
+  - pointer
+  types:
+  - LinkedIn
+  serves: []
+  registrable_domain: linkedin.com
+  role: other
+  relation: platform
+- host: www.pennylane.com
+  found_by:
+  - pointer
+  - vendor-detect
+  types:
+  - Compliance
+  - Website
+  - PrivacyPolicy
+  serves:
+  - hosting
+  vendor: netlify
+  registrable_domain: pennylane.com
+  role: website
+  relation: own
+- host: www.postman.com
+  found_by:
+  - pointer
+  types:
+  - PostmanWorkspace
+  serves: []
+  registrable_domain: postman.com
+  role: other
+  relation: platform
