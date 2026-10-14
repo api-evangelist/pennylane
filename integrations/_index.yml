@@ -2667,3 +2667,15 @@
   relationship: connector-listing
   status: not-a-workflow
   arazzo: null
+- slug: pennylane-mews-own
+  label: Mews (own)
+  partner: mews-com
+  partner_name: Mews (own)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.mews.com/en/products/marketplace/pennylane
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
