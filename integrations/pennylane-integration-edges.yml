@@ -14,6 +14,7 @@ checked:
 - https://www.pennylane.com/integrations
 - https://zapier.com/apps/pennylane/integrations
 - mews-com/integrations/mews-com-integration-edges.yml
+- stripe/integrations/stripe-integration-edges.yml
 summary: 296 partner listings named on Pennylane's own French integrations directory; the Zapier app page links
   pennylane.tech (a name collision flagged by the sweep) so no Zapier edges were recorded.
 marketplace_apps: []
@@ -2106,4 +2107,21 @@ edges:
   listing_count: 1
   detected: '2026-10-14'
   detected_by: mirror-platform-listings.py
+- partner_name: Stripe (own)
+  partner: stripe
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://marketplace.stripe.com/apps/pennylane-e-invoicing
+  mirror_of: stripe/integrations/stripe-integration-edges.yml
+  apps:
+  - Pennylane E-Invoicing
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+  category: billing
 templates: []
