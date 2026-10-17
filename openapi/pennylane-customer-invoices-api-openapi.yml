@@ -147,6 +147,13 @@ paths:
           description: OK
 components:
   parameters:
+    Filter:
+      name: filter
+      in: query
+      required: false
+      description: JSON filter expression applied on listing endpoints.
+      schema:
+        type: string
     Cursor:
       name: cursor
       in: query
@@ -154,6 +161,13 @@ components:
       description: Opaque cursor for cursor-based pagination.
       schema:
         type: string
+    PathId:
+      name: id
+      in: path
+      required: true
+      description: Internal Pennylane resource id (v2 uses internal ids only, not source_id).
+      schema:
+        type: integer
     Limit:
       name: limit
       in: query
@@ -162,20 +176,6 @@ components:
       schema:
         type: integer
         default: 100
-    PathId:
-      name: id
-      in: path
-      required: true
-      description: Internal Pennylane resource id (v2 uses internal ids only, not source_id).
-      schema:
-        type: integer
-    Filter:
-      name: filter
-      in: query
-      required: false
-      description: JSON filter expression applied on listing endpoints.
-      schema:
-        type: string
   schemas:
     Error:
       type: object
