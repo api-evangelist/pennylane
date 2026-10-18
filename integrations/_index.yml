@@ -2782,7 +2782,7 @@
     - alpha
     in_cloud: true
     builder: unknown (community connector; contributor not in the record)
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: pennylane-fivetran
   label: Fivetran
@@ -2808,5 +2808,5 @@
     - connectors/applications/pennylane
     vendor_link: https://www.pennylane.com/fr
     builder: Fivetran
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
