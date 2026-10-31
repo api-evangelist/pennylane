@@ -1,4 +1,4 @@
-# Pennylane (pennylane)
+# Pennylane
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,272 +66,201 @@
 
 Pennylane is a French financial and accounting operating system for SMEs and accounting firms. The Company API (v2) lets companies, firms, and integration partners access and sync invoicing, accounting, banking, and financial data over a REST interface, and automate end-to-end workflows. V2 is the stable version; V1 is deprecated. All amounts are in EUR and the platform is built around French accounting (FEC exports, Plateforme Agréée e-invoicing, SEPA/GoCardless mandates).
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/pennylane/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/pennylane/refs/heads/main/apis.yml)
+**Areas:** Accounting · Invoicing · Fintech · Financial Data · Banking · France · Small Business
 
-## Tags
+## Pennylane on APIs.io
 
-- Accounting
-- Invoicing
-- Fintech
-- Financial Data
-- Banking
-- France
-- SME
+Everything profiled for Pennylane is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/pennylane/](https://apis.io/providers/pennylane/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (20)
 
-- **Created:** 2026-07-17
-- **Modified:** 2026-07-17
+- [Pennylane Account API](https://apis.io/apis/pennylane/pennylane-account-api/) — The Account API from Pennylane — 1 operation(s) for account.
+- [Pennylane Accounting Exports API](https://apis.io/apis/pennylane/pennylane-accounting-exports-api/) — The Accounting Exports API from Pennylane — 2 operation(s) for accounting exports.
+- [Pennylane Bank Accounts API](https://apis.io/apis/pennylane/pennylane-bank-accounts-api/) — The Bank Accounts API from Pennylane — 2 operation(s) for bank accounts.
+- [Pennylane Billing Subscriptions API](https://apis.io/apis/pennylane/pennylane-billing-subscriptions-api/) — The Billing Subscriptions API from Pennylane — 1 operation(s) for billing subscriptions.
+- [Pennylane Categories API](https://apis.io/apis/pennylane/pennylane-categories-api/) — The Categories API from Pennylane — 2 operation(s) for categories.
+- [Pennylane Change Events API](https://apis.io/apis/pennylane/pennylane-change-events-api/) — The Change Events API from Pennylane — 2 operation(s) for change events.
+- [Pennylane Customer Invoices API](https://apis.io/apis/pennylane/pennylane-customer-invoices-api/) — The Customer Invoices API from Pennylane — 7 operation(s) for customer invoices.
+- [Pennylane Customers API](https://apis.io/apis/pennylane/pennylane-customers-api/) — The Customers API from Pennylane — 4 operation(s) for customers.
+- [Pennylane E-Invoicing API](https://apis.io/apis/pennylane/pennylane-e-invoicing-api/) — The E-Invoicing API from Pennylane — 1 operation(s) for e-invoicing.
+- [Pennylane File Attachments API](https://apis.io/apis/pennylane/pennylane-file-attachments-api/) — The File Attachments API from Pennylane — 1 operation(s) for file attachments.
+- [Pennylane Journals API](https://apis.io/apis/pennylane/pennylane-journals-api/) — The Journals API from Pennylane — 2 operation(s) for journals.
+- [Pennylane Ledger Accounts API](https://apis.io/apis/pennylane/pennylane-ledger-accounts-api/) — The Ledger Accounts API from Pennylane — 2 operation(s) for ledger accounts.
+- [Pennylane Ledger Entries API](https://apis.io/apis/pennylane/pennylane-ledger-entries-api/) — The Ledger Entries API from Pennylane — 4 operation(s) for ledger entries.
+- [Pennylane Mandates API](https://apis.io/apis/pennylane/pennylane-mandates-api/) — The Mandates API from Pennylane — 2 operation(s) for mandates.
+- [Pennylane Products API](https://apis.io/apis/pennylane/pennylane-products-api/) — The Products API from Pennylane — 2 operation(s) for products.
+- [Pennylane Quotes API](https://apis.io/apis/pennylane/pennylane-quotes-api/) — The Quotes API from Pennylane — 2 operation(s) for quotes.
+- [Pennylane Supplier Invoices API](https://apis.io/apis/pennylane/pennylane-supplier-invoices-api/) — The Supplier Invoices API from Pennylane — 4 operation(s) for supplier invoices.
+- [Pennylane Suppliers API](https://apis.io/apis/pennylane/pennylane-suppliers-api/) — The Suppliers API from Pennylane — 2 operation(s) for suppliers.
+- [Pennylane Transactions API](https://apis.io/apis/pennylane/pennylane-transactions-api/) — The Transactions API from Pennylane — 2 operation(s) for transactions.
+- [Pennylane MCP Server](https://apis.io/apis/pennylane/pennylane-mcp-server/) — Pennylane's hosted remote MCP server at mcp.pennylane.com, OAuth-protected (RFC 9728 protected-resource metadata advertises read scopes such as…
 
-## APIs
+### Published properties
 
-### Pennylane Customer Invoicing API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Create, import, finalize, categorize, send, and match customer invoices and credit notes, including Factur-X / UBL / CII e-invoice import and quote-to-invoice conversion.
+#### MCP servers (1)
 
-- **Human URL:** [https://pennylane.readme.io/reference/getcustomerinvoices](https://pennylane.readme.io/reference/getcustomerinvoices)
-- **Base URL:** `https://app.pennylane.com/api/external/v2`
+Model Context Protocol servers that expose the API to agents.
 
-#### Tags
+- [pennylane-mcp.yml](https://apis.io/servers/pennylane/pennylane-mcp-yml/)
 
-- Customer Invoices
-- Credit Notes
-- E-Invoicing
+#### Agentic access (1)
 
-#### Properties
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- [Documentation](https://pennylane.readme.io/docs/customer-invoicing)
-- [API Reference](https://pennylane.readme.io/reference/getcustomerinvoices)
-- [OpenAPI](openapi/pennylane-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/pennylane.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Pennylane Agentic Access](https://apis.io/agentic-access/pennylane/pennylane-agentic-access/)
 
-### Pennylane Supplier Invoicing API
+#### JSON-LD (1)
 
-Import, update, validate, and match supplier invoices, link purchase requests, and manage e-invoice lifecycle transitions for accounts payable.
+Linked-data contexts for the provider's vocabulary.
 
-- **Human URL:** [https://pennylane.readme.io/reference/getsupplierinvoices](https://pennylane.readme.io/reference/getsupplierinvoices)
-- **Base URL:** `https://app.pennylane.com/api/external/v2`
+- [Pennylane Context](https://apis.io/jsonld/pennylane/pennylane-context/)
 
-#### Tags
+#### Collections (38)
 
-- Supplier Invoices
-- Accounts Payable
-- E-Invoicing
+Postman and Open Collection request collections.
 
-#### Properties
+- [Pennylane Company Account API](https://apis.io/collections/pennylane/open-pennylane-account-api/)
+- [Pennylane Company Account Accounting Exports API](https://apis.io/collections/pennylane/open-pennylane-accounting-exports-api/)
+- [Pennylane Company Account Bank Accounts API](https://apis.io/collections/pennylane/open-pennylane-bank-accounts-api/)
+- [Pennylane Company Account Billing Subscriptions API](https://apis.io/collections/pennylane/open-pennylane-billing-subscriptions-api/)
+- [Pennylane Company Account Categories API](https://apis.io/collections/pennylane/open-pennylane-categories-api/)
+- [Pennylane Company Account Change Events API](https://apis.io/collections/pennylane/open-pennylane-change-events-api/)
+- [Pennylane Company Account Customer Invoices API](https://apis.io/collections/pennylane/open-pennylane-customer-invoices-api/)
+- [Pennylane Company Account Customers API](https://apis.io/collections/pennylane/open-pennylane-customers-api/)
+- [Pennylane Company Account E-Invoicing API](https://apis.io/collections/pennylane/open-pennylane-e-invoicing-api/)
+- [Pennylane Company Account File Attachments API](https://apis.io/collections/pennylane/open-pennylane-file-attachments-api/)
+- [Pennylane Company Account Journals API](https://apis.io/collections/pennylane/open-pennylane-journals-api/)
+- [Pennylane Company Account Ledger Accounts API](https://apis.io/collections/pennylane/open-pennylane-ledger-accounts-api/)
+- [Pennylane Company Account Ledger Entries API](https://apis.io/collections/pennylane/open-pennylane-ledger-entries-api/)
+- [Pennylane Company Account Mandates API](https://apis.io/collections/pennylane/open-pennylane-mandates-api/)
+- [Pennylane Company Account Products API](https://apis.io/collections/pennylane/open-pennylane-products-api/)
+- [Pennylane Company Account Quotes API](https://apis.io/collections/pennylane/open-pennylane-quotes-api/)
+- [Pennylane Company Account Supplier Invoices API](https://apis.io/collections/pennylane/open-pennylane-supplier-invoices-api/)
+- [Pennylane Company Account Suppliers API](https://apis.io/collections/pennylane/open-pennylane-suppliers-api/)
+- [Pennylane Company Account Transactions API](https://apis.io/collections/pennylane/open-pennylane-transactions-api/)
+- [Pennylane Company Account API](https://apis.io/collections/pennylane/postman-pennylane-account-api/)
+- [Pennylane Company Account Accounting Exports API](https://apis.io/collections/pennylane/postman-pennylane-accounting-exports-api/)
+- [Pennylane Company Account Bank Accounts API](https://apis.io/collections/pennylane/postman-pennylane-bank-accounts-api/)
+- [Pennylane Company Account Billing Subscriptions API](https://apis.io/collections/pennylane/postman-pennylane-billing-subscriptions-api/)
+- [Pennylane Company Account Categories API](https://apis.io/collections/pennylane/postman-pennylane-categories-api/)
+- [Pennylane Company Account Change Events API](https://apis.io/collections/pennylane/postman-pennylane-change-events-api/)
+- …and 13 more published on APIs.io
 
-- [Documentation](https://pennylane.readme.io/docs/supplier-invoicing)
-- [API Reference](https://pennylane.readme.io/reference/getsupplierinvoices)
-- [OpenAPI](openapi/pennylane-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+#### Overlays (1)
 
-### Pennylane Accounting & Ledger API
+OpenAPI overlays, including conversational phrasing for each operation.
 
-Read and write journals, ledger accounts, ledger entries and entry lines, lettering, trial balance, and fiscal years for double-entry accounting.
+- [Pennylane Openapi Overlay](https://apis.io/overlays/pennylane/pennylane-openapi-overlay/)
 
-- **Human URL:** [https://pennylane.readme.io/reference/getledgerentries](https://pennylane.readme.io/reference/getledgerentries)
-- **Base URL:** `https://app.pennylane.com/api/external/v2`
+#### Governance rules (1)
 
-#### Tags
+Spectral rulesets for the provider's contracts.
 
-- Accounting
-- Ledger
-- Journals
-- Trial Balance
+- [Pennylane API Rules](https://apis.io/rules/pennylane/pennylane-rules/)
 
-#### Properties
+#### Security (4)
 
-- [Documentation](https://pennylane.readme.io/docs/create-a-ledger-entry)
-- [API Reference](https://pennylane.readme.io/reference/getledgerentries)
-- [OpenAPI](openapi/pennylane-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+Authentication, trust centre, and vulnerability disclosure.
 
-### Pennylane Accounting Exports API
+- [Pennylane Authentication](https://apis.io/security/pennylane/pennylane-authentication/)
+- [Pennylane Domain Security](https://apis.io/security/pennylane/pennylane-domain-security/)
+- [Pennylane Trust Center](https://apis.io/security/pennylane/pennylane-trust-center/)
+- [Pennylane Vulnerability Disclosure](https://apis.io/security/pennylane/pennylane-vulnerability-disclosure/)
 
-Generate General Ledger, Analytical General Ledger, and French FEC (Fichier des Écritures Comptables) exports as downloadable xlsx / FEC files.
+#### OAuth scopes (1)
 
-- **Human URL:** [https://pennylane.readme.io/reference/exportgeneralledger](https://pennylane.readme.io/reference/exportgeneralledger)
-- **Base URL:** `https://app.pennylane.com/api/external/v2`
+The permissions the API asks for.
 
-#### Tags
+- [Pennylane Scopes](https://apis.io/scopes/pennylane/pennylane-scopes/)
 
-- Exports
-- FEC
-- General Ledger
+#### Plans and pricing (1)
 
-#### Properties
+Published plans, tiers and prices.
 
-- [Documentation](https://pennylane.readme.io/docs/accounting-reporting)
-- [API Reference](https://pennylane.readme.io/reference/exportgeneralledger)
-- [OpenAPI](openapi/pennylane-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Pennylane Plans Pricing](https://apis.io/plans/pennylane/pennylane-plans-pricing/)
 
-### Pennylane Banking API
+#### Rate limits (1)
 
-Manage bank accounts and establishments, banking transactions, and automate matching of transactions to customer and supplier invoices.
+Published request limits.
 
-- **Human URL:** [https://pennylane.readme.io/reference/gettransactions](https://pennylane.readme.io/reference/gettransactions)
-- **Base URL:** `https://app.pennylane.com/api/external/v2`
+- [Pennylane Rate Limits](https://apis.io/rate-limits/pennylane/pennylane-rate-limits/)
 
-#### Tags
+#### FinOps (1)
 
-- Banking
-- Transactions
-- Reconciliation
+What the API costs to run, by operation.
 
-#### Properties
+- [Pennylane Finops](https://apis.io/finops/pennylane/pennylane-finops/)
 
-- [Documentation](https://pennylane.readme.io/docs/automating-payment-matching)
-- [API Reference](https://pennylane.readme.io/reference/gettransactions)
-- [OpenAPI](openapi/pennylane-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+## Where to find this API
 
-### Pennylane Customers & Suppliers API
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-Create and manage company and individual customers and suppliers, their contacts, and analytical categorization.
-
-- **Human URL:** [https://pennylane.readme.io/reference/getcustomers](https://pennylane.readme.io/reference/getcustomers)
-- **Base URL:** `https://app.pennylane.com/api/external/v2`
-
-#### Tags
-
-- Customers
-- Suppliers
-- Contacts
-
-#### Properties
-
-- [Documentation](https://pennylane.readme.io/docs/filter-my-customers)
-- [API Reference](https://pennylane.readme.io/reference/getcustomers)
-- [OpenAPI](openapi/pennylane-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-
-### Pennylane Products Catalog API
-
-List, create, and update the product catalog used on invoices, quotes, and subscriptions.
-
-- **Human URL:** [https://pennylane.readme.io/reference/getproducts](https://pennylane.readme.io/reference/getproducts)
-- **Base URL:** `https://app.pennylane.com/api/external/v2`
-
-#### Tags
-
-- Products
-- Catalog
-
-#### Properties
-
-- [Documentation](https://pennylane.readme.io/docs/filter-my-products)
-- [API Reference](https://pennylane.readme.io/reference/getproducts)
-- [OpenAPI](openapi/pennylane-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-
-### Pennylane Quotes API
-
-Create, update, send, and status-manage sales quotes, and convert an accepted quote into a customer invoice.
-
-- **Human URL:** [https://pennylane.readme.io/reference/listquotes](https://pennylane.readme.io/reference/listquotes)
-- **Base URL:** `https://app.pennylane.com/api/external/v2`
-
-#### Tags
-
-- Quotes
-- Estimates
-
-#### Properties
-
-- [API Reference](https://pennylane.readme.io/reference/listquotes)
-- [OpenAPI](openapi/pennylane-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-
-### Pennylane Billing Subscriptions API
-
-Create and manage recurring billing subscriptions that automatically generate monthly customer invoices, optionally linked to a GoCardless mandate.
-
-- **Human URL:** [https://pennylane.readme.io/reference/getbillingsubscriptions](https://pennylane.readme.io/reference/getbillingsubscriptions)
-- **Base URL:** `https://app.pennylane.com/api/external/v2`
-
-#### Tags
-
-- Subscriptions
-- Recurring Billing
-
-#### Properties
-
-- [API Reference](https://pennylane.readme.io/reference/getbillingsubscriptions)
-- [OpenAPI](openapi/pennylane-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-
-### Pennylane Direct Debit Mandates API
-
-Create and manage SEPA direct debit mandates and GoCardless mandates for automated customer collection.
-
-- **Human URL:** [https://pennylane.readme.io/reference/getsepamandates](https://pennylane.readme.io/reference/getsepamandates)
-- **Base URL:** `https://app.pennylane.com/api/external/v2`
-
-#### Tags
-
-- SEPA
-- GoCardless
-- Direct Debit
-
-#### Properties
-
-- [API Reference](https://pennylane.readme.io/reference/getsepamandates)
-- [OpenAPI](openapi/pennylane-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-
-### Pennylane Change Events API
-
-Poll change-event feeds for invoices, customers, suppliers, products, transactions, quotes, and ledger entry lines (last 4 weeks retained) to keep integrations in sync without webhooks.
-
-- **Human URL:** [https://pennylane.readme.io/docs/tracking-data-changes-with-pennylane-api](https://pennylane.readme.io/docs/tracking-data-changes-with-pennylane-api)
-- **Base URL:** `https://app.pennylane.com/api/external/v2`
-
-#### Tags
-
-- Change Events
-- Sync
-- Webhooks Alternative
-
-#### Properties
-
-- [Documentation](https://pennylane.readme.io/docs/tracking-data-changes-with-pennylane-api)
-- [API Reference](https://pennylane.readme.io/reference/getcustomerinvoiceschanges)
-- [OpenAPI](openapi/pennylane-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-
-### Pennylane E-Invoicing (Plateforme Agréée) API
-
-Manage French electronic-invoicing onboarding via Plateforme Agréée (PA) registrations, and send customer e-invoices to the partner dematerialization platform.
-
-- **Human URL:** [https://pennylane.readme.io/reference/getparegistrations](https://pennylane.readme.io/reference/getparegistrations)
-- **Base URL:** `https://app.pennylane.com/api/external/v2`
-
-#### Tags
-
-- E-Invoicing
-- Factur-X
-- Plateforme Agréée
-
-#### Properties
-
-- [API Reference](https://pennylane.readme.io/reference/getparegistrations)
-- [OpenAPI](openapi/pennylane-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/pennylane)
 - [Website](https://www.pennylane.com/)
 - [Documentation](https://pennylane.readme.io/)
-- [Plans](plans/pennylane-plans-pricing.yml)
-- [Rate Limits](rate-limits/pennylane-rate-limits.yml)
-- [Fin Ops](finops/pennylane-finops.yml)
+- [Getting started](https://pennylane.readme.io/docs/getting-started)
+- [Sign up](https://start.pennylane.com)
+- [Support](https://help.pennylane.com)
+- [Blog](https://pennylane.readme.io/changelog)
+- [Security](https://app.pennylane.com/.well-known/security.txt)
+- [Compliance](https://www.pennylane.com/fr/securite)
+- [Terms of service](https://pennylane.readme.io/docs/api-contract-terms)
+- [Privacy policy](https://www.pennylane.com/fr/legal/privacy)
+- [GitHub](https://github.com/pennylane-hq)
+- [Status](https://status.pennylane.com)
 
-## Authentication
+## API Evangelist rating
 
-Pennylane API v2 requires a Bearer token in the `Authorization` header on every request. The token can be a **Company API token**, a **Firm API token**, or an **OAuth 2.0 access token** (authorization code grant) for integration partners registered via the Partnerships team.
+**Kin Score 54.4** — strong · rubric 0.25.0 · scored 2026-10-23
 
-- Authorize: `https://app.pennylane.com/oauth/authorize`
-- Token: `https://app.pennylane.com/oauth/token`
-- Revoke: `https://app.pennylane.com/oauth/revoke`
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 48.8 |
+| Contract governance | 35.6 |
+| Operational transparency | 53.9 |
+| Developer ergonomics | 53.0 |
+| Access clarity | 52.6 |
 
-Scopes follow a `resource:readonly` / `resource:all` pattern and enforce least privilege (missing scope returns `403 Forbidden`).
+**Agent readiness 41.2** — agent-ready (gated down from agent-native)
 
-## Rate Limits
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | documented (partial credit) |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | verified |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
 
-25 requests every 5 seconds per token. Exceeding the limit returns `429` with a `retry-after` header; all responses include `ratelimit-limit`, `ratelimit-remaining`, and `ratelimit-reset` headers.
+**Regulatory alignment 40.2** — Banking & Open Finance
 
-## Maintainers
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/pennylane/](https://apis.io/providers/pennylane/).
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Pennylane: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/pennylane/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
